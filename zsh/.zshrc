@@ -1,10 +1,6 @@
 # dir for all *.zsh files
 dotfilesdir=~/.dotfiles/zsh
 
-for zshfile ($dotfilesdir/*.zsh); do
-	source $zshfile
-done
-
 # prompts
 PROMPT='$(returned_value)$(username)$(hostname) %# '
 RPROMPT='$(current_dir)$(git_info)$(svn_info)'
@@ -46,3 +42,8 @@ current_dir() {
 		echo -n "%{$fg[$COLOR_CURRENT_DIR_READ_ONLY]%}%~%{$reset_color%}"
 	fi
 }
+
+for zshfile ($dotfilesdir/*.zsh); do
+	source $zshfile
+done
+
