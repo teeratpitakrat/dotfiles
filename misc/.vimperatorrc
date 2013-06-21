@@ -1,0 +1,1 @@
+:autocmd LocationChange .* js modes.passAllKeys = /(mail\.google\.com|www\.google\.com\/calendar|docs.google.com|www\.toodledo\.com|www\.facebook\.com\/.*\&theater)/.test(buffer.URL)
