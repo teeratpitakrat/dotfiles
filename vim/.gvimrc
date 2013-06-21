@@ -10,8 +10,6 @@ set spell
 set wrap
 set guioptions-=T
 colorscheme wombat256
-"set background=dark
-"colorscheme aldmeris
 source $VIMRUNTIME/macros/matchit.vim
 
 if has("autocmd")
