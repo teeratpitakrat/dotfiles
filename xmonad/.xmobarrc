@@ -1,0 +1,17 @@
+Config { font = "xft:Monospace:*:pixelsize=12"
+       , bgColor = "black"
+       , fgColor = "grey"
+       , position = BottomW L 90
+       , commands = [ Run Cpu ["-H","80","--high","red","-t","<fc=#444444>C</fc><total>"] 20
+				    , Run Memory ["-H","80","--high","red","-t","<fc=#444444>M</fc><usedratio>"] 20
+				    , Run Swap ["-H","20","--high","red","-t","<fc=#444444>S</fc><usedratio>"] 20
+					, Run Battery ["-L","30", "-H","80", "--normal","#ee9a00", "--low", "red", "--template", "<fc=#444444>B</fc><left>"] 100
+				    , Run Date "<fc=#888888>%a %_d.%m.%g</fc> %k:%M" "date" 10
+--					, Run Weather "EDDS" ["-t"," <tempC>°C"] 6000
+				    , Run StdinReader
+				    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+--       , template = "%StdinReader% }{ %cpu% %memory% %swap% %battery% %date% %EDDS%"
+       , template = "%StdinReader% }{ %cpu% %memory% %swap% %battery% %date%"
+       }
