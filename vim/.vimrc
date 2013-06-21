@@ -3,6 +3,7 @@ set autoindent
 filetype plugin indent on
 set smartindent
 set tabstop=4
+set showtabline=2
 set shiftwidth=4
 set hls
 set is
