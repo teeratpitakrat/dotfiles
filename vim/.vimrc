@@ -10,7 +10,8 @@ set number
 set spell
 set wrap
 autocmd InsertEnter,InsertLeave * set cul! " cursorline in Insert mode
-colorscheme wombat
+" colorscheme wombat
+colorscheme wombat256
 source $VIMRUNTIME/macros/matchit.vim
 
 " vim-r plugin
