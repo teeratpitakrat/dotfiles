@@ -9,7 +9,7 @@ set number
 set spell
 set wrap
 set guioptions-=T
-colorscheme wombat256
+colorscheme wombat
 source $VIMRUNTIME/macros/matchit.vim
 
 if has("autocmd")
