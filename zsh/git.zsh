@@ -3,8 +3,8 @@ GIT_COLOR_STATUS="red"
 
 GIT_STATUS_BEHIND="%{$fg_bold[$GIT_COLOR_STATUS]%}<%{$reset_color%}"
 GIT_STATUS_UNTRACKED="%{$fg_bold[$GIT_COLOR_STATUS]%}?%{$reset_color%}"
-GIT_STATUS_CHANGES="%{$fg_bold[$GIT_COLOR_STATUS]%}!%{$reset_color%}"
-GIT_STATUS_STAGED="%{$fg_bold[$GIT_COLOR_STATUS]%}+%{$reset_color%}"
+GIT_STATUS_CHANGES="%{$fg_bold[$GIT_COLOR_STATUS]%}M%{$reset_color%}"
+GIT_STATUS_STAGED="%{$fg_bold[$GIT_COLOR_STATUS]%}S%{$reset_color%}"
 GIT_STATUS_AHEAD="%{$fg_bold[$GIT_COLOR_STATUS]%}>%{$reset_color%}"
 
 git_info() {
