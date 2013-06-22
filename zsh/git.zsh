@@ -8,19 +8,18 @@ GIT_STATUS_STAGED="%{$fg_bold[$GIT_COLOR_STATUS]%}S%{$reset_color%}"
 GIT_STATUS_AHEAD="%{$fg_bold[$GIT_COLOR_STATUS]%}>%{$reset_color%}"
 
 git_info() {
-	ref=$(git symbolic-ref HEAD 2> /dev/null) || \
-		ref=$(git rev-parse --short HEAD 2> /dev/null) || return
-	echo -n " %{$fg_bold[$GIT_COLOR_BRANCH]%}($(git_current_branch))%{$reset_color%}$(git_status)"
+	ref=$(git symbolic-ref HEAD 2> /dev/null) || ref=$(git rev-parse --short HEAD 2> /dev/null) || return
+	echo -n " $(git_current_branch)$(git_status)"
 }
 
 git_current_branch() {
 	git_ref=$(git symbolic-ref HEAD 2> /dev/null) || return
 	git_branch=${ref#refs/heads/}
-	echo -n $git_branch
+	echo -n "%{$fg_bold[$GIT_COLOR_BRANCH]%}($git_branch)%{$reset_color%}"
 }
 
 git_status () {
-	gitstat=$(git status 2>/dev/null | grep '\(# Your branch is behind\|# Untracked\|# Changes\|# Changed but not updated:\)')
+	gitstat=$(git status 2>/dev/null | grep '\(# Your branch is behind\|# Untracked\|# Changes\|# Changed but not updated:\)') || return
 	echo -n " "
 	#$(git remote update) || return		# takes too long, do it manually!
 	# Check behind
