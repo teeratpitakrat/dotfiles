@@ -84,6 +84,7 @@ alias sc='svn commit'
 alias sl='svn log -l'
 
 # ssh
+alias apollo='ssh apollo'
 alias zeus='ssh zeus'
 alias pi='ssh pi'
 alias brisbane='ssh brisbane'
