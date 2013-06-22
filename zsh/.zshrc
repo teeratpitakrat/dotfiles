@@ -8,6 +8,7 @@ setopt PROMPT_SUBST 			# allow substitution of parameters in PS1
 
 # basic colors
 COLOR_ROOT_USER="red"
+COLOR_NORMAL_USER="green"
 COLOR_CURRENT_DIR="green"
 COLOR_CURRENT_DIR_READ_ONLY="yellow"
 COLOR_RETURNED_VALUE="red"
@@ -18,7 +19,7 @@ username() {
 	# Change color of username if it is root
 	# %(x.true.false)
 	# ! is true if the shell is privileged
-	echo -n "%(!.%{$fg_bold[$COLOR_ROOT_USER]%}%n%{$reset_color%}.%n)"
+	echo -n "%(!.%{$fg_bold[$COLOR_ROOT_USER]%}%n%{$reset_color%}.%{$fg_bold[$COLOR_NORMAL_USER]%}%n%{$reset_color%})"
 }
 
 hostname() {
