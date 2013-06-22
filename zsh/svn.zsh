@@ -2,7 +2,7 @@ SVN_COLOR_REPO="blue"
 SVN_COLOR_STATUS="red"
 
 SVN_STATUS_UNTRACKED="%{$fg_bold[$SVN_COLOR_STATUS]%}?%{$reset_color%}"
-SVN_STATUS_CHANGES="%{$fg_bold[$SVN_COLOR_STATUS]%}!%{$reset_color%}"
+SVN_STATUS_CHANGES="%{$fg_bold[$SVN_COLOR_STATUS]%}M%{$reset_color%}"
 
 svn_info() {
 	ref=$(svn info 2> /dev/null) || return
