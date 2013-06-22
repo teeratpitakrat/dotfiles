@@ -4,6 +4,7 @@ alias ll='ls -lp'
 alias la='ls -lpa'
 alias lh='ls -lph'
 alias lt='ls -lpatr'
+alias screen='screen -h 200000'
 
 alias ..='cd ..'
 alias ...='cd ../..'
