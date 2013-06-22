@@ -14,7 +14,7 @@ git_info() {
 
 git_current_branch() {
 	GIT_BRANCH=${GIT_REF#refs/heads/}
-	echo -n "%{$fg_bold[$GIT_COLOR_BRANCH]%}($GIT_BRANCH)%{$reset_color%}"
+	echo -n "%{$fg_bold[$GIT_COLOR_BRANCH]%}$GIT_BRANCH%{$reset_color%}"
 }
 
 git_status () {
