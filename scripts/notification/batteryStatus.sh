@@ -1,4 +1,5 @@
 #!/usr/bin/bash
+# This script requires twmn for notification message
 
 BATTINFO=$(acpi -b)
 
