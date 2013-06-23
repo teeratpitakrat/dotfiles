@@ -23,6 +23,15 @@ alias ..6='cd ../../../../../..'
 alias ..7='cd ../../../../../../..'
 alias ..8='cd ../../../../../../../..'
 
+alias cd..='cd ..'
+alias cd...='cd ../..'
+alias cd....='cd ../../..'
+alias cd.....='cd ../../../..'
+alias cd......='cd ../../../../..'
+alias cd.......='cd ../../../../../..'
+alias cd........='cd ../../../../../../..'
+alias cd.........='cd ../../../../../../../..'
+
 # suffix aliases
 #alias -s pdf=evince
 
