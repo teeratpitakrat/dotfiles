@@ -41,7 +41,7 @@ current_dir() {
 	fi
 }
 
-setopt nohup
+setopt nohup	# do not kill backgrounded processes when zsh exits
 
 # dir for all *.zsh files
 dotfilesdir=$HOME/.dotfiles/zsh
