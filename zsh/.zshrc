@@ -41,6 +41,8 @@ current_dir() {
 	fi
 }
 
+setopt nohup
+
 # dir for all *.zsh files
 dotfilesdir=$HOME/.dotfiles/zsh
 
