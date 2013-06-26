@@ -11,5 +11,4 @@ if grep -q "$HOSTNAME" $filepath; then
 	sed -i "s/^$HOSTNAME=.*/$HOSTNAME=$IP/" $filepath
 else
 	echo "$HOSTNAME=$IP" >> $filepath
-	#echo yes
 fi
