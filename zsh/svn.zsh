@@ -15,7 +15,7 @@ svn_repo() {
 }
 
 svn_status () {
-	svnstat=$(svn status 2>/dev/null | grep '^\(?\|M\|A\)')
+	svnstat=$(svn status 2>/dev/null | grep '^\(?\|M\|A\)') || return
 	echo -n " "
 	# Check untracked files
 	if echo ${svnstat} | grep -q "^\(?\)" ; then
