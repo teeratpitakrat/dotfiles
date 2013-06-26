@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# path to output file
+filepath=~/Dropbox/ip_addresses
+
+# get current IP
+IP=$(wget http://checkip.dyndns.org/ -q -O - | grep -Eo '\<[[:digit:]]{1,3}(\.[[:digit:]]{1,3}){3}\>')
+
+# replace the old ip with the new one
+if grep -q "$HOSTNAME" $filepath; then
+	sed -i "s/^$HOSTNAME=.*/$HOSTNAME=$IP/" $filepath
+else
+	echo "$HOSTNAME=$IP" >> $filepath
+	#echo yes
+fi
