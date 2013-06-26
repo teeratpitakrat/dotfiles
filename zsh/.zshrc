@@ -6,6 +6,7 @@ setopt PROMPT_SUBST 			# allow substitution of parameters in PS1
 # basic colors
 COLOR_ROOT_USER="red"
 COLOR_NORMAL_USER="green"
+COLOR_HOSTNAME="yellow"
 COLOR_CURRENT_DIR="green"
 COLOR_CURRENT_DIR_READ_ONLY="yellow"
 COLOR_RETURNED_VALUE="red"
@@ -22,7 +23,7 @@ username() {
 hostname() {
 	# Print hostname only for ssh sessions
 	if [[ -n $SSH_CLIENT ]]; then
-		echo -n "@%m"
+		echo -n "@%{$fg_bold[$COLOR_HOSTNAME]%}%m%{$reset_color%}"
 	fi
 }
 
