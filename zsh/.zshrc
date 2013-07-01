@@ -35,9 +35,6 @@ returned_value() {
 current_dir() {
 	if [[ -w $PWD ]]; then
 		# green
-		#CURDIR="$(echo %~ | sed 's/\//\%\{$reset_color\%\}\/\%\{$fg\[$COLOR_CURRENT_DIR\]\%\}/g')"
-		#CURDIR="$(echo %~ | grep --color=always /)"
-		#echo -n "%{$fg[$COLOR_CURRENT_DIR]%}$CURDIR%{$reset_color%}"
 		echo -n "%{$fg[$COLOR_CURRENT_DIR]%}%~%{$reset_color%}"
 	else
 		# yellow if the dir is read-only
