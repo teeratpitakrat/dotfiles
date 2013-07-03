@@ -8,7 +8,7 @@ set shiftwidth=4
 set hls
 set is
 set number
-set spell
+set nospell
 set wrap
 autocmd InsertEnter,InsertLeave * set cul! " cursorline in Insert mode
 colorscheme wombat256
