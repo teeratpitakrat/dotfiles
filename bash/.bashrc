@@ -15,7 +15,6 @@ alias setuskey='setxkbmap us'
 alias setdekey='setxkbmap -layout de -variant nodeadkeys'
 alias setthkey='setxkbmap -option grp:shift_caps_toggle,grp_led:scroll us,th'
 
-#PS1='[\u@\h \W]\$ '
 PS1='\[\e[1;31m\]$(last_returned_value)\[\e[0m\]\u@\h \W$(parse_git_branch) \$ '
 
 last_returned_value() {
