@@ -24,7 +24,7 @@ TEXT
 	${if_match "${nodename}"=="zeus"}${if_match ${exec sensors | grep 'Physical id 0' | cut -c16-19 | sed 's/^ +//' }>70}"\#ff0000"${else}${if_match ${cpu}>=90}"\#ff0000"${else}"\#769ebb"${endif}${endif}${endif}
 	},
 {"full_text":"${memperc}% ${mem}" , "color" : ${if_match ${memperc}>80}"\#ff0000"${else}"\#769ebb"${endif} },
-{"full_text":"${swapperc}%" , "color" : ${if_match ${swapperc}>10}"\#ff0000"${else}"\#769ebb"${endif} },
+{"full_text":"${swapperc}% ${swap}" , "color" : ${if_match ${swapperc}>10}"\#ff0000"${else}"\#769ebb"${endif} },
 {"full_text":"/${fs_free /}", "color" : ${if_match ${fs_used_perc /}>75}"\#ff0000"${else}"\#769ebb"${endif} },
 {"full_text":"${if_mounted /home}${fs_free /home}", "color" : ${if_match ${fs_used_perc /}>75}"\#ff0000"${else}"\#769ebb"${endif}$endif },
 {"full_text":
