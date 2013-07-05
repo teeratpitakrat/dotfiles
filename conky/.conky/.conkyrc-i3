@@ -26,9 +26,5 @@ TEXT
 {"full_text":"M ${memperc}% ${mem}" , "color" : ${if_match ${memperc}>80}"\#ff0000"${else}"\#769ebb"${endif} },
 {"full_text":"/${fs_free /}", "color" : ${if_match ${fs_used_perc /}>75}"\#ff0000"${else}"\#769ebb"${endif} },
 {"full_text":"${if_mounted /home}${fs_free /home}", "color" : ${if_match ${fs_used_perc /}>75}"\#ff0000"${else}"\#769ebb"${endif}$endif },
-{"full_text":
-	${if_match "${nodename}"=="apollo"}${if_up eth0}"U ${upspeed eth0}|D ${downspeed eth0}"${endif}${if_up wlan0}"U ${upspeed wlan0}|D ${downspeed wlan0}"${endif}${endif}
-	${if_match "${nodename}"=="zeus"}${if_up eth0}"U ${upspeed eth0}"${endif}${if_up eth1}"U ${upspeed eth1}"${endif}${endif},
-	"color" : "\#769ebb" },
 {"full_text":"${time %a %d.%m.%y} ${time %H:%M:%S}"}
 ],
