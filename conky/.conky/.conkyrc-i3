@@ -5,7 +5,7 @@ double_buffer no
 background no
 update_interval 1
 total_run_times 0
-short_units no
+short_units yes
 if_up_strictness address
 use_spacer right
 override_utf8_locale yes
