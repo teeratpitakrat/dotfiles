@@ -1,0 +1,25 @@
+out_to_x no
+own_window no
+out_to_console yes
+double_buffer no
+background no
+update_interval 1
+total_run_times 0
+short_units no
+if_up_strictness address
+use_spacer right
+override_utf8_locale yes
+use_xft yes
+cpu_avg_samples 2
+pad_percents 2
+
+TEXT
+[
+{"full_text":"/${fs_free /}", "color" : ${if_match ${fs_used_perc /}>75}"\#FF0000"${else}"\#769ebb"${endif} },
+{"full_text":" ${if_mounted /home}${fs_free /home}", "color" : ${if_match ${fs_used_perc /}>75}"\#FF0000"${else}"\#769ebb"${endif}$endif },
+{"full_text":"U${upspeed eth0}/${totalup eth0}", "color" : "\#769ebb" },
+{"full_text":"D${downspeed eth0}/${totaldown eth0}", "color" : "\#769ebb" },
+{"full_text":"M${memperc}% ${mem}" , "color" : ${if_match ${memperc}>50}"\#bf3f34"${else}"\#769ebb"${endif} },
+{"full_text":"C${cpu}% @${exec sensors | grep 'Physical id 0' | cut -c16-19 | sed '/^$/d' }°C" , "color" : "\#769ebb" },
+{"full_text":"${time %a %d.%m.%y} ${time %H:%M:%S}"}
+],
