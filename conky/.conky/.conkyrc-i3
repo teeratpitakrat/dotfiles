@@ -18,20 +18,21 @@ TEXT
 {"full_text":"${loadavg}" , "color" : ${if_match ${loadavg 3}>=4}"\#ff0000"${else}"\#769ebb"${endif} },
 {"full_text":
 	${if_match "${nodename}"=="apollo"}"${cpu}% ${exec sensors | grep 'temp1' | cut -c16-19 | sed '/^$/d' }°C"${endif}
-	${if_match "${nodename}"=="zeus"}"${cpu}% ${exec sensors | grep 'Physical id 0' | cut -c16-19 | sed '/^$/d' }°C"${endif},
+	${if_match "${nodename}"=="zeus"}"${cpu}% ${exec sensors | grep 'Physical id 0' | cut -c16-19 | sed 's/^ +//' }°C"${endif},
 	"color" :
 	${if_match "${nodename}"=="apollo"}${if_match ${exec sensors | grep 'temp1' | cut -c16-19 | sed '/^$/d' }>70}"\#ff0000"${else}"\#769ebb"${endif}${endif}
-	${if_match "${nodename}"=="zeus"}${if_match ${exec sensors | grep 'Physical id0' | cut -c16-19 | sed '/^$/d' }>70}"\#ff0000"${else}"\#769ebb"${endif}${endif}
+	${if_match "${nodename}"=="zeus"}${if_match ${exec sensors | grep 'Physical id 0' | cut -c16-19 | sed 's/^ +//' }>70}"\#ff0000"${else}"\#769ebb"${endif}${endif}
 	},
 {"full_text":"${memperc}% ${mem}" , "color" : ${if_match ${memperc}>80}"\#ff0000"${else}"\#769ebb"${endif} },
 {"full_text":"${swapperc}%" , "color" : ${if_match ${swapperc}>10}"\#ff0000"${else}"\#769ebb"${endif} },
 {"full_text":"/${fs_free /}", "color" : ${if_match ${fs_used_perc /}>75}"\#ff0000"${else}"\#769ebb"${endif} },
 {"full_text":"${if_mounted /home}${fs_free /home}", "color" : ${if_match ${fs_used_perc /}>75}"\#ff0000"${else}"\#769ebb"${endif}$endif },
 {"full_text":
-	${if_match "${nodename}"=="apollo"}"${battery BAT1} ${battery_percent BAT1} ${battery_time BAT1}"${endif}
-	${if_match "${nodename}"=="zeus"}"${battery BAT0} ${battery_percent BAT0 ${battery_time BAT0}}"${endif},
+	${if_match "${nodename}"=="apollo"}"${battery BAT1} ${battery_time BAT1}"${endif}
+	${if_match "${nodename}"=="zeus"}"${battery BAT0} ${battery_time BAT0}"${endif},
 	"color" :
 	${if_match "${nodename}"=="apollo"}${if_match ${battery_percent BAT1}<20}"\#ff0000"${else}"\#769ebb"${endif}${endif}
-	${if_match "${nodename}"=="zeus"}${if_match ${battery_percent BAT0}<20}"\#ff0000"${else}"\#769ebb"${endif}${endif} },
+	${if_match "${nodename}"=="zeus"}${if_match ${battery_percent BAT0}<20}"\#ff0000"${else}"\#769ebb"${endif}${endif}
+	},
 {"full_text":"${time %a %d.%m.%y} ${time %H:%M:%S}"}
 ],
