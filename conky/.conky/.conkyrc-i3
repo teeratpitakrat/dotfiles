@@ -34,5 +34,8 @@ TEXT
 	${if_match "${nodename}"=="apollo"}${if_match ${battery_percent BAT1}<20}"\#ff0000"${else}"\#769ebb"${endif}${endif}
 	${if_match "${nodename}"=="zeus"}${if_match ${battery_percent BAT0}<20}"\#ff0000"${else}"\#769ebb"${endif}${endif}
 	},
-{"full_text":"${time %a %d.%m.%y} ${time %H:%M:%S}"}
+{"full_text":"${time %a %d.%m.%y} ${time %H:%M:%S}",
+	"color" :
+	${if_match ${time %H}<4}"\#ff0000"${else}"\#769ebb"${endif}
+	}
 ],
