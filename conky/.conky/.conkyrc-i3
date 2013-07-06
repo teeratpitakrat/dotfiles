@@ -21,7 +21,7 @@ TEXT
 	${if_match ${cpu}>=90}"\#ff0000"${else}"\#769ebb"${endif}
 	},
 {"full_text":
-	${if_match ${memperc}>=80}"${top_mem name 1}${top_mem name 2}${top_mem name 3}${top_mem name 4}"${else}""${endif} ,
+	"${if_match ${memperc}>=80}${top_mem name 1}${top_mem name 2}${top_mem name 3}${top_mem name 4}${endif}",
 	"color" :
 	${if_match ${memperc}>=90}"\#ff0000"${else}"\#769ebb"${endif}
 	},
@@ -37,6 +37,18 @@ TEXT
 {"full_text":"${swapperc}% ${swap}" , "color" : ${if_match ${swapperc}>20}"\#ff0000"${else}"\#769ebb"${endif} },
 {"full_text":"/${fs_free /}", "color" : ${if_match ${fs_used_perc /}>75}"\#ff0000"${else}"\#769ebb"${endif} },
 {"full_text":"${if_mounted /home}${fs_free /home}", "color" : ${if_match ${fs_used_perc /}>75}"\#ff0000"${else}"\#769ebb"${endif}$endif },
+{"full_text":
+	"${if_mounted /media/mybook1tb}MB1 ${fs_free /media/mybook1tb}${endif}",
+	"color" : ${if_match ${fs_used_perc /media/mybook1tb}>75}"\#ff0000"${else}"\#769ebb"${endif}
+	},
+{"full_text":
+	"${if_mounted /media/mybook2tb}MB2 ${fs_free /media/mybook2tb}${endif}",
+	"color" : ${if_match ${fs_used_perc /media/mybook2tb}>75}"\#ff0000"${else}"\#769ebb"${endif}
+	},
+{"full_text":
+	"${if_mounted /media/brisbane}BB ${fs_free /media/brisbane}${endif}",
+	"color" : ${if_match ${fs_used_perc /media/brisbane}>75}"\#ff0000"${else}"\#769ebb"${endif}
+	},
 {"full_text":
 	${if_match "${nodename}"=="apollo"}"${battery BAT1} ${battery_time BAT1}"${endif}
 	${if_match "${nodename}"=="zeus"}"${battery BAT0} ${battery_time BAT0}"${endif},
