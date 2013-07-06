@@ -3,7 +3,7 @@ own_window no
 out_to_console yes
 double_buffer no
 background no
-update_interval 2
+update_interval 1
 total_run_times 0
 short_units yes
 if_up_strictness address
@@ -19,45 +19,45 @@ TEXT
 	${if_match ${cpu}>=80}"${top name 1}${top name 2}${top name 3}"${else}""${endif} ,
 	"color" :
 	${if_match ${cpu}>=90}"\#ff0000"${else}"\#769ebb"${endif}
-	},
+	},\
 {"full_text":
 	"${if_match ${memperc}>=80}${top_mem name 1}${top_mem name 2}${top_mem name 3}${endif}",
 	"color" :
 	${if_match ${memperc}>=90}"\#ff0000"${else}"\#769ebb"${endif}
-	},
-{"full_text":"${loadavg}" , "color" : ${if_match ${loadavg 3}>=4}"\#ff0000"${else}"\#769ebb"${endif} },
+	},\
+{"full_text":"${loadavg}" , "color" : ${if_match ${loadavg 3}>=4}"\#ff0000"${else}"\#769ebb"${endif} },\
 {"full_text":
 	${if_match "${nodename}"=="apollo"}"${cpu}% ${texeci 5 sensors | grep 'temp1' | cut -c16-17 }°C"${endif}
 	${if_match "${nodename}"=="zeus"}"${cpu}% ${texeci 5 sensors | grep 'Physical id 0' | cut -c18-19 }°C"${endif},
 	"color" :
 	${if_match "${nodename}"=="apollo"}${if_match ${texeci 5 sensors | grep 'temp1' | cut -c16-17 }>70}"\#ff0000"${else}${if_match ${cpu}>=90}"\#ff0000"${else}"\#769ebb"${endif}${endif}${endif}
 	${if_match "${nodename}"=="zeus"}${if_match ${texeci 5 sensors | grep 'Physical id 0' | cut -c18-19 }>70}"\#ff0000"${else}${if_match ${cpu}>=90}"\#ff0000"${else}"\#769ebb"${endif}${endif}${endif}
-	},
-{"full_text":"${memperc}% ${mem}" , "color" : ${if_match ${memperc}>80}"\#ff0000"${else}"\#769ebb"${endif} },
-{"full_text":"${swapperc}% ${swap}" , "color" : ${if_match ${swapperc}>20}"\#ff0000"${else}"\#769ebb"${endif} },
-{"full_text":"/${fs_free /}", "color" : ${if_match ${fs_used_perc /}>75}"\#ff0000"${else}"\#769ebb"${endif} },
-{"full_text":"${if_mounted /home}${fs_free /home}", "color" : ${if_match ${fs_used_perc /}>75}"\#ff0000"${else}"\#769ebb"${endif}$endif },
+	},\
+{"full_text":"${memperc}% ${mem}" , "color" : ${if_match ${memperc}>80}"\#ff0000"${else}"\#769ebb"${endif} },\
+{"full_text":"${swapperc}% ${swap}" , "color" : ${if_match ${swapperc}>20}"\#ff0000"${else}"\#769ebb"${endif} },\
+{"full_text":"/${fs_free /}", "color" : ${if_match ${fs_used_perc /}>75}"\#ff0000"${else}"\#769ebb"${endif} },\
+{"full_text":"${if_mounted /home}${fs_free /home}", "color" : ${if_match ${fs_used_perc /}>75}"\#ff0000"${else}"\#769ebb"${endif}$endif },\
 {"full_text":
 	"${if_mounted /media/mybook1tb}MB1 ${fs_free /media/mybook1tb}${endif}",
 	"color" : ${if_match ${fs_used_perc /media/mybook1tb}>75}"\#ff0000"${else}"\#769ebb"${endif}
-	},
+	},\
 {"full_text":
 	"${if_mounted /media/mybook2tb}MB2 ${fs_free /media/mybook2tb}${endif}",
 	"color" : ${if_match ${fs_used_perc /media/mybook2tb}>75}"\#ff0000"${else}"\#769ebb"${endif}
-	},
+	},\
 {"full_text":
 	"${if_mounted /media/brisbane}BB ${fs_free /media/brisbane}${endif}",
 	"color" : ${if_match ${fs_used_perc /media/brisbane}>75}"\#ff0000"${else}"\#769ebb"${endif}
-	},
+	},\
 {"full_text":
 	${if_match "${nodename}"=="apollo"}"${battery BAT1} ${battery_time BAT1}"${endif}
 	${if_match "${nodename}"=="zeus"}"${battery BAT0} ${battery_time BAT0}"${endif},
 	"color" :
 	${if_match "${nodename}"=="apollo"}${if_match ${battery_percent BAT1}<50}"\#ff0000"${else}"\#769ebb"${endif}${endif}
 	${if_match "${nodename}"=="zeus"}${if_match ${battery_percent BAT0}<30}"\#ff0000"${else}"\#769ebb"${endif}${endif}
-	},
+	},\
 {"full_text":"${time %a %d.%m.%y} ${time %H:%M:%S}",
 	"color" :
 	${if_match ${time %H}<4}"\#ff0000"${else}"\#eeeeee"${endif}
-	}
+	}\
 ],
