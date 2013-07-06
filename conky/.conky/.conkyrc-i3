@@ -16,12 +16,12 @@ pad_percents 2
 TEXT
 [
 {"full_text":
-	${if_match ${cpu}>=80}"${top name 1}${top name 2}${top name 3}${top name 4}"${else}""${endif} ,
+	${if_match ${cpu}>=80}"${top name 1}${top name 2}${top name 3}"${else}""${endif} ,
 	"color" :
 	${if_match ${cpu}>=90}"\#ff0000"${else}"\#769ebb"${endif}
 	},
 {"full_text":
-	"${if_match ${memperc}>=80}${top_mem name 1}${top_mem name 2}${top_mem name 3}${top_mem name 4}${endif}",
+	"${if_match ${memperc}>=80}${top_mem name 1}${top_mem name 2}${top_mem name 3}${endif}",
 	"color" :
 	${if_match ${memperc}>=90}"\#ff0000"${else}"\#769ebb"${endif}
 	},
