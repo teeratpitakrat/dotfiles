@@ -1,5 +1,5 @@
 # prompts
-PROMPT='$(returned_value)$(username)$(hostname) %# '
+PROMPT='$(returned_value)$(username)$(hostname) $(shortened_current_dir) %# '
 RPROMPT='$(current_dir)$(git_info)$(svn_info)'
 setopt PROMPT_SUBST 			# allow substitution of parameters in PS1
 
@@ -30,6 +30,16 @@ hostname() {
 returned_value() {
 	# echo if the returned value is not 0
 	echo -n "%(?,,%{${fg_bold[$COLOR_RETURNED_VALUE]}%}%? %{$reset_color%})"
+}
+
+shortened_current_dir() {
+	if [[ -w $PWD ]]; then
+		# green
+		echo -n "%{$fg[$COLOR_CURRENT_DIR]%}%.%{$reset_color%}"
+	else
+		# yellow if the dir is read-only
+		echo -n "%{$fg[$COLOR_CURRENT_DIR_READ_ONLY]%}%.%{$reset_color%}"
+	fi
 }
 
 current_dir() {
