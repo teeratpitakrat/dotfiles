@@ -5,10 +5,12 @@ filepath=~/Dropbox/ip_addresses
 
 # get current IP
 IP=$(wget http://checkip.dyndns.org/ -q -O - | grep -Eo '\<[[:digit:]]{1,3}(\.[[:digit:]]{1,3}){3}\>')
+TIME=$(date +"%d.%m.%Y %H:%M:%S")
 
+# TODO: check if file exists
 # replace the old ip with the new one
 if grep -q "$HOSTNAME" $filepath; then
-	sed -i "s/^$HOSTNAME=.*/$HOSTNAME=$IP/" $filepath
+	sed -i "s/^$HOSTNAME=.*/$HOSTNAME=$IP at $TIME/" $filepath
 else
-	echo "$HOSTNAME=$IP" >> $filepath
+	echo "$HOSTNAME=$IP at $TIME" >> $filepath
 fi
