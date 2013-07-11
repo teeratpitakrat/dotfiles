@@ -18,26 +18,32 @@ TEXT
 [\
 {"full_text":\
 	${if_match ${cpu}>=80}\
-		"Top Cpu: ${top name 1}${top name 2}${top name 3}"\
+		"Top Cpu: ${top name 1},${top name 2},${top name 3}"\
 	${else}\
 		""\
 	${endif},\
 "color" :\
-	${if_match ${cpu}>=90}\
+	${if_match ${cpu}>=80}\
 		"\#ff0000"\
 	${else}\
 		"\#769ebb"\
 	${endif}\
 	},\
 {"full_text":\
-	"${if_match ${memperc}>=70}\
-		${if_match ${swapperc}>=20}\
-			Top Mem: ${top_mem name 1}${top_mem name 2}${top_mem name 3}\
+	${if_match ${memperc}>=70}\
+		${if_match ${swapperc}>=10}\
+			"Top Mem: ${top_mem name 1},${top_mem name 2},${top_mem name 3}"\
+		${else}\
+			""\
 		${endif}\
-	${endif}",\
+	${else}\
+		""\
+	${endif},\
 "color" :\
-	${if_match ${memperc}>=90}\
-		"\#ff0000"${else}"\#769ebb"\
+	${if_match ${memperc}>=80}\
+		"\#ff0000"\
+	${else}\
+		"\#769ebb"\
 	${endif}\
 	},\
 {"full_text":\
