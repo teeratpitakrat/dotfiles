@@ -15,7 +15,7 @@ pad_percents 2
 top_name_width 8
 
 TEXT
-[
+[\
 {"full_text":\
 	${if_match ${cpu}>=80}\
 		"Top Cpu: ${top name 1}${top name 2}${top name 3}"\
