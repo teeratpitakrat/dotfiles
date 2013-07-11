@@ -61,12 +61,15 @@ TEXT
 			"CPU: ${cpu}% ${texeci 5 sensors | grep 'Physical id 0' | cut -c18-19 }°C"\
 		${else}\
 			""\
-		${endif},\
-	${endif}\
+		${endif}\
+	${endif},\
 "color" :\
 	${if_match "${nodename}"=="apollo"}\
 		${if_match ${texeci 5 sensors | grep 'temp1' | cut -c16-17 }>70}\
 			"\#ff0000"\
+		${else}\
+			"\#769ebb"\
+		${endif}\
 	${else}\
 		${if_match "${nodename}"=="zeus"}\
 			${if_match ${texeci 5 sensors | grep 'Physical id 0' | cut -c18-19 }>70}\
