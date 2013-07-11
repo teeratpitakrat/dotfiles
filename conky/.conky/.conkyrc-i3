@@ -47,10 +47,12 @@ TEXT
 	${endif}\
 	},\
 {"full_text":\
-	"${loadavg}" ,\
+	"${loadavg}",\
 "color" :\
-	${if_match ${loadavg 3}>=4}\
-		"\#ff0000"${else}"\#769ebb"\
+	${if_match ${loadavg 1}>=4}\
+		"\#ff0000"\
+	${else}\
+		"\#769ebb"\
 	${endif}\
 	},\
 {"full_text":\
