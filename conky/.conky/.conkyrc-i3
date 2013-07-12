@@ -47,7 +47,7 @@ TEXT
 	${endif}\
 	},\
 {"full_text":\
-	"${loadavg}",\
+	"Load: ${loadavg}",\
 "color" :\
 	${if_match ${loadavg 1}>=4}\
 		"\#ff0000"\
@@ -70,14 +70,22 @@ TEXT
 		${if_match ${texeci 5 sensors | grep 'temp1' | cut -c16-17 }>80}\
 			"\#ff0000"\
 		${else}\
-			"\#769ebb"\
+			${if_match ${cpu}>80}\
+				"\#ff0000"\
+			${else}\
+				"\#769ebb"\
+			${endif}\
 		${endif}\
 	${else}\
 		${if_match "${nodename}"=="zeus"}\
 			${if_match ${texeci 5 sensors | grep 'Physical id 0' | cut -c18-19 }>80}\
 				"\#ff0000"\
 			${else}\
-				"\#769ebb"\
+				${if_match ${cpu}>80}\
+					"\#ff0000"\
+				${else}\
+					"\#769ebb"\
+				${endif}\
 			${endif}\
 		${else}\
 			"\#769ebb"\
