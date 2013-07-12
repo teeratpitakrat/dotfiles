@@ -3,4 +3,3 @@ echo '{"version":1}'
 echo '['
 echo '[],'
 exec conky -c $HOME/.conky/.conkyrc-i3
-exec conky -c $HOME/.conky/.conkyrc-i3-clock
