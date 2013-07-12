@@ -17,7 +17,7 @@ top_name_width 8
 TEXT
 [\
 {"full_text":\
-	${if_match ${cpu}>=80}\
+	${if_match ${cpu}>=70}\
 		"Top Cpu: ${top name 1},${top name 2},${top name 3}"\
 	${else}\
 		""\
@@ -67,14 +67,14 @@ TEXT
 	${endif},\
 "color" :\
 	${if_match "${nodename}"=="apollo"}\
-		${if_match ${texeci 5 sensors | grep 'temp1' | cut -c16-17 }>70}\
+		${if_match ${texeci 5 sensors | grep 'temp1' | cut -c16-17 }>80}\
 			"\#ff0000"\
 		${else}\
 			"\#769ebb"\
 		${endif}\
 	${else}\
 		${if_match "${nodename}"=="zeus"}\
-			${if_match ${texeci 5 sensors | grep 'Physical id 0' | cut -c18-19 }>70}\
+			${if_match ${texeci 5 sensors | grep 'Physical id 0' | cut -c18-19 }>80}\
 				"\#ff0000"\
 			${else}\
 				"\#769ebb"\
