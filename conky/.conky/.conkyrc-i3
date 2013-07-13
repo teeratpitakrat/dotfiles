@@ -12,7 +12,7 @@ override_utf8_locale yes
 use_xft yes
 cpu_avg_samples 2
 pad_percents 2
-top_name_width 8
+top_name_width 6
 
 TEXT
 [\
