@@ -95,7 +95,7 @@ TEXT
 {"full_text":\
 	"Mem: ${memperc}% ${mem}",\
 "color" :\
-	${if_match ${memperc}>70}\
+	${if_match ${memperc}>80}\
 		"\#ff0000"\
 	${else}\
 		"\#769ebb"\
@@ -104,8 +104,8 @@ TEXT
 {"full_text":\
 	"Swap: ${swapperc}% ${swap}" ,\
 "color" :\
-	${if_match ${memperc}>=70}\
-		${if_match ${swapperc}=>10}\
+	${if_match ${memperc}>80}\
+		${if_match ${swapperc}>=10}\
 			"\#ff0000"\
 		${else}\
 			"\#769ebb"\
