@@ -23,7 +23,7 @@ TEXT
 		""\
 	${endif},\
 "color" :\
-	${if_match ${cpu}>=80}\
+	${if_match ${cpu}>=90}\
 		"\#ff0000"\
 	${else}\
 		"\#769ebb"\
