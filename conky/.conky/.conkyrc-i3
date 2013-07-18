@@ -78,7 +78,7 @@ TEXT
 		${endif}\
 	${else}\
 		${if_match "${nodename}"=="zeus"}\
-			${if_match ${texeci 5 sensors | grep 'Physical id 0' | cut -c18-19 }>80}\
+			${if_match ${texeci 5 sensors | grep 'Physical id 0' | cut -c18-19 }>85}\
 				"\#ff0000"\
 			${else}\
 				${if_match ${cpu}>80}\
