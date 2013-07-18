@@ -26,14 +26,14 @@ floating_modifier $mod
 focus_follows_mouse no
 
 # colorclass			border  backgr. text    indicator
-client.focused          #4c7899 #50ff00 #ffffff #2e9ef4
+client.focused          #3BAADD #3BAADD #ffffff #2e9ef4
 client.focused_inactive #333333 #5f676a #ffffff #484e50
 client.unfocused        #333333 #222222 #888888 #292d2e
 client.urgent           #2f343a #900000 #ffffff #900000
 
 # window settings
-new_window 1pixel
-new_float 1pixel
+new_window normal
+new_float normal
 popup_during_fullscreen smart
 workspace_auto_back_and_forth yes
 force_display_urgency_hint 500 ms
