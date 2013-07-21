@@ -59,10 +59,14 @@ TEXT
 	${if_match "${nodename}"=="apollo"}\
 		"CPU: ${cpu}% ${texeci 5 sensors | grep 'temp1' | cut -c16-17 }°C"\
 	${else}\
-		${if_match "${nodename}"=="zeus"}\
+	${if_match "${nodename}"=="zeus"}\
 			"CPU: ${cpu}% ${texeci 5 sensors | grep 'Physical id 0' | cut -c18-19 }°C"\
 		${else}\
-			""\
+			${if_match "${nodename}"=="ares"}\
+				"CPU: ${cpu}% ${texeci 5 sensors | grep 'Physical id 0' | cut -c18-19 }°C"\
+			${else}\
+				""\
+			${endif}\
 		${endif}\
 	${endif},\
 "color" :\
@@ -88,7 +92,18 @@ TEXT
 				${endif}\
 			${endif}\
 		${else}\
-			"\#769ebb"\
+			${if_match "${nodename}"=="ares"}\
+				${if_match ${texeci 5 sensors | grep 'Physical id 0' | cut -c18-19 }>85}\
+					"\#ff0000"\
+				${else}\
+					${if_match ${cpu}>80}\
+						"\#ff0000"\
+					${else}\
+						"\#769ebb"\
+					${endif}\
+				${endif}\
+			${else}\
+				"\#769ebb"\
 		${endif}\
 	${endif}\
 	},\
@@ -124,36 +139,42 @@ TEXT
 	${endif}\
 	},\
 {"full_text":\
-	"${if_mounted /home}${fs_free /home}",\
+	"~${if_mounted /home}${fs_free /home}${endif}",\
 "color" :\
 	${if_match ${fs_used_perc /}>75}\
 		"\#ff0000"\
 	${else}\
 		"\#769ebb"\
 	${endif}\
-	$endif\
 	},\
 {"full_text":\
-	"${if_mounted /media/mybook1tb}M1 ${fs_free /media/mybook1tb}${endif}",\
+	${if_mounted /media/mybook1tb}"M1 ${fs_free /media/mybook1tb}"${else}""${endif},\
 	"color" :\
 	${if_match ${fs_used_perc /media/mybook1tb}>75}"\#ff0000"${else}"\#769ebb"${endif}\
 	},\
 {"full_text":\
-	"${if_mounted /media/mybook2tb}M2 ${fs_free /media/mybook2tb}${endif}",\
+	${if_mounted /media/mybook2tb}"M2 ${fs_free /media/mybook2tb}"${else}""${endif},\
 	"color" :\
 	${if_match ${fs_used_perc /media/mybook2tb}>75}"\#ff0000"${else}"\#769ebb"${endif}\
 	},\
 {"full_text":\
-	"${if_mounted /media/brisbane}B ${fs_free /media/brisbane}${endif}",\
+	${if_mounted /media/brisbane}"B ${fs_free /media/brisbane}"${else}""${endif},\
 	"color" :\
 	${if_match ${fs_used_perc /media/brisbane}>75}"\#ff0000"${else}"\#769ebb"${endif}\
 	},\
 {"full_text":\
 	${if_match "${nodename}"=="apollo"}\
 		"${battery BAT1} ${battery_time BAT1}"\
-	${endif}\
-	${if_match "${nodename}"=="zeus"}\
-		"${battery BAT0} ${battery_time BAT0}"\
+	${else}\
+		${if_match "${nodename}"=="zeus"}\
+			"${battery BAT0} ${battery_time BAT0}"\
+		${else}\
+			${if_match "${nodename}"=="ares"}\
+				"${battery BAT0} ${battery_time BAT0}"\
+			${else}\
+				""\
+			${endif}\
+		${endif}\
 	${endif},\
 "color" :\
 	${if_match "${nodename}"=="apollo"}\
@@ -162,12 +183,21 @@ TEXT
 		${else}\
 			"\#769ebb"\
 		${endif}\
-	${endif}\
-	${if_match "${nodename}"=="zeus"}\
-		${if_match ${battery_percent BAT0}<30}\
-			"\#ff0000"\
+	${else}\
+		${if_match "${nodename}"=="zeus"}\
+			${if_match ${battery_percent BAT0}<30}\
+				"\#ff0000"\
+			${else}\
+				"\#769ebb"\
+			${endif}\
 		${else}\
-			"\#769ebb"\
+			${if_match "${nodename}"=="ares"}\
+				${if_match ${battery_percent BAT0}<30}\
+					"\#ff0000"\
+				${else}\
+					"\#769ebb"\
+				${endif}\
+			${endif}\
 		${endif}\
 	${endif}\
 	},\
