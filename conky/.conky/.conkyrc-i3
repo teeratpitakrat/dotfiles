@@ -59,7 +59,7 @@ TEXT
 	${if_match "${nodename}"=="apollo"}\
 		"CPU: ${cpu}% ${texeci 5 sensors | grep 'temp1' | cut -c16-17 }°C"\
 	${else}\
-	${if_match "${nodename}"=="zeus"}\
+		${if_match "${nodename}"=="zeus"}\
 			"CPU: ${cpu}% ${texeci 5 sensors | grep 'Physical id 0' | cut -c18-19 }°C"\
 		${else}\
 			${if_match "${nodename}"=="ares"}\
@@ -104,6 +104,7 @@ TEXT
 				${endif}\
 			${else}\
 				"\#769ebb"\
+			${endif}
 		${endif}\
 	${endif}\
 	},\
