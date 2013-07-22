@@ -4,10 +4,38 @@
 [ -z "$PS1" ] && return
 
 alias ls='ls --color=auto'
-alias ll='ls -l'
-alias la='ls -la'
-#alias rm='rm -I'
-alias trash-list='trash-list | sort'
+alias ll='ls -lp'
+alias la='ls -lpa'
+alias lh='ls -lph'
+alias lt='ls -lpatr'
+alias screen='screen -h 200000'
+
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias ......='cd ../../../../..'
+alias .......='cd ../../../../../..'
+alias ........='cd ../../../../../../..'
+alias .........='cd ../../../../../../../..'
+
+alias ..2='cd ../..'
+alias ..3='cd ../../..'
+alias ..4='cd ../../../..'
+alias ..5='cd ../../../../..'
+alias ..6='cd ../../../../../..'
+alias ..7='cd ../../../../../../..'
+alias ..8='cd ../../../../../../../..'
+
+alias cd..='cd ..'
+alias cd...='cd ../..'
+alias cd....='cd ../../..'
+alias cd.....='cd ../../../..'
+alias cd......='cd ../../../../..'
+alias cd.......='cd ../../../../../..'
+alias cd........='cd ../../../../../../..'
+alias cd.........='cd ../../../../../../../..'
+
 alias grep='grep --color=auto'
 alias xterm='xterm -fg white -bg black -fa monospace -fs 10 -sl 10000'
 alias setmykey='setxkbmap -option grp:switch,grp:shift_caps_toggle,grp_led:scroll dvorak,th'
@@ -15,7 +43,7 @@ alias setuskey='setxkbmap us'
 alias setdekey='setxkbmap -layout de -variant nodeadkeys'
 alias setthkey='setxkbmap -option grp:shift_caps_toggle,grp_led:scroll us,th'
 
-PS1='\[\e[1;31m\]$(last_returned_value)\[\e[0m\]\u@\h \W$(parse_git_branch) \$ '
+PS1='\[\e[1;31m\]$(last_returned_value)\[\e[0m\]\[\e[1;32m\]\u\[\e[0m\]@\[\e[1;33m\]\h\[\e[0m\] \[\e[0;32m\]\W\[\e[0m\]$(parse_git_branch) \$ '
 
 last_returned_value() {
 	LAST_RETURNED_VALUE=$?
