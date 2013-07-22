@@ -131,7 +131,7 @@ TEXT
 	${endif}\
 	},\
 {"full_text":\
-	"/${fs_free /}",\
+	"R: ${fs_free /}",\
 "color" :\
 	${if_match ${fs_used_perc /}>75}\
 		"\#ff0000"\
@@ -140,9 +140,18 @@ TEXT
 	${endif}\
 	},\
 {"full_text":\
-	"~${if_mounted /home}${fs_free /home}${endif}",\
+	${if_mounted /home}"H: ${fs_free /home}"${else}""${endif},\
 "color" :\
-	${if_match ${fs_used_perc /}>75}\
+	${if_match ${fs_used_perc /home}>75}\
+		"\#ff0000"\
+	${else}\
+		"\#769ebb"\
+	${endif}\
+	},\
+{"full_text":\
+	${if_mounted /data}"D: ${fs_free /data}"${else}""${endif},\
+"color" :\
+	${if_match ${fs_used_perc /data}>75}\
 		"\#ff0000"\
 	${else}\
 		"\#769ebb"\
