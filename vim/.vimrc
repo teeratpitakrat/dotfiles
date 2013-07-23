@@ -30,3 +30,32 @@ set runtimepath=~/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,~/.vim/afte
 if has("autocmd")
 	au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 endif
+
+" Mode Indication -Prominent!
+function! InsertStatuslineColor(mode)
+	if a:mode == 'i'
+		hi statusline guibg=red
+		set cursorcolumn
+	elseif a:mode == 'r'
+		hi statusline guibg=blue
+	else
+		hi statusline guibg= magenta
+	endif
+endfunction
+
+function! InsertLeaveActions()
+	hi statusline guibg=green
+	set nocursorcolumn
+endfunction
+
+au InsertEnter * call InsertStatuslineColor(v:insertmode)
+au InsertLeave * call InsertLeaveActions()
+
+" to handle exiting insert mode via a control-C
+inoremap <c-c> <c-o>:call InsertLeaveActions()<cr><c-c>
+
+" default the statusline to green when entering Vim
+hi statusline guibg=green
+
+" have a permanent statusline to color
+set laststatus=2
