@@ -158,12 +158,12 @@ TEXT
 	${endif}\
 	},\
 {"full_text":\
-	${if_mounted /media/mybook1tb}"M1 ${fs_free /media/mybook1tb}"${else}""${endif},\
+	${if_mounted /media/mybook1tb}"M1: ${fs_free /media/mybook1tb}"${else}""${endif},\
 	"color" :\
 	${if_match ${fs_used_perc /media/mybook1tb}>75}"\#ff0000"${else}"\#769ebb"${endif}\
 	},\
 {"full_text":\
-	${if_mounted /media/mybook2tb}"M2 ${fs_free /media/mybook2tb}"${else}""${endif},\
+	${if_mounted /media/mybook2tb}"M2: ${fs_free /media/mybook2tb}"${else}""${endif},\
 	"color" :\
 	${if_match ${fs_used_perc /media/mybook2tb}>75}"\#ff0000"${else}"\#769ebb"${endif}\
 	},\
