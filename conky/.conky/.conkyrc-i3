@@ -168,7 +168,7 @@ TEXT
 	${if_match ${fs_used_perc /media/mybook2tb}>75}"\#ff0000"${else}"\#769ebb"${endif}\
 	},\
 {"full_text":\
-	${if_mounted /media/brisbane}"B ${fs_free /media/brisbane}"${else}""${endif},\
+	${if_mounted /media/brisbane}"B: ${fs_free /media/brisbane}"${else}""${endif},\
 	"color" :\
 	${if_match ${fs_used_perc /media/brisbane}>75}"\#ff0000"${else}"\#769ebb"${endif}\
 	},\
