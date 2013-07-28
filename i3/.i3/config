@@ -155,7 +155,7 @@ bindsym XF86AudioMicMute exec /usr/bin/lenovo-toggle-mic
 bindsym XF86Calculator exec pavucontrol
 
 # misc
-bindsym Print exec scrot '%Y-%m-%d-%k%M%S_$wx$h.png' -e 'mv $f ~/screenshots/'
+bindsym Print exec scrot '%Y-%m-%d-%k%M%S_$wx$h.png' -e 'mv $f ~/Screenshots/'
 bindsym $mod+period exec xscreensaver-command -lock
 bindsym XF86ScreenSaver exec xscreensaver-command -lock # x230
 bindsym XF86Display exec monitorctl -a
