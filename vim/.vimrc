@@ -21,11 +21,6 @@ filetype plugin on
 filetype indent on
 let vimrplugin_screenplugin = 0
 
-" latex suite
-set grepprg=grep\ -nH\ $*
-let g:tex_flavor = "latex"
-set runtimepath=~/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,~/.vim/after
-
 if has("autocmd")
 	au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 endif
@@ -58,3 +53,13 @@ hi statusline guibg=green
 
 " have a permanent statusline to color
 set laststatus=2
+
+" latex-suite
+set grepprg=grep\ -nH\ $*
+let g:tex_flavor = "latex"
+set runtimepath=~/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,~/.vim/after
+let g:Tex_DefaultTargetFormat = 'pdf'
+let g:Tex_UseMakefile = 1
+let g:Tex_CompileRule_pdf = 'make'
+let g:Tex_ViewRule_dvi = 'okular'
+let g:Tex_ViewRule_pdf = 'okular'
