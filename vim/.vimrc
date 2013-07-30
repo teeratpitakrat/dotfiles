@@ -22,7 +22,6 @@ filetype indent on
 let vimrplugin_screenplugin = 0
 
 " latex suite
-filetype plugin indent on
 set grepprg=grep\ -nH\ $*
 let g:tex_flavor = "latex"
 set runtimepath=~/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,~/.vim/after
