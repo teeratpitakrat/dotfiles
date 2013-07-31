@@ -26,7 +26,7 @@ TEXT
 	${if_match ${cpu}>=90}\
 		"\#ff0000"\
 	${else}\
-		"\#769ebb"\
+		"\#a2c6e0"\
 	${endif}\
 	},\
 {"full_text":\
@@ -43,7 +43,7 @@ TEXT
 	${if_match ${memperc}>=70}\
 		"\#ff0000"\
 	${else}\
-		"\#769ebb"\
+		"\#a2c6e0"\
 	${endif}\
 	},\
 {"full_text":\
@@ -52,7 +52,7 @@ TEXT
 	${if_match ${loadavg 1}>=4}\
 		"\#ff0000"\
 	${else}\
-		"\#769ebb"\
+		"\#a2c6e0"\
 	${endif}\
 	},\
 {"full_text":\
@@ -77,7 +77,7 @@ TEXT
 			${if_match ${cpu}>80}\
 				"\#ff0000"\
 			${else}\
-				"\#769ebb"\
+				"\#a2c6e0"\
 			${endif}\
 		${endif}\
 	${else}\
@@ -88,7 +88,7 @@ TEXT
 				${if_match ${cpu}>80}\
 					"\#ff0000"\
 				${else}\
-					"\#769ebb"\
+					"\#a2c6e0"\
 				${endif}\
 			${endif}\
 		${else}\
@@ -99,11 +99,11 @@ TEXT
 					${if_match ${cpu}>80}\
 						"\#ff0000"\
 					${else}\
-						"\#769ebb"\
+						"\#a2c6e0"\
 					${endif}\
 				${endif}\
 			${else}\
-				"\#769ebb"\
+				"\#a2c6e0"\
 			${endif}
 		${endif}\
 	${endif}\
@@ -114,7 +114,7 @@ TEXT
 	${if_match ${memperc}>80}\
 		"\#ff0000"\
 	${else}\
-		"\#769ebb"\
+		"\#a2c6e0"\
 	${endif}\
 	},\
 {"full_text":\
@@ -124,10 +124,10 @@ TEXT
 		${if_match ${swapperc}>=10}\
 			"\#ff0000"\
 		${else}\
-			"\#769ebb"\
+			"\#a2c6e0"\
 		${endif}\
 	${else}\
-		"\#769ebb"\
+		"\#a2c6e0"\
 	${endif}\
 	},\
 {"full_text":\
@@ -136,7 +136,7 @@ TEXT
 	${if_match ${fs_used_perc /}>75}\
 		"\#ff0000"\
 	${else}\
-		"\#769ebb"\
+		"\#a2c6e0"\
 	${endif}\
 	},\
 {"full_text":\
@@ -145,7 +145,7 @@ TEXT
 	${if_match ${fs_used_perc /home}>75}\
 		"\#ff0000"\
 	${else}\
-		"\#769ebb"\
+		"\#a2c6e0"\
 	${endif}\
 	},\
 {"full_text":\
@@ -154,23 +154,23 @@ TEXT
 	${if_match ${fs_used_perc /data}>75}\
 		"\#ff0000"\
 	${else}\
-		"\#769ebb"\
+		"\#a2c6e0"\
 	${endif}\
 	},\
 {"full_text":\
 	${if_mounted /media/mybook1tb}"M1: ${fs_free /media/mybook1tb}"${else}""${endif},\
 	"color" :\
-	${if_match ${fs_used_perc /media/mybook1tb}>75}"\#ff0000"${else}"\#769ebb"${endif}\
+	${if_match ${fs_used_perc /media/mybook1tb}>75}"\#ff0000"${else}"\#a2c6e0"${endif}\
 	},\
 {"full_text":\
 	${if_mounted /media/mybook2tb}"M2: ${fs_free /media/mybook2tb}"${else}""${endif},\
 	"color" :\
-	${if_match ${fs_used_perc /media/mybook2tb}>75}"\#ff0000"${else}"\#769ebb"${endif}\
+	${if_match ${fs_used_perc /media/mybook2tb}>75}"\#ff0000"${else}"\#a2c6e0"${endif}\
 	},\
 {"full_text":\
 	${if_mounted /media/brisbane}"B: ${fs_free /media/brisbane}"${else}""${endif},\
 	"color" :\
-	${if_match ${fs_used_perc /media/brisbane}>75}"\#ff0000"${else}"\#769ebb"${endif}\
+	${if_match ${fs_used_perc /media/brisbane}>75}"\#ff0000"${else}"\#a2c6e0"${endif}\
 	},\
 {"full_text":\
 	${if_match "${nodename}"=="apollo"}\
@@ -191,21 +191,21 @@ TEXT
 		${if_match ${battery_percent BAT1}<50}\
 			"\#ff0000"\
 		${else}\
-			"\#769ebb"\
+			"\#a2c6e0"\
 		${endif}\
 	${else}\
 		${if_match "${nodename}"=="zeus"}\
 			${if_match ${battery_percent BAT0}<30}\
 				"\#ff0000"\
 			${else}\
-				"\#769ebb"\
+				"\#a2c6e0"\
 			${endif}\
 		${else}\
 			${if_match "${nodename}"=="ares"}\
 				${if_match ${battery_percent BAT0}<30}\
 					"\#ff0000"\
 				${else}\
-					"\#769ebb"\
+					"\#a2c6e0"\
 				${endif}\
 			${endif}\
 		${endif}\
