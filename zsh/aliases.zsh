@@ -46,10 +46,8 @@ alias ev='evince'
 alias y='yaourt'
 
 # keymap
-alias setmykey='setxkbmap -option grp:switch,grp:shift_caps_toggle,grp_led:scroll dvorak,th'
-alias setuskey='setxkbmap us'
+alias setmykey='setxkbmap -option grp:switch,grp:toggle,grp_led:scroll us,th'
 alias setdekey='setxkbmap -layout de -variant nodeadkeys'
-alias setthkey='setxkbmap -option grp:shift_caps_toggle,grp_led:scroll us,th'
 
 # git
 alias gst='git status'
