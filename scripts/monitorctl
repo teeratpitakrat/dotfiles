@@ -1,0 +1,278 @@
+#!/bin/bash
+
+#####################################################################
+# Declaration
+#####################################################################
+
+DOCKING_MONITORS=(LVDS1 HDMI2 HDMI3)
+DOCKING_MONITORS_ROTATION=(normal normal normal)
+BEAMER_MONITORS=(LVDS1 VGA1)
+BEAMER_MONITORS_ROTATION=(normal normal)
+EXTERNAL_MONITORS=(LVDS1 VGA1)
+EXTERNAL_MONITORS_ROTATION=(normal normal)
+LAPTOP_MONITORS=(LVDS1)
+LAPTOP_MONITORS_ROTATION=(normal)
+
+####################################################################
+# Checking functions
+####################################################################
+
+# Check if monitor is active
+isActive () {
+	xrandr | grep -q "^$1 \(dis\)\?connected \(primary \)\?[1-9][0-9]\+x')" || return 1
+	return 0
+}
+
+# Check if monitor is connected
+isConnected () {
+	xrandr | grep -q "^$1 connected" || return 1
+	return 0
+}
+
+getConnectedMonitors (){
+	readarray CONNECTED_MONITORS < <(xrandr | grep ' connected' | sed -r 's/^([A-Z]+[0-9]) .*$/\1/')
+}
+
+getActiveMonitors (){
+	readarray ACTIVE_MONITORS < <(xrandr | grep ' \(dis\)\?connected \(primary \)\?[1-9][0-9]\+x' | sed -r 's/^([A-Z]+[0-9]) .*$/\1/')
+}
+
+# Check if laptop is docked by checking connected monitors
+isDocked () {
+	for mon in ${DOCKING_MONITORS[@]};
+	do
+		isConnected $mon || return 1
+	done
+	return 0
+}
+
+# Check if laptop is connected to a beamer
+isVGA () {
+	for mon in ${BEAMER_MONITORS[@]};
+	do
+		isConnected $mon || return 1
+	done
+	return 0
+}
+
+# Check if laptop is not connected to any external monitor
+isLaptopOnly () {
+	getConnectedMonitors
+	if [[ ${#CONNECTED_MONITORS[@]} -eq 1 ]]; then
+		if [ ${CONNECTED_MONITORS[0]} = ${LAPTOP_MONITORS[0]} ]; then
+			return 0
+		fi
+	fi
+	return 1
+}
+
+# Check if an array contains an element
+# http://stackoverflow.com/a/8574392
+containsElement () {
+	local e
+	for e in "${@:2}"; do
+		[[ "$e" == "$1" ]] && return 0
+	done
+	return 1
+}
+
+####################################################################
+# Setting functions
+####################################################################
+
+# Turn off monitors that are disconnected but still active
+turnoffDisconnectedMonitors () {
+	for mon in ${ACTIVE_MONITORS[@]};
+	do
+		isConnected $mon || xrandr --output $mon --off
+	done
+}
+
+# Turn off all monitors except $1
+turnoffAllMonitorsExcept () {
+	for mon in ${ACTIVE_MONITORS[@]};
+	do
+		if [[ $mon != $1 ]];
+		then
+			xrandr --output $mon --off
+			# Make sure that $1 is active, otherwise X will crash
+			isActive $1 || xrandr --output $1 --auto
+		fi
+	done
+}
+
+dockingMode () {
+	logger "$0: Switching to docking mode"
+	getConnectedMonitors
+	getActiveMonitors
+	turnoffDisconnectedMonitors
+	# Turn on first monitor on the left most
+	xrandr -d :0.0 --output ${DOCKING_MONITORS[0]} --auto || return 1
+	# Turn off other monitors which are not in DOCKING_MONITORS
+	for mon in ${ACTIVE_MONITORS[@]};
+	do
+		containsElement $mon ${DOCKING_MONITORS[@]} || xrandr --output $mon --off
+	done
+	# Turn on the rest from left to right
+	for (( i = 1; i < ${#DOCKING_MONITORS[@]}; i++ )); do
+		xrandr -d :0.0 --output ${DOCKING_MONITORS[i]} --auto --right-of ${DOCKING_MONITORS[i-1]} --rotation ${DOCKING_MONITORS_ROTATION[i]}
+	done
+}
+
+beamerMode () {
+	logger "$0: Switching to beamer mode"
+	getConnectedMonitors
+	getActiveMonitors
+	turnoffDisconnectedMonitors
+	for mon in ${BEAMER_MONITORS[@]};
+	do
+		if [[ $mon == ${BEAMER_MONITORS[0]} ]];
+		then
+			xrandr -d :0.0 --output $mon --auto
+			for m in ${ACTIVE_MONITORS[@]};
+			do
+				# Turn off other monitors which are not in BEAMER_MONITORS
+				containsElement $m ${BEAMER_MONITORS[@]} || xrandr --output $m --off
+			done
+		else
+			xrandr -d :0.0 --output $mon --auto --same-as $prev_mon
+		fi
+		local prev_mon=$mon
+	done
+}
+
+externalMode () {
+	#logger "$0: Switching to external mode"
+	#getConnectedMonitors
+	#getActiveMonitors
+	#turnoffDisconnectedMonitors
+	#for mon in ${EXTERNAL_MONITORS[@]};
+	#do
+	#	if [[ $mon == ${EXTERNAL_MONITORS[0]} ]];
+	#	then
+	#		xrandr -d :0.0 --output $mon --auto
+	#		for m in ${ACTIVE_MONITORS[@]};
+	#		do
+	#			# Turn off other monitors which are not in BEAMER_MONITORS
+	#			containsElement $m ${EXTERNAL_MONITORS[@]} || xrandr --output $m --off
+	#		done
+	#	else
+	#		xrandr -d :0.0 --output $mon --auto --right-of $prev_mon
+	#	fi
+	#	local prev_mon=$mon
+	#done
+	logger "$0: Switching to docking mode"
+	getConnectedMonitors
+	getActiveMonitors
+	turnoffDisconnectedMonitors
+	# Turn on first monitor on the left most
+	xrandr -d :0.0 --output ${EXTERNAL_MONITORS[0]} --auto || return 1
+	# Turn off other monitors which are not in DOCKING_MONITORS
+	for mon in ${ACTIVE_MONITORS[@]};
+	do
+		containsElement $mon ${EXTERNAL_MONITORS[@]} || xrandr --output $mon --off
+	done
+	# Turn on the rest from left to right
+	for (( i = 1; i < ${#EXTERNAL_MONITORS[@]}; i++ )); do
+		xrandr -d :0.0 --output ${EXTERNAL_MONITORS[i]} --auto --right-of ${EXTERNAL_MONITORS[i-1]} --rotation ${EXTERNAL_MONITORS_ROTATION[i]}
+	done
+}
+
+laptopMode () {
+	logger "$0: Switching to laptop mode"
+	getConnectedMonitors
+	getActiveMonitors
+	turnoffDisconnectedMonitors || return 1
+	turnoffAllMonitorsExcept ${LAPTOP_MONITORS[0]}
+}
+
+####################################################################
+# Main
+####################################################################
+
+case "$1" in
+	"-q"|"--query")
+		getConnectedMonitors
+		printf "CONNECTED_MONITORS="
+		for cmon in ${CONNECTED_MONITORS[@]}; do
+			printf " $cmon"
+		done
+		echo
+		getActiveMonitors
+		printf "ACTIVE_MONITORS="
+		for amon in ${ACTIVE_MONITORS[@]}; do
+			printf " $amon"
+		done
+		echo
+		isDocked && echo isDocked=true
+		isVGA && echo isVGA=true
+		isLaptopOnly && echo isLaptopOnly=true
+		;;
+	"-a"|"--auto")
+		echo Detecting mode...
+		logger "$0: Detecting mode..."
+		if isDocked; then
+			echo Docking mode detected
+			logger "$0: Docking mode detected"
+			dockingMode
+		elif isVGA; then
+			echo Beamer mode detected
+			logger "$0: Beamer mode detected"
+			beamerMode
+		elif isLaptopOnly; then
+			echo Laptop mode detected
+			logger "$0: Laptop mode detected"
+			laptopMode
+		else
+			echo Cannot detect mode
+			logger "$0: Cannot detect mode..."
+		fi
+		;;
+	"-d"|"--dock")
+		if isDocked; then
+			echo Switching to docking mode
+			logger "$0: Switching to ocking mode"
+			dockingMode
+		else
+			echo Not docked
+			logger "$0: Not docked"
+			exit 1
+		fi
+		;;
+	"-b"|"--beamer")
+		if isVGA; then
+			echo Switching to beamer mode
+			logger "$0: Switching to beamer mode"
+			beamerMode
+		else
+			echo No beamer connected
+			logger "$0: No beamer connected"
+			exit 1
+		fi
+		;;
+	"-e"|"--external")
+		if isVGA; then
+			echo Switching to external mode
+			logger "$0: Switching to external mode"
+			externalMode
+		else
+			echo No VGA connected
+			logger "$0: No VGA connected"
+			exit 1
+		fi
+		;;
+	"-l"|"--laptop")
+		echo Switching to laptop mode
+		logger "$0: Switching to laptop mode"
+		laptopMode
+		;;
+	"-h"|"--help"|*)
+		echo Usage:
+		echo -e "-q\tQuery"
+		echo -e "-a\tAuto detect"
+		echo -e "-d\tDocking mode"
+		echo -e "-b\tBeamer mode"
+		echo -e "-l\tLaptop mode"
+		echo -e "-h\tHelp"
+		;;
+esac
