@@ -15,14 +15,14 @@ svn_repo() {
 }
 
 svn_status () {
-	svnstat=$(svn status 2>/dev/null | grep '^\(?\|M\|A\)') || return
+	svnstat=$(svn status 2>/dev/null | grep '^\(?\|M\|A\|D\)') || return
 	echo -n " "
 	# Check untracked files
 	if echo ${svnstat} | grep -q "^\(?\)" ; then
 		echo -n "$SVN_STATUS_UNTRACKED"
 	fi
 	# Check changes
-	if echo ${svnstat} | grep -q "^\(M\|A\)" ; then
+	if echo ${svnstat} | grep -q "^\(M\|A\|D\)" ; then
 		echo -n "$SVN_STATUS_CHANGES"
 	fi
 }
