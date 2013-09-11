@@ -9,3 +9,5 @@ function! SyncTexForward()
 	exec execstr
 endfunction
 nnoremap <Leader>f :call SyncTexForward()<CR>
+
+let g:Tex_SmartKeyQuote=0
