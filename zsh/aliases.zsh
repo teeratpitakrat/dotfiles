@@ -88,6 +88,7 @@ alias gf='git ls-files | grep'
 # svn
 alias sup='svn up'
 alias sss='svn status'
+alias sssm='svn status | grep "^[^?]"'
 alias sa='svn add'
 alias sc='svn commit'
 alias sl='svn log -l'
