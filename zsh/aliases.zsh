@@ -100,3 +100,7 @@ alias pi='ssh pi'
 alias brisbane='ssh brisbane'
 alias brisbane-mildura='ssh brisbane-mildura'
 alias adelaide='ssh adelaide'
+
+# lpr
+alias lpr-recycled='lpr -o sides=two-sided-long-edge -staple -o MediaType=RECYCLED'
+
