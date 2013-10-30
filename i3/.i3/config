@@ -145,15 +145,17 @@ bindsym $mod+Ctrl+Left move workspace to output left
 bindsym $mod+Ctrl+Right move workspace to output right
 
 # music
-bindsym XF86AudioMute exec /usr/bin/mute_toggle
 bindsym XF86AudioPlay exec mpc -h abcde12345@localhost toggle
 bindsym 0x2e00001 exec mpc -h abcde12345@localhost toggle # play/pause for x230
 bindsym XF86AudioPrev exec mpc -h abcde12345@localhost prev
 bindsym XF86AudioNext exec mpc -h abcde12345@localhost next
 
 # audio
-bindsym XF86AudioLowerVolume exec /usr/bin/vol_down
-bindsym XF86AudioRaiseVolume exec /usr/bin/vol_up
+#bindsym XF86AudioLowerVolume exec /usr/bin/vol_down
+#bindsym XF86AudioRaiseVolume exec /usr/bin/vol_up
+bindsym XF86AudioLowerVolume exec /usr/bin/pulseaudio-ctl down
+bindsym XF86AudioRaiseVolume exec /usr/bin/pulseaudio-ctl up
+bindsym XF86AudioMute exec /usr/bin/pulseaudio-ctl mute
 bindsym XF86AudioMicMute exec /usr/bin/lenovo-toggle-mic
 bindsym XF86Calculator exec pavucontrol
 
