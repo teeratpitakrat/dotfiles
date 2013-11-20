@@ -205,5 +205,6 @@ bindsym $mod+r mode "resize"
 #		#status_command /home/teerat/scripts/i3/mystatusbar.sh
 #}
 bar {
+	tray_output primary
 	status_command $HOME/.i3/conky-i3bar
 }
