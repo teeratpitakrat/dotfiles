@@ -4,8 +4,10 @@
 # Declaration
 #####################################################################
 
-DOCKING_MONITORS=(LVDS1 HDMI2 HDMI3)
-DOCKING_MONITORS_ROTATION=(normal normal normal)
+#DOCKING_MONITORS=(LVDS1 HDMI2 HDMI3)
+#DOCKING_MONITORS_ROTATION=(normal normal normal)
+DOCKING_MONITORS=(HDMI2 HDMI3)
+DOCKING_MONITORS_ROTATION=(normal normal)
 BEAMER_MONITORS=(LVDS1 VGA1)
 BEAMER_MONITORS_ROTATION=(normal normal)
 EXTERNAL_MONITORS=(LVDS1 VGA1)
@@ -94,9 +96,9 @@ turnoffAllMonitorsExcept () {
 	do
 		if [[ $mon != $1 ]];
 		then
-			xrandr --output $mon --off
 			# Make sure that $1 is active, otherwise X will crash
 			isActive $1 || xrandr --output $1 --auto
+			xrandr --output $mon --off
 		fi
 	done
 }
@@ -107,7 +109,7 @@ dockingMode () {
 	getActiveMonitors
 	turnoffDisconnectedMonitors
 	# Turn on first monitor on the left most
-	xrandr -d :0.0 --output ${DOCKING_MONITORS[0]} --auto || return 1
+	xrandr -d :0.0 --output ${DOCKING_MONITORS[0]} --auto --primary || return 1
 	# Turn off other monitors which are not in DOCKING_MONITORS
 	for mon in ${ACTIVE_MONITORS[@]};
 	do
@@ -119,8 +121,8 @@ dockingMode () {
 	done
 }
 
-beamerMode () {
-	logger "$0: Switching to beamer mode"
+mirrorMode () {
+	logger "$0: Switching to mirror mode"
 	getConnectedMonitors
 	getActiveMonitors
 	turnoffDisconnectedMonitors
@@ -128,7 +130,7 @@ beamerMode () {
 	do
 		if [[ $mon == ${BEAMER_MONITORS[0]} ]];
 		then
-			xrandr -d :0.0 --output $mon --auto
+			xrandr -d :0.0 --output $mon --auto --primary
 			for m in ${ACTIVE_MONITORS[@]};
 			do
 				# Turn off other monitors which are not in BEAMER_MONITORS
@@ -141,40 +143,21 @@ beamerMode () {
 	done
 }
 
-externalMode () {
-	#logger "$0: Switching to external mode"
-	#getConnectedMonitors
-	#getActiveMonitors
-	#turnoffDisconnectedMonitors
-	#for mon in ${EXTERNAL_MONITORS[@]};
-	#do
-	#	if [[ $mon == ${EXTERNAL_MONITORS[0]} ]];
-	#	then
-	#		xrandr -d :0.0 --output $mon --auto
-	#		for m in ${ACTIVE_MONITORS[@]};
-	#		do
-	#			# Turn off other monitors which are not in BEAMER_MONITORS
-	#			containsElement $m ${EXTERNAL_MONITORS[@]} || xrandr --output $m --off
-	#		done
-	#	else
-	#		xrandr -d :0.0 --output $mon --auto --right-of $prev_mon
-	#	fi
-	#	local prev_mon=$mon
-	#done
-	logger "$0: Switching to docking mode"
+beamerMode () {
+	logger "$0: Switching to beamer mode"
 	getConnectedMonitors
 	getActiveMonitors
 	turnoffDisconnectedMonitors
 	# Turn on first monitor on the left most
-	xrandr -d :0.0 --output ${EXTERNAL_MONITORS[0]} --auto || return 1
+	xrandr -d :0.0 --output ${BEAMER_MONITORS[0]} --auto --primary || return 1
 	# Turn off other monitors which are not in DOCKING_MONITORS
 	for mon in ${ACTIVE_MONITORS[@]};
 	do
-		containsElement $mon ${EXTERNAL_MONITORS[@]} || xrandr --output $mon --off
+		containsElement $mon ${BEAMER_MONITORS[@]} || xrandr --output $mon --off
 	done
 	# Turn on the rest from left to right
-	for (( i = 1; i < ${#EXTERNAL_MONITORS[@]}; i++ )); do
-		xrandr -d :0.0 --output ${EXTERNAL_MONITORS[i]} --auto --right-of ${EXTERNAL_MONITORS[i-1]} --rotation ${EXTERNAL_MONITORS_ROTATION[i]}
+	for (( i = 1; i < ${#BEAMER_MONITORS[@]}; i++ )); do
+		xrandr -d :0.0 --output ${BEAMER_MONITORS[i]} --auto --right-of ${BEAMER_MONITORS[i-1]} --rotation ${BEAMER_MONITORS_ROTATION[i]}
 	done
 }
 
@@ -182,7 +165,7 @@ laptopMode () {
 	logger "$0: Switching to laptop mode"
 	getConnectedMonitors
 	getActiveMonitors
-	turnoffDisconnectedMonitors || return 1
+	#turnoffDisconnectedMonitors || return 1
 	turnoffAllMonitorsExcept ${LAPTOP_MONITORS[0]}
 }
 
@@ -250,11 +233,11 @@ case "$1" in
 			exit 1
 		fi
 		;;
-	"-e"|"--external")
+	"-m"|"--mirror")
 		if isVGA; then
-			echo Switching to external mode
-			logger "$0: Switching to external mode"
-			externalMode
+			echo Switching to mirror mode
+			logger "$0: Switching to mirror mode"
+			mirrorMode
 		else
 			echo No VGA connected
 			logger "$0: No VGA connected"
@@ -272,6 +255,7 @@ case "$1" in
 		echo -e "-a\tAuto detect"
 		echo -e "-d\tDocking mode"
 		echo -e "-b\tBeamer mode"
+		echo -e "-m\tMirror mode"
 		echo -e "-l\tLaptop mode"
 		echo -e "-h\tHelp"
 		;;
