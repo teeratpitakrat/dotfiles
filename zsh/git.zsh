@@ -22,7 +22,7 @@ git_status () {
 	echo -n " "
 	#$(git remote update) || return		# takes too long, do it manually!
 	# Check behind
-	if echo $gitstat | grep -q "^# Your branch is behind" ; then
+	if echo $gitstat | grep -q "^Your branch is behind" ; then
 		echo -n "$GIT_STATUS_BEHIND"
 	fi
 	# Check untracked files
