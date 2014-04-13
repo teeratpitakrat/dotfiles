@@ -57,7 +57,7 @@ TEXT
 	},\
 {"full_text":\
 	${if_match "${nodename}"=="apollo"}\
-		"CPU: ${cpu}% ${texeci 5 sensors | grep 'temp1' | cut -c16-17 }°C"\
+		"CPU: ${cpu}% ${texeci 5 sensors | grep 'Core 0' | cut -c16-17 }°C"\
 	${else}\
 		${if_match "${nodename}"=="zeus"}\
 			"CPU: ${cpu}% ${texeci 5 sensors | grep 'Physical id 0' | cut -c18-19 }°C"\
@@ -71,7 +71,7 @@ TEXT
 	${endif},\
 "color" :\
 	${if_match "${nodename}"=="apollo"}\
-		${if_match ${texeci 5 sensors | grep 'temp1' | cut -c16-17 }>80}\
+		${if_match ${texeci 5 sensors | grep 'Core 0' | cut -c16-17 }>80}\
 			"\#ff0000"\
 		${else}\
 			${if_match ${cpu}>80}\
