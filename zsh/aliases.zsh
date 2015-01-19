@@ -6,6 +6,7 @@ alias lh='ls -lph'
 alias lt='ls -lpatr'
 alias screen='screen -h 200000'
 #alias less='less -N'
+alias grep='grep --color=auto'
 
 alias ..='cd ..'
 alias ...='cd ../..'
