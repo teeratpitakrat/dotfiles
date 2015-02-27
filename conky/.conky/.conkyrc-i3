@@ -133,7 +133,7 @@ TEXT
 {"full_text":\
 	"R: ${fs_free /}",\
 "color" :\
-	${if_match ${fs_used_perc /}>75}\
+	${if_match ${fs_used_perc /}>80}\
 		"\#ff0000"\
 	${else}\
 		"\#a2c6e0"\
@@ -142,7 +142,7 @@ TEXT
 {"full_text":\
 	${if_mounted /home}"H: ${fs_free /home}"${else}""${endif},\
 "color" :\
-	${if_match ${fs_used_perc /home}>75}\
+	${if_match ${fs_used_perc /home}>80}\
 		"\#ff0000"\
 	${else}\
 		"\#a2c6e0"\
@@ -151,7 +151,7 @@ TEXT
 {"full_text":\
 	${if_mounted /data}"D: ${fs_free /data}"${else}""${endif},\
 "color" :\
-	${if_match ${fs_used_perc /data}>75}\
+	${if_match ${fs_used_perc /data}>80}\
 		"\#ff0000"\
 	${else}\
 		"\#a2c6e0"\
