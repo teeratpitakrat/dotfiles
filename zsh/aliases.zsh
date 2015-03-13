@@ -51,6 +51,9 @@ alias y='yaourt'
 alias setmykey='setxkbmap -option grp:switch,grp:toggle,grp_led:scroll us,th'
 alias setdekey='setxkbmap -layout de -variant nodeadkeys'
 
+# Vim
+alias gvimtab='gvim --remote-tab-silent'
+
 # git
 alias gst='git status'
 alias gss='git status -s'
