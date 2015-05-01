@@ -1,5 +1,5 @@
-URxvt.font: xft:DejaVu Sans Mono:size=11:antialias=true:hinting=true
-URxvt.boldFont: xft:DejaVu Sans Mono:bold:size=11:antialias=true:hinting=true
+URxvt.font: xft:Droid Sans Mono:size=11:antialias=true:hinting=true
+URxvt.boldFont: xft:Droid Sans Mono:bold:size=11:antialias=true:hinting=true
 
 URxvt*background: #333333
 URxvt*foreground: white
