@@ -1,5 +1,7 @@
-URxvt.font:     xft:droid sans mono:size=11:antialias=true
-URxvt.boldFont: xft:droid sans mono:bold:size=11:antialias=true
+!URxvt.font:     xft:droid sans mono:size=11:antialias=true
+!URxvt.boldFont: xft:droid sans mono:bold:size=11:antialias=true
+URxvt.font:     xft:inconsolata:size=12:antialias=true
+URxvt.boldFont: xft:inconsolata:bold:size=12:antialias=true
 
 URxvt*background: #333333
 URxvt*foreground: white
