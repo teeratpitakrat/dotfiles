@@ -9,6 +9,7 @@ set number
 set spell
 set wrap
 set guioptions-=T " remove toolbar
+set guifont=Inconsolata\ 12
 colorscheme wombat
 source $VIMRUNTIME/macros/matchit.vim
 
