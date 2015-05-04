@@ -40,3 +40,9 @@ URxvt*saveLines: 1000000
 URxvt.perl-ext-common:  ...,font-size,...
 URxvt.keysym.C-Up:     perl:font-size:increase
 URxvt.keysym.C-Down:   perl:font-size:decrease
+
+!URxvt.keysym.C-Left:    \033[1;5D
+!URxvt.keysym.C-Right:    \033[1;5C
+
+!URxvt.keysym.Home:  \033[1~
+!URxvt.keysym.End:   \033[4~
