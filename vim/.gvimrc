@@ -9,7 +9,7 @@ set number
 set spell
 set wrap
 set guioptions-=T " remove toolbar
-set guifont=Droid\ Sans\ Mono\ 11
+set guifont=Droid\ Sans\ Mono\ Dotted\ 11
 colorscheme wombat
 source $VIMRUNTIME/macros/matchit.vim
 
