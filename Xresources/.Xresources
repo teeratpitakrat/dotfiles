@@ -1,5 +1,5 @@
-URxvt.font: xft:Inconsolata:size=13:antialias=true:hinting=true:autohint=true
-URxvt.boldFont: xft:Inconsolata:bold:size=13:antialias=true:hinting=true:autohint=true
+URxvt.font: xft:Droid sans mono dotted:size=11:antialias=true:hinting=true:autohint=true
+URxvt.boldFont: xft:Droid sans mono dotted:bold:size=11:antialias=true:hinting=true:autohint=true
 
 URxvt*background: #333333
 URxvt*foreground: white
