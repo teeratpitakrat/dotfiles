@@ -9,6 +9,7 @@ COLOR_NORMAL_USER="green"
 COLOR_HOSTNAME="yellow"
 COLOR_CURRENT_DIR="green"
 COLOR_CURRENT_DIR_READ_ONLY="yellow"
+COLOR_CURRENT_DIR_NOT_EXIST="red"
 COLOR_RETURNED_VALUE="red"
 autoload -U colors && colors 	# enable colored prompt
 
@@ -36,6 +37,9 @@ shortened_current_dir() {
 	if [[ -w $PWD ]]; then
 		# green
 		echo -n "%{$fg[$COLOR_CURRENT_DIR]%}%.%{$reset_color%}"
+	elif [[ ! -d $PWD ]]; then
+		# red
+		echo -n "%{$fg[$COLOR_CURRENT_DIR_NOT_EXIST]%}%.%{$reset_color%}"
 	else
 		# yellow if the dir is read-only
 		echo -n "%{$fg[$COLOR_CURRENT_DIR_READ_ONLY]%}%.%{$reset_color%}"
@@ -46,6 +50,9 @@ current_dir() {
 	if [[ -w $PWD ]]; then
 		# green
 		echo -n "%{$fg[$COLOR_CURRENT_DIR]%}%~%{$reset_color%}"
+	elif [[ ! -d $PWD ]]; then
+		# red
+		echo -n "%{$fg[$COLOR_CURRENT_DIR_NOT_EXIST]%}%~%{$reset_color%}"
 	else
 		# yellow if the dir is read-only
 		echo -n "%{$fg[$COLOR_CURRENT_DIR_READ_ONLY]%}%~%{$reset_color%}"
