@@ -3,7 +3,7 @@
 # Check for an interactive session
 [ -z "$PS1" ] && return
 
-alias ls='ls --color=auto'
+alias ls='ls --color=auto --group-directories-first'
 alias ll='ls -lp'
 alias la='ls -lpa'
 alias lh='ls -lph'
