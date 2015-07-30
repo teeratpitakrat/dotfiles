@@ -1,6 +1,6 @@
 # prompts
 PROMPT='$(returned_value)$(username)$(hostname) $(shortened_current_dir) %# '
-RPROMPT='$(current_dir)$(git_info)$(svn_info)$(tmux_session)'
+RPROMPT='$(current_dir)$(git_info)$(svn_info)$(tmux_session)$(current_time)'
 setopt PROMPT_SUBST 			# allow substitution of parameters in PS1
 
 # basic colors
