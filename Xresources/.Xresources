@@ -8,7 +8,8 @@ URxvt*foreground: white
 URxvt.color0:  #2E3436
 URxvt.color8:  #555753
 ! red
-URxvt.color1:  #a40000
+!URxvt.color1:  #a40000
+URxvt.color1:  #EF2929
 URxvt.color9:  #EF2929
 ! green
 URxvt.color2:  #4E9A06
