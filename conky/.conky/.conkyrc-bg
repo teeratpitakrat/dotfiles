@@ -34,12 +34,14 @@ show_graph_range no
 
 TEXT
 ${time %F %H:%M:%S %A} -----------------------------------------------------------------------|---------------------||---------------------|----------------------
-   Load avg: ${loadavg} ${alignr}Load avg: ${loadgraph 13,720 4}
+   ${alignr}${loadgraph 30,720 4}
+   ${voffset -30}Load avg: ${loadavg} 
+   
 CPU ${cpubar cpu0 5,200} ${alignr}${cpu cpu0}% ------------------------------------------------------------------------------------------------------------------------------- CPU
-   ${top pid 1} ${top name 1} ${top cpu 1}% ${top mem 1}% ${top io_read 1} ${top io_write 1} ${alignr}0: ${cpugraph cpu1 13,720 1}
-   ${top pid 2} ${top name 2} ${top cpu 2}% ${top mem 2}% ${top io_read 2} ${top io_write 2} ${alignr}1: ${cpugraph cpu2 13,720 1}
-   ${top pid 3} ${top name 3} ${top cpu 3}% ${top mem 3}% ${top io_read 3} ${top io_write 3} ${alignr}2: ${cpugraph cpu3 13,720 1}
-   ${top pid 4} ${top name 4} ${top cpu 4}% ${top mem 4}% ${top io_read 4} ${top io_write 4} ${alignr}3: ${cpugraph cpu4 13,720 1}
+   ${top pid 1} ${top name 1} ${top cpu 1}% ${top mem 1}% ${top io_read 1} ${top io_write 1} ${alignr}${freq_g 1} GHz ${cpugraph cpu1 13,720 1}
+   ${top pid 2} ${top name 2} ${top cpu 2}% ${top mem 2}% ${top io_read 2} ${top io_write 2} ${alignr}${freq_g 2} GHz ${cpugraph cpu2 13,720 1}
+   ${top pid 3} ${top name 3} ${top cpu 3}% ${top mem 3}% ${top io_read 3} ${top io_write 3} ${alignr}${freq_g 3} GHz ${cpugraph cpu3 13,720 1}
+   ${top pid 4} ${top name 4} ${top cpu 4}% ${top mem 4}% ${top io_read 4} ${top io_write 4} ${alignr}${freq_g 4} GHz ${cpugraph cpu4 13,720 1}
    ${top pid 5} ${top name 5} ${top cpu 5}% ${top mem 5}% ${top io_read 5} ${top io_write 5}
 Mem ${membar 5,200} ${alignr}${memperc}% ------------------------------------------------------------------------------------------------------------------------------- Mem
    ${top_mem pid 1} ${top_mem name 1} ${top_mem cpu 1}% ${top_mem mem 1}% ${top_mem io_read 1} ${top_mem io_write 1} ${alignr}RAM: ${memgraph 13,720 1}
@@ -58,24 +60,22 @@ Network ------------------------------------------------------------------------
                        ${totaldown enp0s25}             ${totalup enp0s25} ${alignr}        ▲: ${upspeedgraph enp0s25 13,720}
    wlp3s0:  ▼ ${downspeedf wlp3s0} KiB/s    ▲ ${upspeedf wlp3s0} KiB/s ${alignr}wlp3s0 ▼: ${downspeedgraph wlp3s0 13,720}
                      ${totaldown wlp3s0}             ${totalup wlp3s0} ${alignr}       ▲: ${upspeedgraph wlp3s0 13,720}
-            ${wireless_essid wlp3s0}
-            Ch${wireless_channel wlp3s0} ${wireless_freq wlp3s0} ${wireless_bitrate wlp3s0}
+            ESSID: ${wireless_essid wlp3s0}
+            Ch: ${wireless_channel wlp3s0} Freq: ${wireless_freq wlp3s0} Bitrate: ${wireless_bitrate wlp3s0}
             Link quality: ${wireless_link_bar 5,200 wlp3s0} ${wireless_link_qual_perc wlp3s0}%
-HDD -------------------------------------------------------------------------------------------------------------------------------------------------------------- HDD
-   /        ${fs_size /}   ${fs_used /} ${fs_bar 5,200 /} ${fs_free /}
-   /home    ${fs_size /home}   ${fs_used /home} ${fs_bar 5,200 /home} ${fs_free /home}
-   /data    ${fs_size /data}   ${fs_used /data} ${fs_bar 5,200 /data} ${fs_free /data}
-   /tmp     ${fs_size /tmp}   ${fs_used /tmp} ${fs_bar 5,200 /tmp} ${fs_free /tmp}
+FS ---------------------------------------------------------------------------------------------------------------------------------------------------------------- FS
+               Size      Used                              Free ${goto 683}            Size      Used                              Free
+   /        ${fs_size /}   ${fs_used /} ${fs_bar 5,200 /} ${fs_free /} ${goto 683}/data    ${fs_size /data}   ${fs_used /data} ${fs_bar 5,200 /data} ${fs_free /data}
+   /home    ${fs_size /home}   ${fs_used /home} ${fs_bar 5,200 /home} ${fs_free /home} ${goto 683}/tmp     ${fs_size /tmp}   ${fs_used /tmp} ${fs_bar 5,200 /tmp} ${fs_free /tmp}
 Misc ------------------------------------------------------------------------------------------------------------------------------------------------------------ Misc
-   ACPI temp: ${acpitemp} C
-   Laptop mode: ${laptop_mode}
-   Uptime: ${uptime}
-   AC adapter: ${acpiacadapter AC}
-   Battery: ${battery BAT0} ${battery_bar 5,200 BAT0} ${battery_time BAT0}
+   ACPI temp: ${acpitemp}°C ${goto 683}AC adapter: ${acpiacadapter AC}
+   CPU temp: ${hwmon 2 temp 1}°C (${hwmon 2 temp 2}°C,${hwmon 2 temp 3}°C) ${goto 683}Battery: ${battery BAT0} ${battery_bar 5,200 BAT0} ${battery_time BAT0}
+   Fan: ${hwmon 1 fan 1} RPM ${goto 683}Laptop mode: ${laptop_mode}
+   ${goto 683}Uptime: ${uptime}
 Weather ------------------------------------------------------------------------------------------------------------------------------------------------------ Weather
-   EDDS: Temp: ${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ EDDS temperature 5} C ${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ EDDS weather 5}
-         Wind: ${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ EDDS wind_speed 5} km/h ${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ EDDS wind_dir 5}
-         Cloud: ${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ EDDS cloud_cover 5}
-         Humidity: ${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ EDDS humidity 5}%
-         Update: ${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ EDDS last_update 5}
-		 
+   Temp: ${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ EDDS temperature 5}°C
+   Wind: ${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ EDDS wind_speed 5} km/h ${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ EDDS wind_dir 5}
+   Condition: ${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ EDDS weather 5}
+   Cloud: ${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ EDDS cloud_cover 5}
+   Humidity: ${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ EDDS humidity 5}%
+   Update: ${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ EDDS last_update 5}
