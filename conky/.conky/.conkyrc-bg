@@ -57,7 +57,7 @@ I/O ----------------------------------------------------------------------------
    ${top_io pid 5} ${top_io name 5} ${top_io cpu 5}% ${top_io mem 5}% ${top_io io_read 5} ${top_io io_write 5}
 Network ------------------------------------------------------------------------------------------------------------------------------------------------------ Network
    enp0s25: ▼ ${downspeedf enp0s25} KiB/s    ▲ ${upspeedf enp0s25} KiB/s ${alignr}enp0s25 ▼: ${downspeedgraph enp0s25 13,720}
-                       ${totaldown enp0s25}             ${totalup enp0s25} ${alignr}        ▲: ${upspeedgraph enp0s25 13,720}
+                     ${totaldown enp0s25}             ${totalup enp0s25} ${alignr}        ▲: ${upspeedgraph enp0s25 13,720}
    wlp3s0:  ▼ ${downspeedf wlp3s0} KiB/s    ▲ ${upspeedf wlp3s0} KiB/s ${alignr}wlp3s0 ▼: ${downspeedgraph wlp3s0 13,720}
                      ${totaldown wlp3s0}             ${totalup wlp3s0} ${alignr}       ▲: ${upspeedgraph wlp3s0 13,720}
             ESSID: ${wireless_essid wlp3s0}
@@ -78,4 +78,4 @@ Weather ------------------------------------------------------------------------
    Condition: ${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ EDDS weather 5}
    Cloud: ${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ EDDS cloud_cover 5}
    Humidity: ${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ EDDS humidity 5}%
-   Update: ${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ EDDS last_update 5}
+   Updated: ${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ EDDS last_update 5}
