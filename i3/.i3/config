@@ -163,7 +163,8 @@ bindsym XF86Calculator exec pavucontrol
 bindsym Print exec scrot '%Y-%m-%d-%k%M%S_$wx$h.png' -e 'mv $f ~/Screenshots/'
 bindsym $mod+period exec xscreensaver-command -lock
 bindsym XF86ScreenSaver exec xscreensaver-command -lock # x230
-bindsym XF86Display exec monitorctl -a
+#bindsym XF86Display exec monitorctl -a
+bindsym XF86Display exec autorandr -c
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
