@@ -33,27 +33,33 @@ show_graph_range no
 
 
 TEXT
-${time %F %H:%M:%S %a} --------------------------------------------------------------------------|---------------------||---------------------|----------------------
-   ${alignr}${loadgraph 30,720 4}
-   ${voffset -30}Load avg: ${loadavg} 
-   
-CPU ${cpubar cpu0 5,200} ${alignr}${cpu cpu0}% ------------------------------------------------------------------------------------------------------------------------------- CPU
-   ${top pid 1} ${top name 1} ${top cpu 1}% ${top mem 1}% ${top io_read 1} ${top io_write 1} ${alignr}${freq_g 1} GHz ${cpugraph cpu1 13,720 1}
-   ${top pid 2} ${top name 2} ${top cpu 2}% ${top mem 2}% ${top io_read 2} ${top io_write 2} ${alignr}${freq_g 2} GHz ${cpugraph cpu2 13,720 1}
-   ${top pid 3} ${top name 3} ${top cpu 3}% ${top mem 3}% ${top io_read 3} ${top io_write 3} ${alignr}${freq_g 3} GHz ${cpugraph cpu3 13,720 1}
-   ${top pid 4} ${top name 4} ${top cpu 4}% ${top mem 4}% ${top io_read 4} ${top io_write 4} ${alignr}${freq_g 4} GHz ${cpugraph cpu4 13,720 1}
+${time %F %H:%M:%S %a} --------------------------------------------------------------------------|---------------------||---------------------|----------------- Load
+   ${alignr}${loadgraph 70,720 4}
+   ${voffset -70}Load: ${loadavg}
+   CPU:  ${cpubar cpu0 5,400} ${cpu cpu0}% 
+   RAM:  ${membar 5,400} ${memperc}% 
+   Swap: ${swapbar 5,400} ${swapperc}%
+
+CPU -------------------------------------------------------------------------------------------------------------------------------------------------------------- CPU
+     PID Command             CPU     Mem    Read    Write ${alignr}${cpugraph cpu0 70,720 1}
+   ${voffset -70}${top pid 1} ${top name 1} ${top cpu 1}% ${top mem 1}% ${top io_read 1} ${top io_write 1}
+   ${top pid 2} ${top name 2} ${top cpu 2}% ${top mem 2}% ${top io_read 2} ${top io_write 2}
+   ${top pid 3} ${top name 3} ${top cpu 3}% ${top mem 3}% ${top io_read 3} ${top io_write 3}
+   ${top pid 4} ${top name 4} ${top cpu 4}% ${top mem 4}% ${top io_read 4} ${top io_write 4}
    ${top pid 5} ${top name 5} ${top cpu 5}% ${top mem 5}% ${top io_read 5} ${top io_write 5}
-Mem ${membar 5,200} ${alignr}${memperc}% ------------------------------------------------------------------------------------------------------------------------------- Mem
-   ${top_mem pid 1} ${top_mem name 1} ${top_mem cpu 1}% ${top_mem mem 1}% ${top_mem io_read 1} ${top_mem io_write 1} ${alignr}RAM: ${memgraph 13,720 1}
+Mem -------------------------------------------------------------------------------------------------------------------------------------------------------------- Mem
+     PID Command             CPU     Mem    Read    Write ${alignr}${memgraph 70,720 1}
+   ${voffset -70}${top_mem pid 1} ${top_mem name 1} ${top_mem cpu 1}% ${top_mem mem 1}% ${top_mem io_read 1} ${top_mem io_write 1}
    ${top_mem pid 2} ${top_mem name 2} ${top_mem cpu 2}% ${top_mem mem 2}% ${top_mem io_read 2} ${top_mem io_write 2}
-   ${top_mem pid 3} ${top_mem name 3} ${top_mem cpu 3}% ${top_mem mem 3}% ${top_mem io_read 3} ${top_mem io_write 3} ${alignr}Swap: ${swapbar 13,720}
+   ${top_mem pid 3} ${top_mem name 3} ${top_mem cpu 3}% ${top_mem mem 3}% ${top_mem io_read 3} ${top_mem io_write 3}
    ${top_mem pid 4} ${top_mem name 4} ${top_mem cpu 4}% ${top_mem mem 4}% ${top_mem io_read 4} ${top_mem io_write 4}
    ${top_mem pid 5} ${top_mem name 5} ${top_mem cpu 5}% ${top_mem mem 5}% ${top_mem io_read 5} ${top_mem io_write 5}
 I/O -------------------------------------------------------------------------------------------------------------------------------------------------------------- I/O
-   ${top_io pid 1} ${top_io name 1} ${top_io cpu 1}% ${top_io mem 1}% ${top_io io_read 1} ${top_io io_write 1} ${alignr}sdb r: ${diskiograph_read /dev/sdb 13,720}
-   ${top_io pid 2} ${top_io name 2} ${top_io cpu 2}% ${top_io mem 2}% ${top_io io_read 2} ${top_io io_write 2} ${alignr}    w: ${diskiograph_write /dev/sdb 13,720}
-   ${top_io pid 3} ${top_io name 3} ${top_io cpu 3}% ${top_io mem 3}% ${top_io io_read 3} ${top_io io_write 3} ${alignr}sda r: ${diskiograph_read /dev/sda 13,720}
-   ${top_io pid 4} ${top_io name 4} ${top_io cpu 4}% ${top_io mem 4}% ${top_io io_read 4} ${top_io io_write 4} ${alignr}    w: ${diskiograph_write /dev/sda 13,720}
+     PID Command             CPU     Mem    Read    Write ${alignr}sdb r: ${diskiograph_read /dev/sdb 13,720}
+   ${top_io pid 1} ${top_io name 1} ${top_io cpu 1}% ${top_io mem 1}% ${top_io io_read 1} ${top_io io_write 1} ${alignr}    w: ${diskiograph_write /dev/sdb 13,720}
+   ${top_io pid 2} ${top_io name 2} ${top_io cpu 2}% ${top_io mem 2}% ${top_io io_read 2} ${top_io io_write 2} ${alignr}sda r: ${diskiograph_read /dev/sda 13,720}
+   ${top_io pid 3} ${top_io name 3} ${top_io cpu 3}% ${top_io mem 3}% ${top_io io_read 3} ${top_io io_write 3} ${alignr}    w: ${diskiograph_write /dev/sda 13,720}
+   ${top_io pid 4} ${top_io name 4} ${top_io cpu 4}% ${top_io mem 4}% ${top_io io_read 4} ${top_io io_write 4}
    ${top_io pid 5} ${top_io name 5} ${top_io cpu 5}% ${top_io mem 5}% ${top_io io_read 5} ${top_io io_write 5}
 Network ------------------------------------------------------------------------------------------------------------------------------------------------------ Network
    enp0s25: ▼ ${downspeedf enp0s25} KiB/s    ▲ ${upspeedf enp0s25} KiB/s ${alignr}enp0s25 ▼: ${downspeedgraph enp0s25 13,720}
@@ -67,15 +73,9 @@ FS -----------------------------------------------------------------------------
                Size      Used                              Free ${goto 683}            Size      Used                              Free
    /        ${fs_size /}   ${fs_used /} ${fs_bar 5,200 /} ${fs_free /} ${goto 683}/data    ${fs_size /data}   ${fs_used /data} ${fs_bar 5,200 /data} ${fs_free /data}
    /home    ${fs_size /home}   ${fs_used /home} ${fs_bar 5,200 /home} ${fs_free /home} ${goto 683}/tmp     ${fs_size /tmp}   ${fs_used /tmp} ${fs_bar 5,200 /tmp} ${fs_free /tmp}
+
 Misc ------------------------------------------------------------------------------------------------------------------------------------------------------------ Misc
    ACPI temp: ${acpitemp}°C ${goto 683}AC adapter: ${acpiacadapter AC}
    CPU temp: ${hwmon 2 temp 1}°C (${hwmon 2 temp 2}°C,${hwmon 2 temp 3}°C) ${goto 683}Battery: ${battery BAT0} ${battery_bar 5,200 BAT0} ${battery_time BAT0}
    Fan: ${hwmon 1 fan 1} RPM ${goto 683}Laptop mode: ${laptop_mode}
    ${goto 683}Uptime: ${uptime}
-Weather ------------------------------------------------------------------------------------------------------------------------------------------------------ Weather
-   Temp: ${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ EDDS temperature 5}°C
-   Wind: ${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ EDDS wind_speed 5} km/h ${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ EDDS wind_dir 5}
-   Condition: ${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ EDDS weather 5}
-   Cloud: ${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ EDDS cloud_cover 5}
-   Humidity: ${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ EDDS humidity 5}%
-   Updated: ${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ EDDS last_update 5}
