@@ -2,9 +2,9 @@
 alignment top_left
 background no
 border_width 1
-cpu_avg_samples 5
-diskio_avg_samples 5
-net_avg_samples 5
+cpu_avg_samples 2
+diskio_avg_samples 2
+net_avg_samples 2
 default_color white
 default_outline_color white
 default_shade_color white
@@ -25,7 +25,7 @@ own_window yes
 own_window_class Conky
 own_window_type override
 stippled_borders 0
-update_interval 5.0
+update_interval 2.5
 uppercase no
 use_spacer left
 show_graph_scale no
@@ -55,25 +55,26 @@ Mem ----------------------------------------------------------------------------
    ${top_mem pid 4} ${top_mem name 4} ${top_mem cpu 4}% ${top_mem mem 4}% ${top_mem io_read 4} ${top_mem io_write 4}
    ${top_mem pid 5} ${top_mem name 5} ${top_mem cpu 5}% ${top_mem mem 5}% ${top_mem io_read 5} ${top_mem io_write 5}
 I/O -------------------------------------------------------------------------------------------------------------------------------------------------------------- I/O
-     PID Command             CPU     Mem    Read    Write ${alignr}sdb r: ${diskiograph_read /dev/sdb 13,720}
-   ${top_io pid 1} ${top_io name 1} ${top_io cpu 1}% ${top_io mem 1}% ${top_io io_read 1} ${top_io io_write 1} ${alignr}    w: ${diskiograph_write /dev/sdb 13,720}
-   ${top_io pid 2} ${top_io name 2} ${top_io cpu 2}% ${top_io mem 2}% ${top_io io_read 2} ${top_io io_write 2} ${alignr}sda r: ${diskiograph_read /dev/sda 13,720}
-   ${top_io pid 3} ${top_io name 3} ${top_io cpu 3}% ${top_io mem 3}% ${top_io io_read 3} ${top_io io_write 3} ${alignr}    w: ${diskiograph_write /dev/sda 13,720}
-   ${top_io pid 4} ${top_io name 4} ${top_io cpu 4}% ${top_io mem 4}% ${top_io io_read 4} ${top_io io_write 4}
-   ${top_io pid 5} ${top_io name 5} ${top_io cpu 5}% ${top_io mem 5}% ${top_io io_read 5} ${top_io io_write 5}
+     PID Command             CPU     Mem    Read    Write ${alignr}ssd r: ${diskio_read /dev/disk/by-id/ata-M4-CT256M4SSD3_0000000013140376A532} ${diskiograph_read /dev/disk/by-id/ata-M4-CT256M4SSD3_0000000013140376A532 13,720}
+   ${top_io pid 1} ${top_io name 1} ${top_io cpu 1}% ${top_io mem 1}% ${top_io io_read 1} ${top_io io_write 1} ${alignr}    w: ${diskio_write /dev/disk/by-id/ata-M4-CT256M4SSD3_0000000013140376A532} ${diskiograph_write /dev/disk/by-id/ata-M4-CT256M4SSD3_0000000013140376A532 13,720}
+   ${top_io pid 2} ${top_io name 2} ${top_io cpu 2}% ${top_io mem 2}% ${top_io io_read 2} ${top_io io_write 2} ${alignr}hdd r: ${diskio_read /dev/disk/by-id/ata-HGST_HTS725050A7E630_TF755AWHHMH2NM} ${diskiograph_read /dev/disk/by-id/ata-HGST_HTS725050A7E630_TF755AWHHMH2NM 13,720}
+   ${top_io pid 3} ${top_io name 3} ${top_io cpu 3}% ${top_io mem 3}% ${top_io io_read 3} ${top_io io_write 3} ${alignr}    w: ${diskio_write /dev/disk/by-id/ata-HGST_HTS725050A7E630_TF755AWHHMH2NM} ${diskiograph_write /dev/disk/by-id/ata-HGST_HTS725050A7E630_TF755AWHHMH2NM 13,720}
+   ${top_io pid 4} ${top_io name 4} ${top_io cpu 4}% ${top_io mem 4}% ${top_io io_read 4} ${top_io io_write 4} ${alignr}ext r: ${diskio_read /dev/disk/by-uuid/ed93888c-a68e-4e40-86f9-d45a8f8d4e61} ${diskiograph_read /dev/disk/by-uuid/ed93888c-a68e-4e40-86f9-d45a8f8d4e61 13,720}
+   ${top_io pid 5} ${top_io name 5} ${top_io cpu 5}% ${top_io mem 5}% ${top_io io_read 5} ${top_io io_write 5} ${alignr}    w: ${diskio_write /dev/disk/by-uuid/ed93888c-a68e-4e40-86f9-d45a8f8d4e61} ${diskiograph_write /dev/disk/by-uuid/ed93888c-a68e-4e40-86f9-d45a8f8d4e61 13,720}
+
 Network ------------------------------------------------------------------------------------------------------------------------------------------------------ Network
-   enp0s25: ▼ ${downspeedf enp0s25} KiB/s    ▲ ${upspeedf enp0s25} KiB/s ${alignr}enp0s25 ▼: ${downspeedgraph enp0s25 13,720}
-                     ${totaldown enp0s25}             ${totalup enp0s25} ${alignr}        ▲: ${upspeedgraph enp0s25 13,720}
-   wlp3s0:  ▼ ${downspeedf wlp3s0} KiB/s    ▲ ${upspeedf wlp3s0} KiB/s ${alignr}wlp3s0 ▼: ${downspeedgraph wlp3s0 13,720}
-                     ${totaldown wlp3s0}             ${totalup wlp3s0} ${alignr}       ▲: ${upspeedgraph wlp3s0 13,720}
+   enp0s25: ▼ ${totaldown enp0s25}    ▲  ${totalup enp0s25} ${alignr}enp0s25 ▼: ${downspeed enp0s25} ${downspeedgraph enp0s25 13,720}
+                                  ${alignr}        ▲: ${upspeed enp0s25} ${upspeedgraph enp0s25 13,720}
+   wlp3s0:  ▼ ${totaldown wlp3s0}    ▲ ${totalup wlp3s0} ${alignr}wlp3s0 ▼: ${downspeed wlp3s0} ${downspeedgraph wlp3s0 13,720}
+                                   ${alignr}       ▲: ${upspeed wlp3s0} ${upspeedgraph wlp3s0 13,720}
             ESSID: ${wireless_essid wlp3s0}
             Ch: ${wireless_channel wlp3s0} Freq: ${wireless_freq wlp3s0} Bitrate: ${wireless_bitrate wlp3s0}
             Link quality: ${wireless_link_bar 5,200 wlp3s0} ${wireless_link_qual_perc wlp3s0}%
 FS ---------------------------------------------------------------------------------------------------------------------------------------------------------------- FS
                Size      Used                              Free ${goto 683}            Size      Used                              Free
-   /        ${fs_size /}   ${fs_used /} ${fs_bar 5,200 /} ${fs_free /} ${goto 683}/data    ${fs_size /data}   ${fs_used /data} ${fs_bar 5,200 /data} ${fs_free /data}
-   /home    ${fs_size /home}   ${fs_used /home} ${fs_bar 5,200 /home} ${fs_free /home} ${goto 683}/tmp     ${fs_size /tmp}   ${fs_used /tmp} ${fs_bar 5,200 /tmp} ${fs_free /tmp}
-
+   /        ${fs_size /}   ${fs_used /} ${fs_bar 5,200 /} ${fs_free /} ${goto 683}/data     ${fs_size /data}   ${fs_used /data} ${fs_bar 5,200 /data} ${fs_free /data}
+   /home    ${fs_size /home}   ${fs_used /home} ${fs_bar 5,200 /home} ${fs_free /home} ${goto 683}/external ${fs_size /external}   ${fs_used /external} ${fs_bar 5,200 /external} ${fs_free /external}
+   ${goto 683}/tmp      ${fs_size /tmp}   ${fs_used /tmp} ${fs_bar 5,200 /tmp} ${fs_free /tmp}
 Misc ------------------------------------------------------------------------------------------------------------------------------------------------------------ Misc
    ACPI temp: ${acpitemp}°C ${goto 683}AC adapter: ${acpiacadapter AC}
    CPU temp: ${hwmon 2 temp 1}°C (${hwmon 2 temp 2}°C,${hwmon 2 temp 3}°C) ${goto 683}Battery: ${battery BAT0} ${battery_bar 5,200 BAT0} ${battery_time BAT0}
