@@ -67,3 +67,5 @@ dotfilesdir=$HOME/.dotfiles/zsh
 for zshfile ($dotfilesdir/*.zsh); do
 	source $zshfile
 done
+
+eval "$(fasd --init auto)"
