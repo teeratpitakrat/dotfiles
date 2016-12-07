@@ -67,6 +67,8 @@ Network ------------------------------------------------------------------------
                                   ${alignr}        ▲: ${upspeed enp0s25} ${upspeedgraph enp0s25 13,720}
    wlp3s0:  ▼ ${totaldown wlp3s0}    ▲ ${totalup wlp3s0} ${alignr}wlp3s0 ▼: ${downspeed wlp3s0} ${downspeedgraph wlp3s0 13,720}
                                    ${alignr}       ▲: ${upspeed wlp3s0} ${upspeedgraph wlp3s0 13,720}
+   tun0:    ▼ ${totaldown tun0}    ▲ ${totalup tun0} ${alignr}tun0 ▼: ${downspeed tun0} ${downspeedgraph tun0 13,720}
+                                   ${alignr}       ▲: ${upspeed tun0} ${upspeedgraph tun0 13,720}
             ESSID: ${wireless_essid wlp3s0}
             Link quality: ${wireless_link_bar 5,200 wlp3s0} ${wireless_link_qual_perc wlp3s0}%
 FS ---------------------------------------------------------------------------------------------------------------------------------------------------------------- FS
