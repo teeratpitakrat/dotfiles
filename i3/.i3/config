@@ -168,6 +168,10 @@ bindsym $mod+period exec i3lock -c 000000
 bindsym XF86ScreenSaver exec i3lock -c 000000 # x230
 bindsym XF86Display exec autorandr -c
 
+# Make the currently focused window a scratchpad
+bindsym $mod+m move scratchpad
+# Show the first scratchpad window
+bindsym $mod+o scratchpad show
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
