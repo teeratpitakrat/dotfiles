@@ -68,7 +68,6 @@ Network ------------------------------------------------------------------------
    wlp3s0:  ▼ ${totaldown wlp3s0}    ▲ ${totalup wlp3s0} ${alignr}wlp3s0 ▼: ${downspeed wlp3s0} ${downspeedgraph wlp3s0 13,720}
                                    ${alignr}       ▲: ${upspeed wlp3s0} ${upspeedgraph wlp3s0 13,720}
             ESSID: ${wireless_essid wlp3s0}
-            Ch: ${wireless_channel wlp3s0} Freq: ${wireless_freq wlp3s0} Bitrate: ${wireless_bitrate wlp3s0}
             Link quality: ${wireless_link_bar 5,200 wlp3s0} ${wireless_link_qual_perc wlp3s0}%
 FS ---------------------------------------------------------------------------------------------------------------------------------------------------------------- FS
                Size      Used                              Free ${goto 683}            Size      Used                              Free
@@ -79,4 +78,3 @@ Misc ---------------------------------------------------------------------------
    ACPI temp: ${acpitemp}°C ${goto 683}AC adapter: ${acpiacadapter AC}
    CPU temp: ${hwmon 2 temp 1}°C (${hwmon 2 temp 2}°C,${hwmon 2 temp 3}°C) ${goto 683}Battery: ${battery BAT0} ${battery_bar 5,200 BAT0} ${battery_time BAT0}
    Fan: ${hwmon 1 fan 1} RPM ${goto 683}Laptop mode: ${laptop_mode}
-   ${goto 683}Uptime: ${uptime}
