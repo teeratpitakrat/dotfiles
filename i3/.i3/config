@@ -163,7 +163,8 @@ bindsym XF86AudioMicMute exec /usr/bin/lenovo-toggle-mic
 bindsym XF86Calculator exec pavucontrol
 
 # misc
-bindsym Print exec scrot '%Y-%m-%d-%k%M%S_$wx$h.png' -e 'mv $f ~/Screenshots/'
+bindsym Print exec maim ~/Screenshots/$(date +%Y-%m-%d-%H%M%S).png
+bindsym $mod+Print exec maim -s ~/Screenshots/$(date +%Y-%m-%d-%H%M%S).png
 bindsym $mod+period exec i3lock -c 000000
 bindsym XF86ScreenSaver exec i3lock -c 000000 # x230
 bindsym XF86Display exec autorandr -c
