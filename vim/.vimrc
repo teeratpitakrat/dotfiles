@@ -1,65 +1,85 @@
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" NERDTree
+Plugin 'scrooloose/nerdtree'
+" ctrlp
+Plugin 'ctrlpvim/ctrlp.vim'
+" markdown
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+" airline status bar
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+" git
+Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter'
+" easymotion
+Plugin 'easymotion/vim-easymotion'
+" syntax checking
+"Plugin 'scrooloose/syntastic'
+" comment
+Plugin 'scrooloose/nerdcommenter'
+" color
+Plugin 'flazz/vim-colorschemes'
+" indentation line
+Plugin 'Yggdroot/indentLine'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+:let mapleader = ","
 syntax on
 set autoindent
-filetype plugin indent on
 set smartindent
 set tabstop=4
-set showtabline=2
 set shiftwidth=4
-set hls
+set hls " highlight
 set is
 set number
-set nospell
+set spell
 set wrap
-autocmd InsertEnter,InsertLeave * set cul! " cursorline in Insert mode
+set guifont=Droid\ Sans\ Mono\ Dotted\ 11
+set rnu
 colorscheme wombat
-source $VIMRUNTIME/macros/matchit.vim
 
-" vim-r plugin
-set nocompatible
-syntax enable
-filetype plugin on
-filetype indent on
-let vimrplugin_screenplugin = 0
+" NERDTree
+map <C-n> :NERDTreeToggle<CR>
 
-if has("autocmd")
-	au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
-endif
+" ctrlp
+let g:ctrlp_map = '<c-p>'
+"let g:ctrlp_show_hidden = 1
 
-" Mode Indication -Prominent!
-function! InsertStatuslineColor(mode)
-	if a:mode == 'i'
-		hi statusline guibg=red
-		set cursorcolumn
-	elseif a:mode == 'r'
-		hi statusline guibg=blue
-	else
-		hi statusline guibg= magenta
-	endif
-endfunction
-
-function! InsertLeaveActions()
-	hi statusline guibg=green
-	set nocursorcolumn
-endfunction
-
-au InsertEnter * call InsertStatuslineColor(v:insertmode)
-au InsertLeave * call InsertLeaveActions()
-
-" to handle exiting insert mode via a control-C
-inoremap <c-c> <c-o>:call InsertLeaveActions()<cr><c-c>
-
-" default the statusline to green when entering Vim
-hi statusline guibg=green
-
-" have a permanent statusline to color
+" airline
 set laststatus=2
 
-" latex-suite
-set grepprg=grep\ -nH\ $*
-let g:tex_flavor = "latex"
-set runtimepath=~/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,~/.vim/after
-let g:Tex_DefaultTargetFormat = 'pdf'
-let g:Tex_UseMakefile = 1
-let g:Tex_CompileRule_pdf = 'make'
-let g:Tex_ViewRule_dvi = 'okular'
-let g:Tex_ViewRule_pdf = 'okular'
+" gitgutter
+set updatetime=250
+
+" syntax checking
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
