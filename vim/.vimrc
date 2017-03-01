@@ -52,7 +52,6 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 :let mapleader = ","
 :let maplocalleader = ","
-let g:vimtex_view_method = 'zathura'
 syntax on
 set autoindent
 set smartindent
@@ -89,3 +88,8 @@ set updatetime=250
 "let g:syntastic_auto_loc_list = 1
 "let g:syntastic_check_on_open = 1
 "let g:syntastic_check_on_wq = 0
+
+" vimtex
+let g:vimtex_view_method = 'zathura'
+let g:vimtex_latexmk_continuous = 0
+let vimtex_latexmk_background = 1
