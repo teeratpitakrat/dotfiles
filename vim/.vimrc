@@ -31,6 +31,8 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'flazz/vim-colorschemes'
 " indentation line
 Plugin 'Yggdroot/indentLine'
+" latex
+Plugin 'lervag/vimtex'
 " vim tmux navigator
 Plugin 'christoomey/vim-tmux-navigator'
 
@@ -50,6 +52,7 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 :let mapleader = ","
 :let maplocalleader = ","
+let g:vimtex_view_method = 'zathura'
 syntax on
 set autoindent
 set smartindent
