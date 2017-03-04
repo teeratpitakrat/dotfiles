@@ -72,6 +72,11 @@ colorscheme atom-dark-256
 set foldmethod=syntax
 set foldnestmax=2
 
+" Remember last position when re-open a file
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
+
 " Eliminating delays on ESC in vim and zsh
 set timeoutlen=1000 ttimeoutlen=10
 
