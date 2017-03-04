@@ -28,13 +28,17 @@ Plugin 'easymotion/vim-easymotion'
 " comment
 Plugin 'scrooloose/nerdcommenter'
 " color
-Plugin 'flazz/vim-colorschemes'
+Plugin 'gosukiwi/vim-atom-dark'
 " indentation line
 Plugin 'Yggdroot/indentLine'
 " latex
 Plugin 'lervag/vimtex'
 " vim tmux navigator
 Plugin 'christoomey/vim-tmux-navigator'
+" vim-surround
+Plugin 'tpope/vim-surround'
+" golang
+Plugin 'fatih/vim-go'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -64,17 +68,23 @@ set spell
 set wrap
 set guifont=Droid\ Sans\ Mono\ Dotted\ 11
 set rnu
-colorscheme wombat
+colorscheme atom-dark-256
+set foldmethod=syntax
+set foldnestmax=2
+
+" Eliminating delays on ESC in vim and zsh
+set timeoutlen=1000 ttimeoutlen=10
 
 " NERDTree
 map <C-n> :NERDTreeToggle<CR>
 
 " ctrlp
 let g:ctrlp_map = '<c-p>'
-"let g:ctrlp_show_hidden = 1
+let g:ctrlp_cmd = 'CtrlPMixed'
 
 " airline
 set laststatus=2
+let g:airline_powerline_fonts = 1
 
 " gitgutter
 set updatetime=250
@@ -93,3 +103,5 @@ set updatetime=250
 let g:vimtex_view_method = 'zathura'
 let g:vimtex_latexmk_continuous = 0
 let vimtex_latexmk_background = 1
+let vimtex_fold_enabled = 1
+let vimtex_fold_manual = 1
