@@ -105,6 +105,7 @@ set updatetime=250
 "let g:syntastic_check_on_wq = 0
 
 " vimtex
+let g:tex_conceal = ""
 let g:vimtex_view_method = 'zathura'
 let g:vimtex_latexmk_continuous = 1
 let vimtex_latexmk_background = 1
