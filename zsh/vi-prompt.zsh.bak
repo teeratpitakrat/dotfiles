@@ -1,6 +1,8 @@
 # urxvt (and family) accepts even #RRGGBB
-INSERT_PROMPT="gray"
+INSERT_PROMPT="white"
 COMMAND_PROMPT="red"
+
+export KEYTIMEOUT=1
 
 # helper for setting color including all kinds of terminals
 set_prompt_color() {
