@@ -28,7 +28,7 @@ Plugin 'easymotion/vim-easymotion'
 " comment
 Plugin 'scrooloose/nerdcommenter'
 " color
-Plugin 'gosukiwi/vim-atom-dark'
+Plugin 'morhetz/gruvbox'
 " indentation line
 Plugin 'Yggdroot/indentLine'
 " latex
@@ -68,7 +68,6 @@ set spell
 set wrap
 set guifont=Droid\ Sans\ Mono\ Dotted\ 11
 set rnu
-colorscheme atom-dark-256
 set foldmethod=syntax
 set foldnestmax=2
 
@@ -79,6 +78,20 @@ endif
 
 " Eliminating delays on ESC in vim and zsh
 set timeoutlen=1000 ttimeoutlen=10
+
+" color
+set background=light
+let g:gruvbox_italic = 0
+let g:gruvbox_termcolors = 256
+let g:gruvbox_contrast_light = "hard"
+let g:gruvbox_contrast_dark = "hard"
+colorscheme gruvbox
+
+" easymotion highlight colors for readability in light themes
+hi link EasyMotionTarget Search
+hi link EasyMotionTarget2First Search
+hi link EasyMotionTarget2Second Search
+hi link EasyMotionShade Comment
 
 " NERDTree
 map <C-n> :NERDTreeToggle<CR>
