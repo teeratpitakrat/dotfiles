@@ -75,6 +75,7 @@ FS -----------------------------------------------------------------------------
    /home    ${fs_size /home}   ${fs_used /home} ${fs_bar 5,200 /home} ${fs_free /home} ${goto 683}/external ${fs_size /external}   ${fs_used /external} ${fs_bar 5,200 /external} ${fs_free /external}
    ${goto 683}/tmp      ${fs_size /tmp}   ${fs_used /tmp} ${fs_bar 5,200 /tmp} ${fs_free /tmp}
 Misc ------------------------------------------------------------------------------------------------------------------------------------------------------------ Misc
-   ACPI temp: ${acpitemp}°C ${goto 320}AC adapter: ${acpiacadapter AC}${goto 850}AoE: ${tztime Etc/GMT+12 %a %d.%m.%g %H:%M}${goto 1080}BKK: ${tztime Asia/Bangkok %a %d.%m.%g %H:%M}
-   CPU temp: ${hwmon 2 temp 1}°C (${hwmon 2 temp 2}°C,${hwmon 2 temp 3}°C) ${goto 320}Battery: ${battery BAT0} ${battery_bar 5,200 BAT0} ${battery_time BAT0}${goto 850}UTC: ${tztime UTC %a %d.%m.%g %H:%M}${goto 1080}BNE: ${tztime Australia/Brisbane %a %d.%m.%g %H:%M}
-   Fan: ${hwmon 1 fan 1} RPM ${goto 320}Laptop mode: ${laptop_mode}${goto 850}BER: ${tztime Europe/Berlin %a %d.%m.%g %H:%M}
+   ACPI temp: ${acpitemp}°C ${goto 320}AC adapter: ${acpiacadapter AC}${goto 850}AoE: ${tztime Etc/GMT+12 %a %d.%m.%g %H:%M}${goto 1080}BER: ${tztime Europe/Berlin %a %d.%m.%g %H:%M}
+   CPU temp: ${hwmon 2 temp 1}°C (${hwmon 2 temp 2}°C,${hwmon 2 temp 3}°C) ${goto 320}Battery: ${battery BAT0} ${battery_bar 5,200 BAT0} ${battery_time BAT0}${goto 850}LA:  ${tztime America/Los_Angeles %a %d.%m.%g %H:%M}${goto 1080}BKK: ${tztime Asia/Bangkok %a %d.%m.%g %H:%M}
+   Fan: ${hwmon 1 fan 1} RPM ${goto 320}Laptop mode: ${laptop_mode}${goto 850}NY:  ${tztime America/New_York %a %d.%m.%g %H:%M}${goto 1080}BNE: ${tztime Australia/Brisbane %a %d.%m.%g %H:%M}
+${goto 850}UTC: ${tztime UTC %a %d.%m.%g %H:%M}
