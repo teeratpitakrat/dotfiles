@@ -99,6 +99,7 @@ map <C-n> :NERDTreeToggle<CR>
 " ctrlp
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlPMixed'
+let g:ctrlp_clear_cache_on_exit=0
 
 " airline
 set laststatus=2
