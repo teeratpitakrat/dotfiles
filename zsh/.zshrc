@@ -68,7 +68,16 @@ for zshfile ($dotfilesdir/*.zsh); do
 	source $zshfile
 done
 
-# source tmuxinator
-source /usr/lib/ruby/gems/2.4.0/gems/tmuxinator-0.9.0/completion/tmuxinator.zsh
+if hash tmuxinator 2>/dev/null; then
+	source /usr/lib/ruby/gems/2.4.0/gems/tmuxinator-0.9.0/completion/tmuxinator.zsh
+fi
 
-eval "$(fasd --init auto)"
+if hash fasd 2>/dev/null; then
+	eval "$(fasd --init auto)"
+fi
+
+if [[ -z "$TMUX" ]]; then
+	if hash tmux 2>/dev/null; then
+		tmux
+	fi
+fi
