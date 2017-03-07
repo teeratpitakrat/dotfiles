@@ -39,6 +39,8 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'tpope/vim-surround'
 " golang
 Plugin 'fatih/vim-go'
+" ranger
+Plugin 'francoiscabrol/ranger.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -126,3 +128,7 @@ let g:vimtex_latexmk_continuous = 1
 let vimtex_latexmk_background = 1
 let vimtex_fold_enabled = 1
 let vimtex_fold_manual = 1
+
+" ranger
+let g:ranger_map_keys = 0
+map <leader>f :RangerNewTab<CR>
