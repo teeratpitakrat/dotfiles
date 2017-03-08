@@ -34,16 +34,6 @@ alias cd.......='cd ../../../../../..'
 alias cd........='cd ../../../../../../..'
 alias cd.........='cd ../../../../../../../..'
 
-# suffix aliases
-#alias -s pdf=evince
-
-# global aliases
-#alias -g G='| grep'
-#alias -g L='| less'
-
-# apps
-alias ev='evince'
-
 # arch
 alias y='yaourt'
 
@@ -98,14 +88,6 @@ alias sssm='svn status | grep "^[^?]"'
 alias sa='svn add'
 alias sc='svn commit'
 alias sl='svn log -l'
-
-# ssh
-alias apollo='ssh apollo'
-alias zeus='ssh zeus'
-alias pi='ssh pi'
-alias brisbane='ssh brisbane'
-alias brisbane-mildura='ssh brisbane-mildura'
-alias adelaide='ssh adelaide'
 
 # lpr
 alias lpr-recycled='lpr -o sides=two-sided-long-edge -staple -o MediaType=RECYCLED'
