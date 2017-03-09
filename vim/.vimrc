@@ -41,6 +41,8 @@ Plugin 'tpope/vim-surround'
 Plugin 'fatih/vim-go'
 " ranger
 Plugin 'francoiscabrol/ranger.vim'
+" undo
+Plugin 'sjl/gundo.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -132,3 +134,10 @@ let vimtex_fold_manual = 1
 " ranger
 let g:ranger_map_keys = 0
 map <leader>f :RangerNewTab<CR>
+
+" gundo
+nnoremap <F5> :GundoToggle<CR>
+let g:gundo_preview_bottom = 1
+let g:gundo_right = 1
+let g:gundo_help = 0
+let g:gundo_return_on_revert = 0
