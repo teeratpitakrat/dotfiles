@@ -25,6 +25,8 @@ floating_modifier $mod
 
 focus_follows_mouse no
 
+hide_edge_borders both
+
 # colorclass			border  backgr. text    indicator
 client.focused          #3BAADD #3BAADD #ffffff #2e9ef4
 client.focused_inactive #333333 #5f676a #ffffff #484e50
