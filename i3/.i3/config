@@ -217,7 +217,8 @@ bindsym $mod+r mode "resize"
 #        status_command i3status
 #}
 bar {
-	tray_output primary
+	tray_output DP2
+	tray_output LVDS1
 	#status_command $HOME/.i3/conky-i3bar
 	status_command i3status
 }
