@@ -74,6 +74,7 @@ set guifont=Droid\ Sans\ Mono\ Dotted\ 11
 set rnu
 set foldmethod=syntax
 set foldnestmax=2
+set conceallevel=0
 
 " Remember last position when re-open a file
 if has("autocmd")
