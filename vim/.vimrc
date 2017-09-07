@@ -126,7 +126,7 @@ set updatetime=250
 
 " vimtex
 let g:tex_conceal = ""
-let g:vimtex_view_method = 'zathura'
+let g:vimtex_view_general_viewer = 'qpdfview'
 let g:vimtex_latexmk_continuous = 1
 let vimtex_latexmk_background = 1
 let vimtex_fold_enabled = 1
