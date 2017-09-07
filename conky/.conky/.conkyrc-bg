@@ -39,7 +39,6 @@ ${time %F %H:%M:%S %a} ---------------------------------------------------------
    CPU:  ${cpubar cpu0 5,400} ${cpu cpu0}% 
    RAM:  ${membar 5,400} ${memperc}% 
    Swap: ${swapbar 5,400} ${swapperc}%
-
 CPU -------------------------------------------------------------------------------------------------------------------------------------------------------------- CPU
      PID Command             CPU     Mem    Read    Write ${alignr}${cpugraph cpu0 70,720 1}
    ${voffset -70}${top pid 1} ${top name 1} ${top cpu 1}% ${top mem 1}% ${top io_read 1} ${top io_write 1}
@@ -61,14 +60,11 @@ I/O ----------------------------------------------------------------------------
    ${top_io pid 3} ${top_io name 3} ${top_io cpu 3}% ${top_io mem 3}% ${top_io io_read 3} ${top_io io_write 3} ${alignr}    w: ${diskio_write /dev/disk/by-id/ata-HGST_HTS725050A7E630_TF755AWHHMH2NM} ${diskiograph_write /dev/disk/by-id/ata-HGST_HTS725050A7E630_TF755AWHHMH2NM 13,720}
    ${top_io pid 4} ${top_io name 4} ${top_io cpu 4}% ${top_io mem 4}% ${top_io io_read 4} ${top_io io_write 4} ${alignr}ext r: ${diskio_read /dev/disk/by-uuid/ed93888c-a68e-4e40-86f9-d45a8f8d4e61} ${diskiograph_read /dev/disk/by-uuid/ed93888c-a68e-4e40-86f9-d45a8f8d4e61 13,720}
    ${top_io pid 5} ${top_io name 5} ${top_io cpu 5}% ${top_io mem 5}% ${top_io io_read 5} ${top_io io_write 5} ${alignr}    w: ${diskio_write /dev/disk/by-uuid/ed93888c-a68e-4e40-86f9-d45a8f8d4e61} ${diskiograph_write /dev/disk/by-uuid/ed93888c-a68e-4e40-86f9-d45a8f8d4e61 13,720}
-
 Network ------------------------------------------------------------------------------------------------------------------------------------------------------ Network
    enp0s25: ▼ ${totaldown enp0s25}    ▲  ${totalup enp0s25} ${alignr}enp0s25 ▼: ${downspeed enp0s25} ${downspeedgraph enp0s25 13,720}
                                   ${alignr}        ▲: ${upspeed enp0s25} ${upspeedgraph enp0s25 13,720}
    wlp3s0:  ▼ ${totaldown wlp3s0}    ▲ ${totalup wlp3s0} ${alignr}wlp3s0 ▼: ${downspeed wlp3s0} ${downspeedgraph wlp3s0 13,720}
                                    ${alignr}       ▲: ${upspeed wlp3s0} ${upspeedgraph wlp3s0 13,720}
-            ESSID: ${wireless_essid wlp3s0} ${goto 683}${if_up vpn0}vpn0: ${blink CONNECTED}${endif}
-            Link quality: ${wireless_link_bar 5,200 wlp3s0} ${wireless_link_qual_perc wlp3s0}%
 FS ---------------------------------------------------------------------------------------------------------------------------------------------------------------- FS
                Size      Used                              Free ${goto 683}            Size      Used                              Free
    /        ${fs_size /}   ${fs_used /} ${fs_bar 5,200 /} ${fs_free /} ${goto 683}/data     ${fs_size /data}   ${fs_used /data} ${fs_bar 5,200 /data} ${fs_free /data}
