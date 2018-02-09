@@ -170,11 +170,12 @@ bindsym $mod+Ctrl+Right move workspace to output right
 # audio
 bindsym XF86AudioLowerVolume exec /usr/bin/pulseaudio-ctl down
 bindsym XF86AudioRaiseVolume exec /usr/bin/pulseaudio-ctl up
+#bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+#bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym Mod1+Shift+Down exec /usr/bin/pulseaudio-ctl down
 bindsym Mod1+Shift+Up exec /usr/bin/pulseaudio-ctl up
 bindsym XF86AudioMute exec /usr/bin/pulseaudio-ctl mute
 bindsym XF86AudioMicMute exec /usr/bin/lenovo-toggle-mic
-bindsym XF86Calculator exec galculator
 
 # misc
 bindsym Print exec maim ~/Screenshots/$(date +%Y-%m-%d-%H%M%S).png
