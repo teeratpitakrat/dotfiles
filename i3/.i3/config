@@ -183,6 +183,7 @@ bindsym $mod+Print exec maim -s ~/Screenshots/$(date +%Y-%m-%d-%H%M%S).png
 bindsym $mod+period exec i3lock -c 000000
 bindsym XF86ScreenSaver exec i3lock -c 000000 # x230
 bindsym XF86Display exec autorandr -c
+bindsym XF86Calculator exec galculator
 
 # Make the currently focused window a scratchpad
 bindsym $mod+m move scratchpad
