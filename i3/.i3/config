@@ -177,6 +177,10 @@ bindsym Mod1+Shift+Up exec /usr/bin/pulseaudio-ctl up
 bindsym XF86AudioMute exec /usr/bin/pulseaudio-ctl mute
 bindsym XF86AudioMicMute exec /usr/bin/lenovo-toggle-mic
 
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp exec xbacklight -inc 5 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 5 # decrease screen brightness
+
 # misc
 bindsym Print exec maim ~/Screenshots/$(date +%Y-%m-%d-%H%M%S).png
 bindsym $mod+Print exec maim -s ~/Screenshots/$(date +%Y-%m-%d-%H%M%S).png
