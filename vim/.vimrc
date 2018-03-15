@@ -76,6 +76,7 @@ set rnu
 set foldmethod=syntax
 set foldnestmax=2
 set conceallevel=0
+set paste
 
 " Remember last position when re-open a file
 if has("autocmd")
