@@ -41,6 +41,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'fatih/vim-go'
 " ranger
 Plugin 'francoiscabrol/ranger.vim'
+Plugin 'rbgrouleff/bclose.vim'
 " undo
 Plugin 'sjl/gundo.vim'
 
