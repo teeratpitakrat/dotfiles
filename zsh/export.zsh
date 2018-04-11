@@ -1,4 +1,4 @@
-export EDITOR=/usr/bin/vim
+export EDITOR=/usr/bin/nvim
 export PATH=$PATH:~/bin
 export PATH=$PATH:~/gsutil			# Add path to gsutil (google cloud storage tool)
 export PATH=$PATH:~/.gem/ruby/2.3.0/bin	# Add path to RubyGems
