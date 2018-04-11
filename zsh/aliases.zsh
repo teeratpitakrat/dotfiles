@@ -43,6 +43,7 @@ alias setdekey='setxkbmap -layout de -variant nodeadkeys'
 
 # Vim
 alias gvimtab='gvim --remote-tab-silent'
+alias vim='nvim'
 
 # git
 alias gst='git status'
