@@ -68,9 +68,9 @@ for zshfile ($dotfilesdir/*.zsh); do
 	source $zshfile
 done
 
-if hash tmuxinator 2>/dev/null; then
-	source /usr/lib/ruby/gems/2.4.0/gems/tmuxinator-0.9.0/completion/tmuxinator.zsh
-fi
+#if hash tmuxinator 2>/dev/null; then
+	#source /usr/lib/ruby/gems/2.5.0/gems/tmuxinator-0.11.1/bin/tmuxinator
+#fi
 
 if hash fasd 2>/dev/null; then
 	eval "$(fasd --init auto)"
