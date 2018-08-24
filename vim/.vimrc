@@ -76,6 +76,7 @@ set rnu
 set foldmethod=syntax
 set foldnestmax=2
 set conceallevel=0
+let g:indentLine_setConceal = 0
 set paste
 
 " Remember last position when re-open a file
