@@ -44,6 +44,8 @@ Plugin 'francoiscabrol/ranger.vim'
 Plugin 'rbgrouleff/bclose.vim'
 " undo
 Plugin 'sjl/gundo.vim'
+" vimdiff char
+Plugin 'rickhowe/diffchar.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
