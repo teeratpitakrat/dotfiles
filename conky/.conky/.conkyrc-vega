@@ -1,0 +1,97 @@
+conky.config = {
+alignment = 'top_middle',
+background = false,
+border_width = 1,
+cpu_avg_samples = 2,
+diskio_avg_samples = 2,
+net_avg_samples = 2,
+default_color = 'grey',
+default_outline_color = 'white',
+default_shade_color = 'white',
+draw_borders = false,
+draw_graph_borders = true,
+draw_outline = false,
+draw_shades = false,
+use_xft = true,
+font = 'DejaVu Sans Mono:size=10',
+gap_x = 25,
+gap_y = 15,
+minimum_height = 5,
+minimum_width = 5,
+double_buffer = true,
+out_to_console = false,
+out_to_stderr = false,
+extra_newline = false,
+own_window = true,
+own_window_class = 'Conky',
+own_window_type = 'override',
+stippled_borders = 0,
+update_interval = 1.5,
+uppercase = false,
+use_spacer = 'left',
+show_graph_scale = false,
+show_graph_range = false,
+xinerama_head = 0,
+}
+
+
+conky.text = [[
+${time %F %H:%M:%S %a} ------------------------------------------------------------30m------------------------------------|------------------------------------||------------------------------------|-------------------------------- Load
+   ${alignr}${loadgraph 40,1200 16}
+   ${voffset -40}Load avg: ${loadavg}
+
+CPU ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ CPU
+   ${cpubar cpu1 10,80} ${freq_g 1} GHz ${cpubar cpu2 10,80} ${freq_g 2} GHz ${cpubar cpu3 10,80} ${freq_g 3} GHz ${cpubar cpu4 10,80} ${freq_g 4} GHz ${alignr}${cpugraph cpu0 150,1200 1}
+   ${voffset -150}${cpubar cpu5 10,80} ${freq_g 5} GHz ${cpubar cpu6 10,80} ${freq_g 6} GHz ${cpubar cpu7 10,80} ${freq_g 7} GHz ${cpubar cpu8 10,80} ${freq_g 8} GHz
+   ${cpubar cpu9 10,80} ${freq_g 9} GHz ${cpubar cpu10 10,80} ${freq_g 10} GHz ${cpubar cpu11 10,80} ${freq_g 11} GHz ${cpubar cpu12 10,80} ${freq_g 12} GHz
+   ${cpubar cpu13 10,80} ${freq_g 13} GHz ${cpubar cpu14 10,80} ${freq_g 14} GHz ${cpubar cpu15 10,80} ${freq_g 15} GHz ${cpubar cpu16 10,80} ${freq_g 16} GHz
+
+   CPU Temperature: ${execi 2 sensors thinkpad-isa-0000 | grep "temp1:" | head -n 1 | cut -c 16-17}°C
+   Top CPU:  PID Name                CPU     Mem    Read    Write
+           ${top pid 1} ${top name 1} ${top cpu 1}% ${top mem 1}% ${top io_read 1} ${top io_write 1}
+           ${top pid 2} ${top name 2} ${top cpu 2}% ${top mem 2}% ${top io_read 2} ${top io_write 2}
+           ${top pid 3} ${top name 3} ${top cpu 3}% ${top mem 3}% ${top io_read 3} ${top io_write 3}
+
+Mem ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ Mem
+   RAM:    Used    Buffers   Cached     Total ${alignr}${memgraph 150,1200 1}
+         ${voffset -150}${mem} / ${buffers} / ${cached} / ${memmax}
+         ${membar 5,400} ${memperc}%
+   Swap: ${swap} / ${swapmax} 
+         ${swapbar 5,400} ${swapperc}%
+   Top Mem:  PID Name                CPU     Mem    Read    Write
+           ${top_mem pid 1} ${top_mem name 1} ${top_mem cpu 1}% ${top_mem mem 1}% ${top_mem io_read 1} ${top_mem io_write 1}
+           ${top_mem pid 2} ${top_mem name 2} ${top_mem cpu 2}% ${top_mem mem 2}% ${top_mem io_read 2} ${top_mem io_write 2}
+           ${top_mem pid 3} ${top_mem name 3} ${top_mem cpu 3}% ${top_mem mem 3}% ${top_mem io_read 3} ${top_mem io_write 3}
+
+I/O ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ I/O
+   SSD Temperature: ${execi 2 sensors nvme-pci-0100 | grep "Composite:" | cut -c 16-17}°C (${execi 2 sensors nvme-pci-0100 | grep "Sensor 1:" | cut -c 16-17}°C, ${execi 2 sensors nvme-pci-0100 | grep "Sensor 2:" | cut -c 16-17}°C)
+   Top I/O:  PID Name                CPU     Mem    Read    Write ${alignr}▲ ${diskio_read} ${diskiograph_read 30,1200}
+           ${voffset -30}${top_io pid 1} ${top_io name 1} ${top_io cpu 1}% ${top_io mem 1}% ${top_io io_read 1} ${top_io io_write 1} ${alignr}
+           ${top_io pid 2} ${top_io name 2} ${top_io cpu 2}% ${top_io mem 2}% ${top_io io_read 2} ${top_io io_write 2} ${alignr}    ▼ ${diskio_write} ${diskiograph_write 30,1200}
+           ${voffset -30}${top_io pid 3} ${top_io name 3} ${top_io cpu 3}% ${top_io mem 3}% ${top_io io_read 3} ${top_io io_write 3} ${alignr}
+
+Network ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- Network
+   Gateway Interface: ${gw_iface}         External IP: ${execi 600 curl -s ipinfo.io/ip}
+
+   enps5s0: IP: ${addr enps5s0} ${alignr}Total ▼ ${totaldown enps5s0}     Speed ▼ ${downspeed enps5s0} ${downspeedgraph enps5s0 30,1200}
+            ${voffset -30}Gateway: ${gw_ip enps5s0}
+              ${alignr} ▲ ${totalup enps5s0}           ▲ ${upspeed enps5s0} ${upspeedgraph enps5s0 30,1200}
+   ${voffset -10}wlan0:   IP: ${addr wlan0} ${alignr}Total ▼ ${totaldown wlan0}     Speed ▼ ${downspeed wlan0} ${downspeedgraph wlan0 30,1200}
+            ${voffset -30}Gateway: ${gw_ip wlan0} 
+              ${alignr} ▲ ${totalup wlan0}           ▲ ${upspeed wlan0} ${upspeedgraph wlan0 30,1200}
+            ${voffset -45}Bitrate: ${wireless_bitrate wlan0}
+            Signal: ${wireless_link_bar 5,150 wlan0} ${wireless_link_qual_perc wlan0}%
+            Card Temperature: ${execi 2 sensors iwlwifi_1-virtual-0 | grep "temp1:" | cut -c 16-17}°C
+
+FS -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- FS
+               Size      Used                                                                   Free ${goto 1000}            Size      Used                                                                   Free
+   /        ${fs_size /}   ${fs_used /} ${fs_bar 10,500 /} ${fs_free /} ${goto 1000}/boot    ${fs_size /boot}   ${fs_used /boot} ${fs_bar 10,500 /boot} ${fs_free /boot}
+   /home    ${fs_size /home}   ${fs_used /home} ${fs_bar 10,500 /home} ${fs_free /home} ${goto 1000}/tmp     ${fs_size /tmp}   ${fs_used /tmp} ${fs_bar 10,500 /tmp} ${fs_free /tmp}
+
+Misc ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- Misc
+   ACPI Temperature: ${acpitemp}°C ${goto 320}AC Adapter: ${acpiacadapter AC} ${goto 850}Laptop Mode: ${laptop_mode} ${goto 1200}Uptime: ${uptime}
+   GPU Temperature: ${execi 2 sensors amdgpu-pci-0700 | grep "edge:" | cut -c 16-17}°C ${goto 320}Battery Voltage: ${execi 2 sensors BAT0-acpi-0 | grep "in0:" | cut -c 15-19} V ${goto 850}Fan: ${execi 2 sensors thinkpad-isa-0000 | grep "fan1" | cut -c 14-17} RPM 
+
+   Battery: ${battery_bar 10,1750 BAT0}
+            Status: ${battery BAT0} ${alignr}Remaining time: ${battery_time BAT0}     
+]]
