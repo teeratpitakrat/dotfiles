@@ -41,10 +41,10 @@ ${time %F %H:%M:%S %a} ---------------------------------------------------------
    ${voffset -40}Load avg: ${loadavg}
 
 CPU ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ CPU
-   ${cpubar cpu1 10,80} ${freq_g 1} GHz ${cpubar cpu2 10,80} ${freq_g 2} GHz ${cpubar cpu3 10,80} ${freq_g 3} GHz ${cpubar cpu4 10,80} ${freq_g 4} GHz ${alignr}${cpugraph cpu0 150,1200 1}
-   ${voffset -150}${cpubar cpu5 10,80} ${freq_g 5} GHz ${cpubar cpu6 10,80} ${freq_g 6} GHz ${cpubar cpu7 10,80} ${freq_g 7} GHz ${cpubar cpu8 10,80} ${freq_g 8} GHz
-   ${cpubar cpu9 10,80} ${freq_g 9} GHz ${cpubar cpu10 10,80} ${freq_g 10} GHz ${cpubar cpu11 10,80} ${freq_g 11} GHz ${cpubar cpu12 10,80} ${freq_g 12} GHz
-   ${cpubar cpu13 10,80} ${freq_g 13} GHz ${cpubar cpu14 10,80} ${freq_g 14} GHz ${cpubar cpu15 10,80} ${freq_g 15} GHz ${cpubar cpu16 10,80} ${freq_g 16} GHz
+   ${cpubar cpu1 5,80} ${freq_g 1} GHz ${cpubar cpu2 5,80} ${freq_g 2} GHz ${cpubar cpu3 5,80} ${freq_g 3} GHz ${cpubar cpu4 5,80} ${freq_g 4} GHz ${alignr}${cpugraph cpu0 150,1200 1}
+   ${voffset -150}${cpubar cpu5 5,80} ${freq_g 5} GHz ${cpubar cpu6 5,80} ${freq_g 6} GHz ${cpubar cpu7 5,80} ${freq_g 7} GHz ${cpubar cpu8 5,80} ${freq_g 8} GHz
+   ${cpubar cpu9 5,80} ${freq_g 9} GHz ${cpubar cpu10 5,80} ${freq_g 10} GHz ${cpubar cpu11 5,80} ${freq_g 11} GHz ${cpubar cpu12 5,80} ${freq_g 12} GHz
+   ${cpubar cpu13 5,80} ${freq_g 13} GHz ${cpubar cpu14 5,80} ${freq_g 14} GHz ${cpubar cpu15 5,80} ${freq_g 15} GHz ${cpubar cpu16 5,80} ${freq_g 16} GHz
    ${voffset 5}CPU Temperature: ${execi 3 sensors thinkpad-isa-0000 | grep "temp1:" | head -n 1 | cut -c 16-17}°C
    ${voffset 5}Top CPU:  PID Name                CPU     Mem    Read    Write
            ${top pid 1} ${top name 1} ${top cpu 1}% ${top mem 1}% ${top io_read 1} ${top io_write 1}
