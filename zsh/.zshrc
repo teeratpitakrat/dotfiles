@@ -68,7 +68,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(timer git kubectl)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -106,7 +106,7 @@ export PATH="$PATH:$GOPATH/bin"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 alias vim='nvim'
-alias y='yaourt'
+alias y='yay'
 
 HISTFILE=~/.zsh_history
 HISTSIZE=SAVEHIST=1000000
