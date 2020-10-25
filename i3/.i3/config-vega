@@ -168,7 +168,7 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 5
 # misc
 bindsym Print exec maim ~/screenshots/$(date +%Y-%m-%d-%H%M%S).png
 bindsym $mod+Print exec maim -s ~/screenshots/$(date +%Y-%m-%d-%H%M%S).png
-bindsym $mod+period exec i3lock -f -c 000000
+bindsym $mod+period exec "xkb-switch -s us; i3lock -f -c 333333"
 bindsym XF86ScreenSaver exec i3lock -f -c 000000 # x230
 bindsym XF86Display exec autorandr -c
 bindsym XF86Calculator exec galculator
@@ -231,14 +231,14 @@ exec nm-applet &
 exec redshift-gtk &
 exec pasystray &
 exec blueman-applet &
-exec xautolock -detectsleep -time 10 -locker "i3lock -f -c 333333" -notify 60 -notifier "notify-send -u critical -t 25000 -- 'LOCKING screen in 60 seconds'"
+exec xautolock -detectsleep -time 10 -locker "xkb-switch -s us; i3lock -f -c 333333" -notify 30 -notifier "notify-send -u low -t 20000 -- 'Locking screen in 30 seconds'"
 exec dunst &
 
 # Autoload first detected profile
 exec_always autorandr -c
 
-# Suspend display after 9 min
-exec_always xset s 540
+# Suspend display after 9 min 50 seconds of inactivity
+exec_always xset s 590
 
 # Configure key repeat rate
 exec_always xset r rate 250 40
