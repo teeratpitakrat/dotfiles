@@ -168,7 +168,7 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 5
 # misc
 bindsym Print exec maim ~/screenshots/$(date +%Y-%m-%d-%H%M%S).png
 bindsym $mod+Print exec maim -s ~/screenshots/$(date +%Y-%m-%d-%H%M%S).png
-bindsym $mod+period exec "xkb-switch -s us; i3lock -f -c 333333"
+bindsym $mod+period exec "xkb-switch -s us; i3lock -e -f -i ~/pictures/i3lock.png"
 bindsym XF86ScreenSaver exec i3lock -f -c 000000 # x230
 bindsym XF86Display exec autorandr -c
 bindsym XF86Calculator exec galculator
