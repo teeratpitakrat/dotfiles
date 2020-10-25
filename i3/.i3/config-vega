@@ -220,9 +220,7 @@ for_window [class="Galculator"] floating enable
 bar {
 	tray_output eDP
 	tray_output HDMI-A-0
-	#status_command $HOME/.i3/conky-i3bar
 	status_command i3status
-	#status_command i3blocks
 }
 
 # Start scripts and applications
