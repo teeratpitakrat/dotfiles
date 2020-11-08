@@ -247,6 +247,6 @@ exec_always setxkbmap -option ctrl:nocaps
 # Also use CapsLock as escape
 exec_always xcape -e 'Control_L=Escape' -t 150
 # Set keyboard layout and language
-exec_always setxkbmap -option grp:lalt_lshift_toggle,grp_led:scroll us,de,th
+exec_always setxkbmap -option grp:alt_space_toggle us,de,th
 # Activate numlock
 exec_always numlockx
