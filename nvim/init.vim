@@ -39,10 +39,14 @@ Plug 'scrooloose/nerdcommenter'
 "Plug 'terryma/vim-multiple-cursors'
 
 " Autocomplete
-Plug 'ycm-core/YouCompleteMe'
+"Plug 'ycm-core/YouCompleteMe'
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Auto closing brackets
 "Plug 'jiangmiao/auto-pairs'
+
+" Allow moving between Vim panes and tmux splits seamlessly
+Plug 'christoomey/vim-tmux-navigator'
 
 call plug#end()
 
