@@ -219,9 +219,20 @@ for_window [class="Galculator"] floating enable
 #        status_command i3status
 #}
 bar {
-	tray_output eDP
-	tray_output HDMI-A-0
-	status_command i3status
+    tray_output eDP
+    tray_output HDMI-A-0
+    #status_command i3status
+    font pango:DejaVu Sans Mono, FontAwesome 10
+    status_command i3status-rs ~/.config/i3status-rust/config.toml
+    colors {
+        separator #666666
+        background #222222
+        statusline #dddddd
+        focused_workspace #0088CC #0088CC #ffffff
+        active_workspace #333333 #333333 #ffffff
+        inactive_workspace #333333 #333333 #888888
+        urgent_workspace #2f343a #900000 #ffffff
+    }
 }
 
 # Start scripts and applications
