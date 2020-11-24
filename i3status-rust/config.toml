@@ -5,9 +5,6 @@ icons = "awesome5"
 block = "load"
 interval = 1
 format = "{1m} {5m} {15m}"
-info = 8
-warning = 12
-critical = 16
 
 [[block]]
 block = "cpu"
@@ -23,11 +20,10 @@ collapsed = true
 interval = 10
 format = "{average}°"
 chip = "*-isa-*"
-inputs = ["temp1", "temp11"]
-good = 40
-idle = 70
-info = 80
-warning = 90
+inputs = ["temp1"]
+idle = 60
+info = 70
+warning = 80
 
 [[block]]
 block = "temperature"
@@ -36,7 +32,6 @@ interval = 10
 format = "{average}°"
 chip = "amdgpu-*"
 inputs = ["edge"]
-good = 30
 idle = 50
 info = 60
 warning = 80
@@ -76,8 +71,6 @@ interval = 10
 format = "{average}°"
 chip = "nvme-*"
 inputs = ["Composite", "Sensor 1", "Sensor 2"]
-good = 20
-idle = 45
 info = 50
 warning = 60
 
@@ -91,8 +84,8 @@ use_bits = false
 [[block]]
 block = "pacman"
 interval = 600
-format = "{pacman} updates available"
-format_singular = "{pacman} update available"
+format = "{pacman} updates"
+format_singular = "{pacman} update"
 #format_up_to_date = "system up to date"
 critical_updates_regex = "(linux |linux-lts|linux-zen)"
 
