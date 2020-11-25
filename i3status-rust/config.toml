@@ -71,6 +71,7 @@ interval = 10
 format = "{average}°"
 chip = "nvme-*"
 inputs = ["Composite", "Sensor 1", "Sensor 2"]
+idle = 45
 info = 50
 warning = 60
 
