@@ -236,6 +236,7 @@ bar {
 }
 
 # Start scripts and applications
+exec xsetroot -solid "#222222"
 exec conky -x 0 -c ~/.conkyrc &
 exec nm-applet &
 exec redshift-gtk &
