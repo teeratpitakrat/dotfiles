@@ -1,4 +1,4 @@
-theme = "solarized-dark"
+theme = "modern"
 icons = "awesome5"
 
 [[block]]
@@ -76,10 +76,19 @@ warning = 60
 
 [[block]]
 block = "net"
-device = "wlan0"
-format = "{signal_strength}"
+device = "enp5s0"
+format = "{speed_down} {speed_up}"
 interval = 5
 use_bits = false
+hide_inactive = true
+
+[[block]]
+block = "net"
+device = "wlan0"
+format = "{signal_strength} {speed_down} {speed_up}"
+interval = 5
+use_bits = false
+hide_inactive = true
 
 [[block]]
 block = "pacman"
