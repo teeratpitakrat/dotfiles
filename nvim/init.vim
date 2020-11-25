@@ -40,7 +40,7 @@ Plug 'scrooloose/nerdcommenter'
 
 " Autocomplete
 "Plug 'ycm-core/YouCompleteMe'
-"Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Auto closing brackets
 "Plug 'jiangmiao/auto-pairs'
