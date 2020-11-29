@@ -5,7 +5,7 @@ border_width = 1,
 cpu_avg_samples = 2,
 diskio_avg_samples = 2,
 net_avg_samples = 2,
-default_color = '#EEEEEE',
+default_color = '#DDDDDD',
 default_outline_color = 'white',
 default_shade_color = 'white',
 draw_borders = false,
@@ -37,7 +37,7 @@ xinerama_head = 0,
 
 
 conky.text = [[
-${time %F %H:%M:%S %a CW-%W} -------------------------------------------------------1h------------------------------------|------------------------------------||------------------------------------|-------------------------------- Load
+${time %F | %H:%M:%S | %a | CW-%V} -------------------------------------------------1h------------------------------------|------------------------------------||------------------------------------|-------------------------------- Load
    ${alignr}${loadgraph 40,1200 16}
    ${voffset -40}Load avg: ${loadavg}
 
