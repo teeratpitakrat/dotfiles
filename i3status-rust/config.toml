@@ -16,25 +16,25 @@ critical = 80
 
 [[block]]
 block = "temperature"
-collapsed = true
+collapsed = false
 interval = 10
 format = "{average}°"
 chip = "*-isa-*"
 inputs = ["temp1"]
-idle = 60
-info = 70
+idle = 70
+info = 75
 warning = 80
 
 [[block]]
 block = "temperature"
-collapsed = true
+collapsed = false
 interval = 10
 format = "{average}°"
 chip = "amdgpu-*"
 inputs = ["edge"]
-idle = 50
+idle = 55
 info = 60
-warning = 80
+warning = 70
 
 [[block]]
 block = "memory"
@@ -66,18 +66,26 @@ alert = 20.0
 
 [[block]]
 block = "temperature"
-collapsed = true
+collapsed = false
 interval = 10
 format = "{average}°"
 chip = "nvme-*"
 inputs = ["Composite", "Sensor 1", "Sensor 2"]
-idle = 45
-info = 50
+idle = 50
+info = 55
 warning = 60
 
 [[block]]
 block = "net"
 device = "enp5s0"
+format = "{speed_down} {speed_up}"
+interval = 5
+use_bits = false
+hide_inactive = true
+
+[[block]]
+block = "net"
+device = "enp5s0f0"
 format = "{speed_down} {speed_up}"
 interval = 5
 use_bits = false
@@ -94,10 +102,11 @@ hide_inactive = true
 [[block]]
 block = "pacman"
 interval = 600
-format = "{pacman} updates"
-format_singular = "{pacman} update"
-#format_up_to_date = "system up to date"
+format = "{pacman} + {aur} updates"
+format_singular = "{both} update"
+format_up_to_date = "0"
 critical_updates_regex = "(linux |linux-lts|linux-zen)"
+aur_command = "y -Qua"
 
 [[block]]
 block = "sound"
@@ -110,6 +119,10 @@ device = "amdgpu_bl0"
 block = "battery"
 driver = "upower"
 format = "{percentage}% {time}"
+
+#[[block]]
+#block = "keyboard_layout"
+#driver = "kbddbus"
 
 [[block]]
 block = "time"
