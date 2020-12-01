@@ -102,8 +102,8 @@ hide_inactive = true
 [[block]]
 block = "pacman"
 interval = 600
-format = "{pacman} + {aur} updates"
-format_singular = "{both} update"
+format = "{pacman} + {aur}"
+format_singular = "{both}"
 format_up_to_date = "0"
 critical_updates_regex = "(linux |linux-lts|linux-zen)"
 aur_command = "y -Qua"
