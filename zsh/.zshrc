@@ -68,7 +68,12 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(timer git kubectl helm)
+plugins=(timer tmux git docker kubectl helm)
+
+ZSH_TMUX_AUTOSTART=true
+ZSH_TMUX_AUTOSTART_ONCE=true
+ZSH_TMUX_AUTOCONNECT=false
+ZSH_TMUX_AUTOQUIT=true
 
 source $ZSH/oh-my-zsh.sh
 
@@ -112,19 +117,6 @@ HISTFILE=~/.zsh_history
 HISTSIZE=SAVEHIST=1000000
 setopt extended_history	# for time format
 setopt hist_verify		# do not directly execute command with !!
-
-if [[ -z "$TMUX" ]]; then # Do not start if this shell is already inside tmux
-	if tty | fgrep pts; then # Do not start tmux if the shell is running in tty
-		if hash tmux 2>/dev/null; then # Check if tmux is installed
-			ID="`tmux ls | grep -vm1 attached | cut -d: -f1`" # get the id of a deattached session
-			if [[ -z "$ID" ]] ;then # if not available create a new one
-				tmux new-session
-			else
-				tmux attach-session -t "$ID" # if available attach to it
-			fi
-		fi
-	fi
-fi
 
 rgr() {
 	if [ -z "$RANGER_LEVEL" ]
