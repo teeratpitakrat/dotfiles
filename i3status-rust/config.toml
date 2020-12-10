@@ -106,7 +106,7 @@ format = "{pacman} + {aur}"
 format_singular = "{both}"
 format_up_to_date = "0"
 critical_updates_regex = "(linux |linux-lts|linux-zen)"
-aur_command = "y -Qua"
+aur_command = "pikaur -Qua"
 
 [[block]]
 block = "sound"
