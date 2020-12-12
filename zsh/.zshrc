@@ -75,8 +75,6 @@ ZSH_TMUX_AUTOSTART_ONCE=true
 ZSH_TMUX_AUTOCONNECT=false
 ZSH_TMUX_AUTOQUIT=true
 
-source $ZSH/oh-my-zsh.sh
-
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 
@@ -87,6 +85,8 @@ source /usr/share/fzf/completion.zsh
 export EDITOR=nvim
 export GOPATH=~/go
 export PATH="$PATH:$GOPATH/bin"
+
+source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -126,4 +126,3 @@ rgr() {
 		exit
 	fi
 }
-
