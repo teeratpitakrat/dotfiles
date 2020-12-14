@@ -154,8 +154,8 @@ bindsym $mod+Ctrl+Down move workspace to output down
 bindsym $mod+Ctrl+Up move workspace to output up
 
 # audio
-bindsym XF86AudioLowerVolume exec /usr/bin/pulseaudio-ctl down
-bindsym XF86AudioRaiseVolume exec /usr/bin/pulseaudio-ctl up
+bindsym XF86AudioLowerVolume exec /usr/bin/pulseaudio-ctl down && dunstify --replace=2 -t 800 -u normal "Volume $(pamixer --get-volume)%"
+bindsym XF86AudioRaiseVolume exec /usr/bin/pulseaudio-ctl up && dunstify --replace=2 -t 800 -u normal "Volume $(pamixer --get-volume)%"
 bindsym Mod1+Shift+Down exec /usr/bin/pulseaudio-ctl down
 bindsym Mod1+Shift+Up exec /usr/bin/pulseaudio-ctl up
 bindsym XF86AudioMute exec /usr/bin/pulseaudio-ctl mute
@@ -163,8 +163,8 @@ bindsym XF86AudioMicMute exec /usr/bin/lenovo-toggle-mic
 bindcode 190 exec touch /tmp/micmute
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 5
-bindsym XF86MonBrightnessDown exec xbacklight -dec 5
+bindsym XF86MonBrightnessDown exec xbacklight -dec 5 && dunstify --replace=1 -t 800 -u normal "Brightness $(( $(cat /sys/class/backlight/amdgpu_bl0/actual_brightness)*100/255 ))%"
+bindsym XF86MonBrightnessUp exec xbacklight -inc 5 && dunstify --replace=1 -t 800 -u normal "Brightness $(( $(cat /sys/class/backlight/amdgpu_bl0/actual_brightness)*100/255 ))%"
 
 # misc
 bindsym Print exec maim ~/screenshots/$(date +%Y-%m-%d-%H%M%S).png
