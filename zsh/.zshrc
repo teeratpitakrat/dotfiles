@@ -84,7 +84,7 @@ source /usr/share/fzf/completion.zsh
 
 export EDITOR=nvim
 export GOPATH=~/go
-export PATH="$PATH:$GOPATH/bin"
+export PATH="$PATH:$HOME/bin:$GOPATH/bin"
 
 source $ZSH/oh-my-zsh.sh
 
