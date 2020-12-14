@@ -68,7 +68,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(timer tmux git docker kubectl helm)
+plugins=(timer tmux git docker kubectl helm golang)
 
 ZSH_TMUX_AUTOSTART=true
 ZSH_TMUX_AUTOSTART_ONCE=true
