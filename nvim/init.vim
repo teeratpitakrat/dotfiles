@@ -90,6 +90,8 @@ set undofile                        " Enable undo
 set undolevels=1000                 " How many undos
 set undoreload=10000                " Number of lines to save for undo
 
+set clipboard^=unnamed,unnamedplus
+
 " Easymotion highlight colors for readability in light themes
 hi link EasyMotionTarget Search
 hi link EasyMotionTarget2First Search
