@@ -48,6 +48,9 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Allow moving between Vim panes and tmux splits seamlessly
 Plug 'christoomey/vim-tmux-navigator'
 
+" Golang
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
