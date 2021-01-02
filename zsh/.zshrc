@@ -75,9 +75,6 @@ ZSH_TMUX_AUTOSTART_ONCE=true
 ZSH_TMUX_AUTOCONNECT=false
 ZSH_TMUX_AUTOQUIT=true
 
-source /usr/share/fzf/key-bindings.zsh
-source /usr/share/fzf/completion.zsh
-
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -87,6 +84,8 @@ export GOPATH=~/go
 export PATH="$PATH:$HOME/bin:$GOPATH/bin"
 
 source $ZSH/oh-my-zsh.sh
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
