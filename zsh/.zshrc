@@ -116,6 +116,7 @@ HISTFILE=~/.zsh_history
 HISTSIZE=SAVEHIST=1000000
 setopt extended_history	# for time format
 setopt hist_verify		# do not directly execute command with !!
+setopt nobanghist       # disable history expansion (!)
 
 rgr() {
 	if [ -z "$RANGER_LEVEL" ]
