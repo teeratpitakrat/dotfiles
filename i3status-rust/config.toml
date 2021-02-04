@@ -50,7 +50,7 @@ info_type = "used"
 unit = "GB"
 format = "{alias} {percentage}"
 interval = 20
-warning = 60.0
+warning = 70.0
 alert = 80.0
 
 [[block]]
@@ -61,8 +61,8 @@ info_type = "used"
 unit = "GB"
 format = "{alias} {percentage}"
 interval = 20
-warning = 60.0
-alert = 20.0
+warning = 70.0
+alert = 80.0
 
 [[block]]
 block = "temperature"
