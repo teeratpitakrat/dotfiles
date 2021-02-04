@@ -51,6 +51,9 @@ Plug 'christoomey/vim-tmux-navigator'
 " Golang
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
+" Rnvimr
+Plug 'kevinhwang91/rnvimr'
+
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -129,3 +132,18 @@ let g:ycm_enable_diagnostic_highlighting = 1
 let g:ycm_echo_current_diagnostic = 1
 let g:ycm_allow_changing_updatetime = 0
 let g:ycm_disable_for_files_larger_than_kb = 1000
+
+" Go to tab by number
+noremap <leader>1 1gt
+noremap <leader>2 2gt
+noremap <leader>3 3gt
+noremap <leader>4 4gt
+noremap <leader>5 5gt
+noremap <leader>6 6gt
+noremap <leader>7 7gt
+noremap <leader>8 8gt
+noremap <leader>9 9gt
+noremap <leader>0 :tablast<cr>
+
+" Ranger
+noremap <leader>t :RnvimrToggle<CR>
