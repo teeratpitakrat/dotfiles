@@ -105,34 +105,6 @@ nnoremap <silent> <leader>F :FZF ~<cr>
 nnoremap <silent> <leader>r :Rg<cr>
 let $FZF_DEFAULT_COMMAND='find .'
 
-"" Multi Cursors
-":let g:multi_cursor_use_default_mapping=0
-":let g:multi_cursor_start_word_key      = '<C-n>'
-":let g:multi_cursor_select_all_word_key = '<A-n>'
-":let g:multi_cursor_start_key           = 'g<C-n>'
-":let g:multi_cursor_select_all_key      = 'g<A-n>'
-":let g:multi_cursor_next_key            = '<C-n>'
-":let g:multi_cursor_prev_key            = '<C-p>'
-":let g:multi_cursor_skip_key            = '<C-x>'
-":let g:multi_cursor_quit_key            = '<Esc>'
-
-" YouCompleteMe
-"nnoremap jd :YcmCompleter GoTo<CR>
-nnoremap <leader>d :YcmCompleter GoTo<CR>
-let g:ycm_min_num_of_chars_for_completion = 2
-let g:ycm_min_num_identifier_candidate_chars = 0
-let g:ycm_max_num_candidates = 16
-let g:ycm_max_num_identifier_candidates = 10
-let g:ycm_auto_trigger = 1
-let g:ycm_show_diagnostics_ui = 1
-let g:ycm_error_symbol = '>>'
-let g:ycm_warning_symbol = '>>'
-let g:ycm_enable_diagnostic_signs = 1
-let g:ycm_enable_diagnostic_highlighting = 1
-let g:ycm_echo_current_diagnostic = 1
-let g:ycm_allow_changing_updatetime = 0
-let g:ycm_disable_for_files_larger_than_kb = 1000
-
 " Go to tab by number
 noremap <leader>1 1gt
 noremap <leader>2 2gt
