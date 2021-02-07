@@ -1,8 +1,8 @@
 if has('win32')
-	call plug#begin('~/AppData/Local/nvim/plugged')
+    call plug#begin('~/AppData/Local/nvim/plugged')
 endif
 if has('unix')
-	call plug#begin('~/.config/nvim/plugged')
+    call plug#begin('~/.config/nvim/plugged')
 endif
 
 " Color scheme
