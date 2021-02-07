@@ -122,9 +122,12 @@ noremap <leader>t :RnvimrToggle<CR>
 
 " Vim airline tab
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_tab_count = 0
 let g:airline#extensions#tabline#left_sep = ''
 let g:airline#extensions#tabline#left_alt_sep = '|'
-let g:airline#extensions#tabline#tab_nr_type = 1 "tab number
+let g:airline#extensions#tabline#tab_nr_type = 1 " showtab number
+let g:airline#extensions#tabline#show_tab_type = 0
+let g:airline#extensions#tabline#show_buffers = 0
 
 " Git gutter update interval
 set updatetime=200
