@@ -54,6 +54,12 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 " Rnvimr
 Plug 'kevinhwang91/rnvimr'
 
+" Yaml
+Plug 'stephpy/vim-yaml'
+
+" Indentation
+Plug 'Yggdroot/indentLine'
+
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
