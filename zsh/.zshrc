@@ -119,10 +119,14 @@ setopt hist_verify		# do not directly execute command with !!
 #setopt nobanghist       # disable history expansion (!)
 
 rgr() {
-	if [ -z "$RANGER_LEVEL" ]
-	then
-		ranger
-	else
-		exit
-	fi
+    if [ -z "$RANGER_LEVEL" ]
+    then
+        ranger
+    else
+        exit
+    fi
 }
+
+if [ -f ~/.config/nnn/nnnrc ]; then
+    source ~/.config/nnn/nnnrc
+fi
