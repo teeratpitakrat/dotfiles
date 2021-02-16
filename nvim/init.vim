@@ -60,6 +60,9 @@ Plug 'stephpy/vim-yaml'
 " Indentation
 Plug 'Yggdroot/indentLine'
 
+" nnn
+Plug 'mcchrish/nnn.vim'
+
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -137,3 +140,9 @@ let g:airline#extensions#tabline#show_buffers = 0
 
 " Git gutter update interval
 set updatetime=200
+
+" nnn
+let g:nnn#action = {
+      \ '<c-t>': 'tab split',
+      \ '<c-x>': 'split',
+      \ '<c-v>': 'vsplit' }
