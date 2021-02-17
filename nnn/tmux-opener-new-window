@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+
+FPATH="$1"
+EDITOR="${EDITOR:-vi}"
+
+if [ -n "${TMUX:-}" ]; then
+    tmux new-window "$EDITOR \"${FPATH}\""
+else
+    echo "Not in a Tmux session"
+    exit 1
+fi
