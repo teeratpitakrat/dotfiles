@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 export GUI=1
-export NNN_OPTS='EoRx'
+export NNN_OPTS='eEoRx'
 export NNN_BMS='d:~/downloads;p:~/pictures;t:/tmp;'
 #export NNN_OPENER=$HOME/.config/nnn/plugins/nuke
 export NNN_PLUG='b:bookmarks;t:treeview.local;d:diffs;c:chksum;%:tmux-opener-horizontal;":tmux-opener-vertical;w:tmux-opener-new-window;'
