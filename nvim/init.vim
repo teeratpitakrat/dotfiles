@@ -63,6 +63,10 @@ Plug 'Yggdroot/indentLine'
 " nnn
 Plug 'mcchrish/nnn.vim'
 
+" Markdown
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
+
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
