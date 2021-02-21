@@ -9,7 +9,7 @@ format = "{1m} {5m} {15m}"
 [[block]]
 block = "cpu"
 interval = 1
-format = "{barchart} {utilization}%"
+format = "{barchart} {utilization}"
 info = 30
 warning = 60
 critical = 80
