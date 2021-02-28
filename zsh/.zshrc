@@ -130,3 +130,12 @@ rgr() {
 if [ -f ~/.config/nnn/nnnrc ]; then
     source ~/.config/nnn/nnnrc
 fi
+
+lf() {
+    if [ -z "$LF_LEVEL" ]
+    then
+        command lf
+    else
+        exit 0
+    fi
+}
