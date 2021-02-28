@@ -5,6 +5,7 @@ export NNN_OPTS='eEoRx'
 export NNN_BMS='c:~/documents;d:~/downloads;p:~/pictures;t:/tmp;'
 #export NNN_OPENER=$HOME/.config/nnn/plugins/nuke
 export NNN_PLUG='b:bookmarks;c:chksum;d:diffs;g:_tig*;t:treeview.local;%:tmux-opener-horizontal;":tmux-opener-vertical;w:tmux-opener-new-window;'
+export NNN_TRASH=1
 
 n() {
     # Block nesting of nnn
