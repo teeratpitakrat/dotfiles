@@ -121,7 +121,7 @@ setopt hist_verify		# do not directly execute command with !!
 rgr() {
     if [ -z "$RANGER_LEVEL" ]
     then
-        ranger
+        command ranger
     else
         exit
     fi
