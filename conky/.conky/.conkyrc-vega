@@ -91,8 +91,8 @@ FS -----------------------------------------------------------------------------
    /home    ${fs_size /home}   ${fs_used /home} ${fs_bar 10,500 /home} ${fs_free /home} ${goto 960}/tmp    ${fs_size /tmp}   ${fs_used /tmp} ${fs_bar 10,500 /tmp} ${fs_free /tmp}
 
 Misc ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- Misc
-   ACPI Temperature: ${acpitemp}°C ${goto 320}AC Adapter: ${acpiacadapter AC} ${goto 640}Laptop Mode: ${laptop_mode} ${goto 960}Uptime: ${uptime} ${goto 1280}Entropy: ${entropy_avail} / ${entropy_poolsize} ${entropy_bar 5,150} ${entropy_perc}%
-   GPU Temperature: ${execi 10 sensors amdgpu-pci-0700 | grep "edge:" | cut -c 16-17}°C ${goto 320}Battery Voltage: ${execi 10 sensors BAT0-acpi-0 | grep "in0:" | cut -c 15-19} V ${goto 640}Fan: ${execi 10 sensors thinkpad-isa-0000 | grep "fan1" | cut -c 14-17} RPM  ${goto 960}
+   ACPI Temperature: ${acpitemp}°C ${goto 320}AC Adapter: ${acpiacadapter AC} ${goto 640}Laptop Mode: ${laptop_mode} ${goto 960}Uptime: ${uptime} ${goto 1280}Kernel: ${kernel}
+   GPU Temperature: ${execi 10 sensors amdgpu-pci-0700 | grep "edge:" | cut -c 16-17}°C ${goto 320}Battery Voltage: ${execi 10 sensors BAT0-acpi-0 | grep "in0:" | cut -c 15-19} V ${goto 640}Fan: ${execi 10 sensors thinkpad-isa-0000 | grep "fan1" | cut -c 14-17} RPM  ${goto 960} ${goto 1280}Entropy: ${entropy_avail} / ${entropy_poolsize} ${entropy_bar 5,150} ${entropy_perc}%
 
    Battery: ${battery_bar 10,1750 BAT0}
             Status: ${battery BAT0} ${alignr}Remaining time: ${battery_time BAT0}     
