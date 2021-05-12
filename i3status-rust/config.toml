@@ -18,7 +18,7 @@ critical = 80
 block = "temperature"
 collapsed = false
 interval = 10
-format = "{average}°"
+format = "{average}"
 chip = "*-isa-*"
 inputs = ["temp1"]
 idle = 70
@@ -29,7 +29,7 @@ warning = 80
 block = "temperature"
 collapsed = false
 interval = 10
-format = "{average}°"
+format = "{average}"
 chip = "amdgpu-*"
 inputs = ["edge"]
 idle = 55
@@ -39,16 +39,15 @@ warning = 70
 [[block]]
 block = "memory"
 display_type = "memory"
-format_mem = "{Mup}%"
-format_swap = "{SUp}%"
+format_mem = "{mem_total_used_percents}"
+format_swap = "{swap_used_percents}"
 
 [[block]]
 block = "disk_space"
 path = "/"
-alias = "/"
 info_type = "used"
 unit = "GB"
-format = "{alias} {percentage}"
+format = "/ {percentage}"
 interval = 20
 warning = 70.0
 alert = 80.0
@@ -56,10 +55,9 @@ alert = 80.0
 [[block]]
 block = "disk_space"
 path = "/home"
-alias = "/home"
 info_type = "used"
 unit = "GB"
-format = "{alias} {percentage}"
+format = "/home {percentage}"
 interval = 20
 warning = 70.0
 alert = 80.0
@@ -68,7 +66,7 @@ alert = 80.0
 block = "temperature"
 collapsed = false
 interval = 10
-format = "{average}°"
+format = "{average}"
 chip = "nvme-*"
 inputs = ["Composite", "Sensor 1", "Sensor 2"]
 idle = 50
@@ -80,7 +78,6 @@ block = "net"
 device = "enp5s0"
 format = "{speed_down} {speed_up}"
 interval = 5
-use_bits = false
 hide_inactive = true
 
 [[block]]
@@ -88,16 +85,14 @@ block = "net"
 device = "enp5s0f0"
 format = "{speed_down} {speed_up}"
 interval = 5
-use_bits = false
 hide_inactive = true
 
-[[block]]
-block = "net"
-device = "wlan0"
-format = "{signal_strength} {speed_down} {speed_up}"
-interval = 5
-use_bits = false
-hide_inactive = true
+#[[block]]
+#block = "net"
+#device = "wlan0"
+#format = "{signal_strength} {speed_down;K} {speed_up;K}"
+#interval = 5
+#hide_inactive = true
 
 [[block]]
 block = "pacman"
@@ -118,7 +113,7 @@ device = "amdgpu_bl0"
 [[block]]
 block = "battery"
 driver = "upower"
-format = "{percentage}% {time}"
+format = "{percentage} {time}"
 
 #[[block]]
 #block = "keyboard_layout"
