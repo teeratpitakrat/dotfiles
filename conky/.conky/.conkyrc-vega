@@ -88,7 +88,7 @@ Network ------------------------------------------------------------------------
 FS -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- FS
                Size      Used                                                                   Free ${goto 960}            Size      Used                                                                   Free
    /        ${fs_size /}   ${fs_used /} ${fs_bar 10,500 /} ${fs_free /} ${goto 960}/boot    ${fs_size /boot}   ${fs_used /boot} ${fs_bar 10,500 /boot} ${fs_free /boot}
-   /home    ${fs_size /home}   ${fs_used /home} ${fs_bar 10,500 /home} ${fs_free /home} ${goto 960}/tmp    ${fs_size /tmp}   ${fs_used /tmp} ${fs_bar 10,500 /tmp} ${fs_free /tmp}
+   /home    ${fs_size /home}   ${fs_used /home} ${fs_bar 10,500 /home} ${fs_free /home} ${goto 960}/tmp     ${fs_size /tmp}   ${fs_used /tmp} ${fs_bar 10,500 /tmp} ${fs_free /tmp}
 
 Misc ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- Misc
    ACPI Temperature: ${acpitemp}°C ${goto 320}AC Adapter: ${acpiacadapter AC} ${goto 640}Laptop Mode: ${laptop_mode} ${goto 960}Uptime: ${uptime} ${goto 1280}Kernel: ${kernel}
