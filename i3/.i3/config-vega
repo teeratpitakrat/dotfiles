@@ -169,8 +169,6 @@ bindsym $mod+Ctrl+Up move workspace to output up
 # audio
 bindsym XF86AudioLowerVolume exec /usr/bin/pamixer -d 5 && dunstify --replace=2 -t 800 -u normal "Volume $($HOME/bin/getProgressString 20 █ - $(pamixer --get-volume)) $(pamixer --get-volume)%"
 bindsym XF86AudioRaiseVolume exec /usr/bin/pamixer -i 5 && dunstify --replace=2 -t 800 -u normal "Volume $($HOME/bin/getProgressString 20 █ - $(pamixer --get-volume)) $(pamixer --get-volume)%"
-bindsym Mod1+Shift+Down exec /usr/bin/pamixer -d 5
-bindsym Mod1+Shift+Up exec /usr/bin/pamixer -i 5
 bindsym XF86AudioMute exec /usr/bin/pamixer --toggle-mute && dunstify --replace=2 -t 800 -u normal "Volume mute toggled"
 bindsym XF86AudioMicMute exec /usr/bin/lenovo-toggle-mic
 bindcode 190 exec touch /tmp/micmute
