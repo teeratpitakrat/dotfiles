@@ -24,7 +24,7 @@ Plug 'junegunn/fzf', { 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 
 " Nerdtree
-"Plug 'preservim/nerdtree'
+Plug 'preservim/nerdtree'
 
 " Ranger
 Plug 'rbgrouleff/bclose.vim'
