@@ -87,12 +87,12 @@ format = "{speed_down} {speed_up}"
 interval = 5
 hide_inactive = true
 
-#[[block]]
-#block = "net"
-#device = "wlan0"
-#format = "{signal_strength} {speed_down;K} {speed_up;K}"
-#interval = 5
-#hide_inactive = true
+[[block]]
+block = "net"
+device = "wlan0"
+format = "{signal_strength} {speed_down;K} {speed_up;K}"
+interval = 5
+hide_inactive = true
 
 [[block]]
 block = "pacman"
