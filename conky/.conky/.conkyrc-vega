@@ -75,9 +75,9 @@ I/O ----------------------------------------------------------------------------
 Network ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- Network
    Gateway Interface: ${gw_iface}    DNS: ${nameserver}    External IP: ${execi 600 curl -s ipinfo.io/ip}
 
-   enps5s0: IP: ${addr enps5s0} ${alignr}Total ▼ ${totaldown enps5s0}     Speed ▼ ${downspeed enps5s0} ${downspeedgraph enps5s0 30,1200}
-            ${voffset -30}Gateway: ${gw_ip enps5s0}
-              ${alignr} ▲ ${totalup enps5s0}           ▲ ${upspeed enps5s0} ${upspeedgraph enps5s0 30,1200}
+   enp5s0: IP: ${addr enp5s0} ${alignr}Total ▼ ${totaldown enp5s0}     Speed ▼ ${downspeed enp5s0} ${downspeedgraph enp5s0 30,1200}
+            ${voffset -30}Gateway: ${gw_ip enp5s0}
+              ${alignr} ▲ ${totalup enp5s0}           ▲ ${upspeed enp5s0} ${upspeedgraph enp5s0 30,1200}
    ${voffset -10}wlan0:   IP: ${addr wlan0} ${alignr}Total ▼ ${totaldown wlan0}     Speed ▼ ${downspeed wlan0} ${downspeedgraph wlan0 30,1200}
             ${voffset -30}Gateway: ${gw_ip wlan0} 
               ${alignr} ▲ ${totalup wlan0}           ▲ ${upspeed wlan0} ${upspeedgraph wlan0 30,1200}
