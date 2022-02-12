@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<aj-snapshot>
+<jack>
+  <client name="system">
+    <port name="capture_1">
+      <connection port="mixer-inputs:Mic" />
+    </port>
+    <port name="capture_2">
+      <connection port="gx_head_amp:in_0" />
+    </port>
+    <port name="capture_3">
+      <connection port="mixer-inputs:Line L" />
+    </port>
+    <port name="capture_4">
+      <connection port="mixer-inputs:Line R" />
+    </port>
+  </client>
+  <client name="PulseAudio JACK Sink">
+    <port name="front-left">
+      <connection port="mixer-inputs:pulseaudio L" />
+    </port>
+    <port name="front-right">
+      <connection port="mixer-inputs:pulseaudio R" />
+    </port>
+  </client>
+  <client name="a2j">
+    <port name="Midi Through [14] (capture): Midi Through Port-0" />
+    <port name="M4 [28] (capture): M4 MIDI 1" />
+  </client>
+  <client name="PulseAudio JACK Sink-01">
+    <port name="front-left">
+      <connection port="system:playback_1" />
+    </port>
+    <port name="front-right">
+      <connection port="system:playback_2" />
+    </port>
+  </client>
+  <client name="Jamulus">
+    <port name="output left">
+      <connection port="mixer-outputs:Jamulus L" />
+    </port>
+    <port name="output right">
+      <connection port="mixer-outputs:Jamulus R" />
+    </port>
+  </client>
+  <client name="mixer-inputs">
+    <port name="midi out" />
+  </client>
+  <client name="mixer-outputs">
+    <port name="midi out" />
+  </client>
+  <client name="zynaddsubfx">
+    <port name="out_1">
+      <connection port="mixer-inputs:Zyn L" />
+    </port>
+    <port name="out_2">
+      <connection port="mixer-inputs:Zyn R" />
+    </port>
+  </client>
+  <client name="mixer-inputs">
+    <port name="Monitor L" />
+    <port name="Monitor R" />
+  </client>
+  <client name="mixer-outputs">
+    <port name="Monitor L" />
+    <port name="Monitor R" />
+  </client>
+  <client name="mixer-inputs">
+    <port name="Hydrogen Out L" />
+    <port name="Hydrogen Out R" />
+  </client>
+  <client name="mixer-outputs">
+    <port name="Jamulus Out L" />
+    <port name="Jamulus Out R" />
+  </client>
+  <client name="mixer-inputs">
+    <port name="Zyn Out L" />
+    <port name="Zyn Out R" />
+  </client>
+  <client name="mixer-outputs">
+    <port name="mixer-inputs Out L" />
+  </client>
+  <client name="mixer-inputs">
+    <port name="qsampler Out L" />
+  </client>
+  <client name="mixer-outputs">
+    <port name="mixer-inputs Out R" />
+  </client>
+  <client name="mixer-inputs">
+    <port name="qsampler Out R" />
+  </client>
+  <client name="mixer-outputs">
+    <port name="Output L">
+      <connection port="system:playback_1" />
+    </port>
+    <port name="Output R">
+      <connection port="system:playback_2" />
+    </port>
+  </client>
+  <client name="mixer-inputs">
+    <port name="pulseaudio Out L" />
+    <port name="pulseaudio Out R" />
+  </client>
+  <client name="mixer-outputs">
+    <port name="Broadcast L">
+      <connection port="PulseAudio JACK Source:front-left" />
+    </port>
+    <port name="Broadcast R">
+      <connection port="PulseAudio JACK Source:front-right" />
+    </port>
+  </client>
+  <client name="mixer-inputs">
+    <port name="Guitarix Out L" />
+    <port name="Guitarix Out R" />
+    <port name="Mic Out" />
+  </client>
+  <client name="Hydrogen">
+    <port name="out_L">
+      <connection port="mixer-inputs:Hydrogen L" />
+    </port>
+    <port name="out_R">
+      <connection port="mixer-inputs:Hydrogen R" />
+    </port>
+  </client>
+  <client name="mixer-inputs">
+    <port name="Line Out L" />
+  </client>
+  <client name="Hydrogen-midi">
+    <port name="TX" />
+  </client>
+  <client name="mixer-inputs">
+    <port name="Line Out R" />
+    <port name="Output L">
+      <connection port="Jamulus:input left" />
+      <connection port="mixer-outputs:mixer-inputs L" />
+    </port>
+    <port name="Output R">
+      <connection port="Jamulus:input right" />
+      <connection port="mixer-outputs:mixer-inputs R" />
+    </port>
+  </client>
+  <client name="gx_head_amp">
+    <port name="out_0">
+      <connection port="gx_head_fx:in_0" />
+    </port>
+    <port name="midi_out_1" />
+  </client>
+  <client name="gx_head_fx">
+    <port name="out_0">
+      <connection port="mixer-inputs:Guitarix L" />
+    </port>
+    <port name="out_1">
+      <connection port="mixer-inputs:Guitarix R" />
+    </port>
+  </client>
+  <client name="LinuxSampler">
+    <port name="0">
+      <connection port="mixer-inputs:qsampler L" />
+    </port>
+    <port name="1">
+      <connection port="mixer-inputs:qsampler R" />
+    </port>
+  </client>
+  <client name="LinuxSampler1">
+    <port name="0">
+      <connection port="gx_head_amp:in_0" />
+    </port>
+    <port name="1">
+      <connection port="gx_head_amp:in_0" />
+    </port>
+  </client>
+  <client name="a2j_bridge">
+    <port name="capture">
+      <connection port="LinuxSampler:piano" />
+    </port>
+  </client>
+</jack>
+</aj-snapshot>

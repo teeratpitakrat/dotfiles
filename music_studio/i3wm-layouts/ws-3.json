@@ -1,0 +1,161 @@
+// vim:ts=4:sw=4:et
+{
+    // splith split container with 3 children
+    "border": "pixel",
+    "floating": "auto_off",
+    "layout": "splitv",
+    "marks": [],
+    "percent": 0.5,
+    "type": "con",
+    "nodes": [
+        {
+            // splith split container with 3 children
+            "border": "pixel",
+            "floating": "auto_off",
+            "layout": "splith",
+            "marks": [],
+            "percent": 0.5,
+            "type": "con",
+            "nodes": [
+                {
+                    "border": "pixel",
+                    "current_border_width": 3,
+                    "floating": "auto_off",
+                    "geometry": {
+                        "height": 1052,
+                        "width": 1000,
+                        "x": 960,
+                        "y": 0
+                    },
+                    "marks": [],
+                    "name": "Hydrogen 1.1.0- - Untitled Song",
+                    "percent": 0.333333333333333,
+                    "swallows": [
+                        {
+                            "class": "^Hydrogen$",
+                            "title": "^Hydrogen .*$"
+                        }
+                    ],
+                    "type": "con"
+                },
+                {
+                    "border": "pixel",
+                    "current_border_width": 3,
+                    "floating": "user_off",
+                    "geometry": {
+                        "height": 335,
+                        "width": 600,
+                        "x": 1,
+                        "y": 20
+                    },
+                    "marks": [],
+                    "name": "ZynAddSubFX",
+                    "percent": 0.333333333333333,
+                    "swallows": [
+                        {
+                            "title": "^ZynAddSubFX .*$"
+                        }
+                    ],
+                    "type": "con"
+                },
+                {
+                    "border": "pixel",
+                    "current_border_width": 3,
+                    "floating": "auto_off",
+                    "geometry": {
+                        "height": 1052,
+                        "width": 620,
+                        "x": 1203,
+                        "y": 20
+                    },
+                    "marks": [],
+                    "name": "Jamulus",
+                    "percent": 0.333333333333333,
+                    "swallows": [
+                        {
+                            "class": "^Jamulus$",
+                            "title": "^Jamulus$"
+                        }
+                    ],
+                    "type": "con"
+                }
+            ]
+        },
+
+        {
+            // splith split container with 3 children
+            "border": "pixel",
+            "floating": "auto_off",
+            "layout": "splith",
+            "marks": [],
+            "percent": 0.5,
+            "type": "con",
+            "nodes": [
+                {
+                    "border": "pixel",
+                    "current_border_width": 3,
+                    "floating": "auto_off",
+                    "geometry": {
+                        "height": 420,
+                        "width": 420,
+                        "x": 0,
+                        "y": 0
+                    },
+                    "marks": [],
+                    "name": "mixer-inputs",
+                    "percent": 0.408333333333333,
+                    "swallows": [
+                        {
+                            "class": "^Jack_mixer$",
+                            "title": "^mixer\\-inputs$"
+                        }
+                    ],
+                    "type": "con"
+                },
+                {
+                    "border": "pixel",
+                    "current_border_width": 3,
+                    "floating": "auto_off",
+                    "geometry": {
+                        "height": 420,
+                        "width": 420,
+                        "x": 0,
+                        "y": 0
+                    },
+                    "marks": [],
+                    "name": "mixer-outputs",
+                    "percent": 0.333333333333333,
+                    "swallows": [
+                        {
+                            "class": "^Jack_mixer$",
+                            "title": "^mixer\\-outputs$"
+                        }
+                    ],
+                    "type": "con"
+                },
+                {
+                    "border": "pixel",
+                    "current_border_width": 3,
+                    "floating": "auto_off",
+                    "geometry": {
+                        "height": 1052,
+                        "width": 474,
+                        "x": 483,
+                        "y": 20
+                    },
+                    "marks": [],
+                    "name": "PulseAudio Volume Control",
+                    "percent": 0.258333333333333,
+                    "swallows": [
+                        {
+                            "class": "^Pavucontrol$",
+                            "title": "Volume Control"
+                        }
+                    ],
+                    "type": "con"
+                }
+            ]
+        }
+    ]
+}
+
