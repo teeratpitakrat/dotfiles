@@ -14,7 +14,7 @@ sleep 2
 # Start applications
 i3-msg "workspace 3; append_layout ~/.dotfiles/music_studio/i3wm-layouts/ws-3.json"
 hydrogen &
-zynaddsubfx &
+guitarix &
 Jamulus &
 jack_mixer -c ~/.dotfiles/music_studio/jack-mixers/inputs.xml mixer-inputs &
 jack_mixer -c ~/.dotfiles/music_studio/jack-mixers/outputs.xml mixer-outputs &
@@ -23,11 +23,11 @@ sleep 2
 
 i3-msg "workspace 4; append_layout ~/.dotfiles/music_studio/i3wm-layouts/ws-4.json"
 qsampler ~/.dotfiles/music_studio/qsampler/sampler.lscp &
-guitarix &
+zynaddsubfx &
+qjackctl &
 sleep 10
 
-#qjackctl &
 #jack-keyboard &
 
 # Clear and restore connections
-aj-snapshot -jxr ~/.dotfiles/music_studio/jack-connections/studio
+aj-snapshot -ajxr ~/.dotfiles/music_studio/jack-connections/studio
