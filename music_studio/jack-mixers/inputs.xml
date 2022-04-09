@@ -1,8 +1,8 @@
 <?xml version="1.0" ?>
-<jack_mixer geometry="1051x523" paned_position="857" visible="True">
-	<input_channel name="Hydrogen" type="stereo" direct_output="True" volume="-1.610397" balance="0.000000" wide="True" meter_prefader="False" out_mute="False" volume_midi_cc="11" balance_midi_cc="12" mute_midi_cc="13" solo_midi_cc="14"/>
+<jack_mixer geometry="762x523" paned_position="631" visible="True">
+	<input_channel name="Hydrogen" type="stereo" direct_output="True" volume="3.000000" balance="0.000000" wide="True" meter_prefader="False" out_mute="False" volume_midi_cc="11" balance_midi_cc="12" mute_midi_cc="13" solo_midi_cc="14"/>
 	<input_channel name="Zyn" type="stereo" direct_output="True" volume="-4.800000" balance="0.000000" wide="True" meter_prefader="False" out_mute="False" volume_midi_cc="15" balance_midi_cc="16" mute_midi_cc="17" solo_midi_cc="18"/>
-	<input_channel name="qsampler" type="stereo" direct_output="True" volume="-3.600000" balance="0.000000" wide="True" meter_prefader="False" out_mute="False" volume_midi_cc="26" balance_midi_cc="27" mute_midi_cc="28" solo_midi_cc="29"/>
+	<input_channel name="qsampler" type="stereo" direct_output="True" volume="0.000000" balance="0.000000" wide="True" meter_prefader="False" out_mute="False" volume_midi_cc="26" balance_midi_cc="27" mute_midi_cc="28" solo_midi_cc="29"/>
 	<input_channel name="pulseaudio" type="stereo" direct_output="True" volume="0.029577" balance="0.000000" wide="True" meter_prefader="False" out_mute="False" volume_midi_cc="38" balance_midi_cc="39" mute_midi_cc="40" solo_midi_cc="41"/>
 	<input_channel name="Guitarix" type="stereo" direct_output="True" volume="0.000000" balance="0.000000" wide="True" meter_prefader="False" out_mute="False" volume_midi_cc="42" balance_midi_cc="43" mute_midi_cc="44" solo_midi_cc="45"/>
 	<input_channel name="Mic" type="mono" direct_output="True" volume="0.000000" balance="0.000000" wide="True" meter_prefader="False" out_mute="False" volume_midi_cc="19" balance_midi_cc="20" mute_midi_cc="21" solo_midi_cc="22"/>
