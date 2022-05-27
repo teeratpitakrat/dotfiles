@@ -228,6 +228,8 @@ mode "resize" {
 
 for_window [class="Galculator"] floating enable
 for_window [class="KeePassXC"] floating enable
+for_window [class="Jack-keyboard"] floating enable
+for_window [class="Zynaddsubfx"] floating disable
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
