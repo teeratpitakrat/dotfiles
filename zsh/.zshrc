@@ -58,7 +58,7 @@ COMPLETION_WAITING_DOTS="true"
 # "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # or set a custom format using the strftime function format specifications,
 # see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
+HIST_STAMPS="yyyy-mm-dd"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -68,9 +68,8 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(timer tmux git docker kubectl helm golang ng zsh-kubectl-prompt)
-
-RPROMPT='%{$fg[blue]%}($ZSH_KUBECTL_PROMPT)%{$reset_color%}'
+#plugins=(timer tmux git docker kubectl helm golang ng zsh-kubectl-prompt)
+plugins=(timer tmux git kubectl)
 
 ZSH_TMUX_AUTOSTART=true
 ZSH_TMUX_AUTOSTART_ONCE=true
@@ -125,6 +124,8 @@ HISTSIZE=SAVEHIST=1000000
 setopt extended_history	# for time format
 setopt hist_verify		# do not directly execute command with !!
 #setopt nobanghist       # disable history expansion (!)
+
+#unsetopt autopushd
 
 rgr() {
     if [ -z "$RANGER_LEVEL" ]
