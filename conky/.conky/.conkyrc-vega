@@ -46,7 +46,7 @@ CPU ----------------------------------------------------------------------------
    ${voffset -150}${cpubar cpu5 5,80} ${freq_g 5} GHz ${cpubar cpu6 5,80} ${freq_g 6} GHz ${cpubar cpu7 5,80} ${freq_g 7} GHz ${cpubar cpu8 5,80} ${freq_g 8} GHz
    ${cpubar cpu9 5,80} ${freq_g 9} GHz ${cpubar cpu10 5,80} ${freq_g 10} GHz ${cpubar cpu11 5,80} ${freq_g 11} GHz ${cpubar cpu12 5,80} ${freq_g 12} GHz
    ${cpubar cpu13 5,80} ${freq_g 13} GHz ${cpubar cpu14 5,80} ${freq_g 14} GHz ${cpubar cpu15 5,80} ${freq_g 15} GHz ${cpubar cpu16 5,80} ${freq_g 16} GHz
-   ${voffset 5}CPU Temperature: ${execi 10 sensors thinkpad-isa-0000 | grep "temp1:" | head -n 1 | cut -c 16-17}°C
+   ${voffset 5}CPU Temperature: ${execi 10 sensors thinkpad-isa-0000 | grep "CPU:" | head -n 1 | cut -c 16-17}°C     GPU Temperature: ${execi 10 sensors amdgpu-pci-0700 | grep "edge:" | head -n 1 | cut -c 16-17}°C
    ${voffset 5}Top CPU: PID Name                CPU     Mem    Read    Write
         ${top pid 1} ${top name 1} ${top cpu 1}% ${top mem 1}% ${top io_read 1} ${top io_write 1}
         ${top pid 2} ${top name 2} ${top cpu 2}% ${top mem 2}% ${top io_read 2} ${top io_write 2}
