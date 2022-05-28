@@ -114,7 +114,7 @@ device = "amdgpu_bl0"
 [[block]]
 block = "battery"
 driver = "upower"
-format = "{percentage} {time} {power}"
+format = "{percentage} {time}"
 
 [[block]]
 block = "time"
