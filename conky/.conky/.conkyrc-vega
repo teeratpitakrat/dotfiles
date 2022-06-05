@@ -81,7 +81,7 @@ Network ------------------------------------------------------------------------
    ${voffset -10}wlan0:   IP: ${addr wlan0} ${alignr}Total ▼ ${totaldown wlan0}     Speed ▼ ${downspeed wlan0} ${downspeedgraph wlan0 30,1200}
             ${voffset -30}Gateway: ${gw_ip wlan0} 
               ${alignr} ▲ ${totalup wlan0}           ▲ ${upspeed wlan0} ${upspeedgraph wlan0 30,1200}
-            ${voffset -45}Bitrate: ${wireless_bitrate wlan0}
+            ${voffset -45}ESSID: ${wireless_essid wlan0} 
             Signal: ${wireless_link_bar 5,150 wlan0} ${wireless_link_qual_perc wlan0}%
             Card Temperature: ${execi 10 sensors iwlwifi_1-virtual-0 | grep "temp1:" | cut -c 16-17}°C
 
