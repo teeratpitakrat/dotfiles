@@ -167,19 +167,18 @@ bindsym $mod+Ctrl+Down move workspace to output down
 bindsym $mod+Ctrl+Up move workspace to output up
 
 # audio
-bindsym XF86AudioLowerVolume exec /usr/bin/pamixer -d 5 && dunstify --replace=2 -t 800 -u normal "Volume $($HOME/bin/getProgressString 20 █ - $(pamixer --get-volume)) $(pamixer --get-volume)%"
-bindsym XF86AudioRaiseVolume exec /usr/bin/pamixer -i 5 && dunstify --replace=2 -t 800 -u normal "Volume $($HOME/bin/getProgressString 20 █ - $(pamixer --get-volume)) $(pamixer --get-volume)%"
+bindsym XF86AudioLowerVolume exec /usr/bin/pamixer -d 5 && dunstify --replace=2 -t 800 -u normal "Volume: $(pamixer --get-volume)%" -h int:value:$(pamixer --get-volume)
+bindsym XF86AudioRaiseVolume exec /usr/bin/pamixer -i 5 && dunstify --replace=2 -t 800 -u normal "Volume: $(pamixer --get-volume)%" -h int:value:$(pamixer --get-volume)
 bindsym XF86AudioMute exec /usr/bin/pamixer --toggle-mute && dunstify --replace=2 -t 800 -u normal "Volume $(pamixer --get-mute >/dev/null && echo muted || echo unmuted)"
-bindsym XF86AudioMicMute exec /usr/bin/pamixer --default-source --toggle-mute && dunstify --replace=2 -t 800 -u normal "Mic $(pamixer --default-source --get-mute >/dev/null && echo muted || echo unmuted)"
+bindsym XF86AudioMicMute exec /usr/bin/pamixer --default-source --toggle-mute && dunstify --replace=2 -t 800 -u normal "Mic $(pamixer --default-source --get-mute | grep true >/dev/null && echo muted || echo unmuted)"
 bindsym XF86AudioPlay exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
 bindsym XF86AudioStop exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop
 bindsym XF86AudioPrev exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
 bindsym XF86AudioNext exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
-#bindcode 190 exec touch /tmp/micmute
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessDown exec xbacklight -dec 5 && dunstify --replace=1 -t 800 -u normal "Brightness $($HOME/bin/getProgressString 20 █ - $(( $(cat /sys/class/backlight/amdgpu_bl0/actual_brightness)*100/255 ))) $(( $(cat /sys/class/backlight/amdgpu_bl0/actual_brightness)*100/255 ))%"
-bindsym XF86MonBrightnessUp exec xbacklight -inc 5 && dunstify --replace=1 -t 800 -u normal "Brightness $($HOME/bin/getProgressString 20 █ - $(( $(cat /sys/class/backlight/amdgpu_bl0/actual_brightness)*100/255 ))) $(( $(cat /sys/class/backlight/amdgpu_bl0/actual_brightness)*100/255 ))%"
+bindsym XF86MonBrightnessDown exec xbacklight -dec 5 && dunstify --replace=1 -t 800 -u normal "Brightness: $(( $(cat /sys/class/backlight/amdgpu_bl0/actual_brightness)*100/255 ))%" -h int:value:$(( $(cat /sys/class/backlight/amdgpu_bl0/actual_brightness)*100/255 ))
+bindsym XF86MonBrightnessUp exec xbacklight -inc 5 && dunstify --replace=1 -t 800 -u normal "Brightness: $(( $(cat /sys/class/backlight/amdgpu_bl0/actual_brightness)*100/255 ))%" -h int:value:$(( $(cat /sys/class/backlight/amdgpu_bl0/actual_brightness)*100/255 ))
 
 # misc
 bindsym Print exec maim ~/screenshots/$(date +%Y-%m-%d-%H%M%S).png
