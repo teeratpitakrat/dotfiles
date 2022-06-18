@@ -77,7 +77,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 #plugins=(timer tmux git docker kubectl helm golang ng zsh-kubectl-prompt)
-plugins=(timer tmux git kubectl)
+plugins=(tmux git kubectl)
 
 ZSH_TMUX_AUTOSTART=true
 ZSH_TMUX_AUTOSTART_ONCE=true
