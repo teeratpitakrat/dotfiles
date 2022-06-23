@@ -102,10 +102,12 @@ format_singular = "{pacman}"
 format_up_to_date = "0"
 critical_updates_regex = "(linux |linux-lts|linux-zen)"
 aur_command = "pikaur -Qua"
+hide_when_uptodate = true
 
 [[block]]
 block = "sound"
 format = "{volume}"
+headphones_indicator = true
 
 [[block]]
 block = "backlight"
@@ -115,6 +117,7 @@ device = "amdgpu_bl0"
 block = "battery"
 driver = "upower"
 format = "{percentage} {time}"
+full_format = "{percentage}"
 
 [[block]]
 block = "time"
