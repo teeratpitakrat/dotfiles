@@ -49,8 +49,8 @@ info_type = "used"
 unit = "GB"
 format = "/ {percentage}"
 interval = 20
-warning = 70.0
-alert = 80.0
+warning = 75.0
+alert = 90.0
 
 [[block]]
 block = "disk_space"
@@ -59,8 +59,8 @@ info_type = "used"
 unit = "GB"
 format = "/home {percentage}"
 interval = 20
-warning = 70.0
-alert = 80.0
+warning = 75.0
+alert = 90.0
 
 [[block]]
 block = "temperature"
