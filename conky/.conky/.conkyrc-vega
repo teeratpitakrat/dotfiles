@@ -73,7 +73,7 @@ I/O ----------------------------------------------------------------------------
         ${top_io pid 4} ${top_io name 4} ${top_io cpu 4}% ${top_io mem 4}% ${top_io io_read 4} ${top_io io_write 4}
 
 Network ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- Network
-   Gateway Interface: ${gw_iface}    DNS: ${nameserver}    External IP: ${execi 600 curl -s ipinfo.io/ip}
+   Gateway Interface: ${gw_iface}    DNS: ${nameserver}    External IP: ${execi 300 curl -s ipinfo.io/ip}
    ${voffset 5}enp5s0: IP: ${addr enp5s0} ${alignr}Total ▼ ${totaldown enp5s0}     Speed ▼ ${downspeed enp5s0} ${downspeedgraph enp5s0 30,1200}
            ${voffset -30}Gateway: ${gw_ip enp5s0}
               ${alignr} ▲ ${totalup enp5s0}           ▲ ${upspeed enp5s0} ${upspeedgraph enp5s0 30,1200}
