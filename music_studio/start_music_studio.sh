@@ -15,7 +15,7 @@ sleep 2
 i3-msg "workspace 3; append_layout ~/.dotfiles/music_studio/i3wm-layouts/ws-3.json"
 hydrogen &
 guitarix &
-Jamulus &
+jamulus &
 jack_mixer -c ~/.dotfiles/music_studio/jack-mixers/inputs.xml mixer-inputs &
 jack_mixer -c ~/.dotfiles/music_studio/jack-mixers/outputs.xml mixer-outputs &
 pavucontrol &
