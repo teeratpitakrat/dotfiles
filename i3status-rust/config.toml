@@ -1,24 +1,22 @@
+[theme]
 theme = "modern"
+[icons]
 icons = "material-nf"
 
 [[block]]
 block = "load"
-interval = 1
-format = "{1m} {5m} {15m}"
+interval = 5
+format = " $icon $1m.eng(w:3) $5m.eng(w:3) $15m.eng(w:3) "
 
 [[block]]
 block = "cpu"
-interval = 1
-format = "{barchart} {utilization}"
-info = 30
-warning = 60
-critical = 80
+interval = 5
+format = " $icon $utilization "
 
 [[block]]
 block = "temperature"
-collapsed = false
 interval = 10
-format = "{average}"
+format = " $icon $average "
 chip = "*-isa-*"
 inputs = ["CPU"]
 idle = 70
@@ -27,9 +25,8 @@ warning = 80
 
 [[block]]
 block = "temperature"
-collapsed = false
 interval = 10
-format = "{average}"
+format = " $icon $average "
 chip = "amdgpu-*"
 inputs = ["edge"]
 idle = 55
@@ -38,17 +35,18 @@ warning = 70
 
 [[block]]
 block = "memory"
-display_type = "memory"
-format_mem = "{mem_used_percents}"
-format_swap = "{swap_used_percents}"
+format = " $icon $mem_used_percents $icon_swap $swap_used_percents "
+interval = 5
+warning_mem = 70
+critical_mem = 90
 
 [[block]]
 block = "disk_space"
 path = "/"
 info_type = "used"
-unit = "GB"
-format = "/ {percentage}"
-interval = 20
+alert_unit = "GB"
+format = " $icon / $percentage "
+interval = 30
 warning = 75.0
 alert = 90.0
 
@@ -56,17 +54,16 @@ alert = 90.0
 block = "disk_space"
 path = "/home"
 info_type = "used"
-unit = "GB"
-format = "/home {percentage}"
-interval = 20
+alert_unit = "GB"
+format = " $icon /home $percentage "
+interval = 30
 warning = 75.0
 alert = 90.0
 
 [[block]]
 block = "temperature"
-collapsed = false
 interval = 10
-format = "{average}"
+format = " $icon $average "
 chip = "nvme-*"
 inputs = ["Composite", "Sensor 1", "Sensor 2"]
 idle = 50
@@ -76,37 +73,36 @@ warning = 60
 [[block]]
 block = "net"
 device = "enp5s0"
-format = "{speed_down} {speed_up}"
+format = " $icon ^icon_net_down $speed_down ^icon_net_up $speed_up "
 interval = 5
-hide_inactive = true
+missing_format = ""
 
 [[block]]
 block = "net"
 device = "enp5s0f0"
-format = "{speed_down} {speed_up}"
+format = " $icon ^icon_net_down $speed_down ^icon_net_up $speed_up "
 interval = 5
-hide_inactive = true
+missing_format = ""
 
 [[block]]
 block = "net"
 device = "wlan0"
-format = "{speed_down;K} {speed_up;K}"
+format = " $icon ^icon_net_down $speed_down ^icon_net_up $speed_up "
 interval = 5
-hide_inactive = true
+missing_format = ""
 
 [[block]]
 block = "pacman"
 interval = 600
-format = "{pacman}"
-format_singular = "{pacman}"
-format_up_to_date = "0"
+format = " $icon $pacman "
+format_singular = " $icon $pacman "
+format_up_to_date = ""
 critical_updates_regex = "(linux |linux-lts|linux-zen)"
 aur_command = "pikaur -Qua"
-hide_when_uptodate = true
 
 [[block]]
 block = "sound"
-format = "{volume}"
+format = " $icon $volume "
 headphones_indicator = true
 
 [[block]]
@@ -116,10 +112,11 @@ device = "amdgpu_bl0"
 [[block]]
 block = "battery"
 driver = "upower"
-format = "{percentage} {time}"
-full_format = "{percentage}"
+format = " $icon $percentage $time "
+full_format = " $icon $percentage "
 
 [[block]]
 block = "time"
 interval = 1
-format = "%a %d.%m.%Y %H:%M:%S"
+[block.format]
+full = "$icon $timestamp.datetime(f:'%a %d.%m.%Y %H:%M:%S')"
