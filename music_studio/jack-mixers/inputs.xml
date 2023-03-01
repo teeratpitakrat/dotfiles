@@ -1,12 +1,12 @@
 <?xml version="1.0" ?>
-<jack_mixer geometry="762x523" paned_position="633" visible="True">
-	<input_channel name="Hydrogen" type="stereo" direct_output="True" volume="3.000000" balance="0.000000" wide="True" meter_prefader="False" out_mute="False" volume_midi_cc="11" balance_midi_cc="12" mute_midi_cc="13" solo_midi_cc="14"/>
-	<input_channel name="Zyn" type="stereo" direct_output="True" volume="-4.800000" balance="0.000000" wide="True" meter_prefader="False" out_mute="False" volume_midi_cc="15" balance_midi_cc="16" mute_midi_cc="17" solo_midi_cc="18"/>
-	<input_channel name="qsampler" type="stereo" direct_output="True" volume="0.000000" balance="0.000000" wide="True" meter_prefader="False" out_mute="False" volume_midi_cc="26" balance_midi_cc="27" mute_midi_cc="28" solo_midi_cc="29"/>
-	<input_channel name="pulseaudio" type="stereo" direct_output="True" volume="0.029577" balance="0.000000" wide="True" meter_prefader="False" out_mute="False" volume_midi_cc="38" balance_midi_cc="39" mute_midi_cc="40" solo_midi_cc="41"/>
-	<input_channel name="Guitarix" type="stereo" direct_output="True" volume="0.000000" balance="0.000000" wide="True" meter_prefader="False" out_mute="False" volume_midi_cc="42" balance_midi_cc="43" mute_midi_cc="44" solo_midi_cc="45"/>
-	<input_channel name="Mic" type="mono" direct_output="True" volume="0.000000" balance="0.000000" wide="True" meter_prefader="False" out_mute="False" volume_midi_cc="19" balance_midi_cc="20" mute_midi_cc="21" solo_midi_cc="22"/>
-	<input_channel name="Line" type="stereo" direct_output="True" volume="0.000000" balance="0.000000" wide="True" meter_prefader="False" out_mute="False" volume_midi_cc="30" balance_midi_cc="31" mute_midi_cc="32" solo_midi_cc="33"/>
-	<output_channel name="Output" type="stereo" muted_channels="Hydrogen|Zyn|qsampler|pulseaudio|Guitarix|Mic|Line" color="rgb(59,66,5)" volume="0.036275" balance="0.000000" wide="True" meter_prefader="False" out_mute="False" volume_midi_cc="23" balance_midi_cc="24" mute_midi_cc="25"/>
+<jack_mixer geometry="762x523" paned_position="655" visible="True">
+	<input_channel name="Mic" type="mono" direct_output="True" volume="-inf" balance="0.000000" wide="True" meter_prefader="False" out_mute="False" volume_midi_cc="3"/>
+	<input_channel name="Hydrogen" type="stereo" direct_output="True" volume="-inf" balance="0.000000" wide="True" meter_prefader="False" out_mute="False" volume_midi_cc="9"/>
+	<input_channel name="Guitarix" type="stereo" direct_output="True" volume="-inf" balance="0.000000" wide="True" meter_prefader="False" out_mute="False" volume_midi_cc="12"/>
+	<input_channel name="pulseaudio" type="stereo" direct_output="True" volume="-inf" balance="0.000000" wide="True" meter_prefader="False" out_mute="False" volume_midi_cc="13"/>
+	<input_channel name="Zyn" type="stereo" direct_output="True" volume="-inf" balance="0.000000" wide="True" meter_prefader="False" out_mute="False" volume_midi_cc="14"/>
+	<input_channel name="Line" type="stereo" direct_output="True" volume="-inf" balance="0.000000" wide="True" meter_prefader="False" out_mute="False" volume_midi_cc="15"/>
+	<input_channel name="qsampler" type="stereo" direct_output="True" volume="-inf" balance="0.000000" wide="True" meter_prefader="False" out_mute="False"/>
+	<output_channel name="Output" type="stereo" muted_channels="qsampler" color="rgb(59,66,5)" volume="0.000000" balance="0.000000" wide="True" meter_prefader="False" out_mute="False"/>
 	<gui_factory confirm-quit="False" default_meter_scale="K20" default_project_path="" default_slider_scale="linear_30dB" midi_behavior_mode="0" use_custom_widgets="True" vumeter_color="#ccccb3b30000" vumeter_color_scheme="default" auto_reset_peak_meters="True" auto_reset_peak_meters_time_seconds="10.0" meter_refresh_period_milliseconds="33"/>
 </jack_mixer>

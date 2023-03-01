@@ -1,8 +1,8 @@
 <?xml version="1.0" ?>
-<jack_mixer geometry="634x523" paned_position="386" visible="True">
-	<input_channel name="Jamulus" type="stereo" direct_output="True" volume="0.000000" balance="0.000000" wide="True" meter_prefader="False" out_mute="False" volume_midi_cc="11" balance_midi_cc="12" mute_midi_cc="13" solo_midi_cc="14"/>
-	<input_channel name="mixer-inputs" type="stereo" direct_output="True" volume="0.000000" balance="0.000000" wide="True" meter_prefader="False" out_mute="False" volume_midi_cc="22" balance_midi_cc="23" mute_midi_cc="24" solo_midi_cc="25"/>
-	<output_channel name="Output" type="stereo" muted_channels="Jamulus" color="rgb(86,207,186)" volume="-0.000000" balance="0.000000" wide="True" meter_prefader="False" out_mute="False" volume_midi_cc="15" balance_midi_cc="16" mute_midi_cc="17"/>
-	<output_channel name="Broadcast" type="stereo" muted_channels="Jamulus" color="rgb(137,105,78)" volume="0.000000" balance="0.000000" wide="True" meter_prefader="False" out_mute="False" volume_midi_cc="26" balance_midi_cc="27" mute_midi_cc="28"/>
-	<gui_factory confirm-quit="False" default_meter_scale="K20" default_project_path="" default_slider_scale="linear_30dB" midi_behavior_mode="0" use_custom_widgets="True" vumeter_color="#ccccb3b30000" vumeter_color_scheme="default" auto_reset_peak_meters="True" auto_reset_peak_meters_time_seconds="10.0" meter_refresh_period_milliseconds="33"/>
+<jack_mixer geometry="474x523" paned_position="288" visible="True">
+	<input_channel name="Jamulus" type="stereo" direct_output="True" volume="0.000000" balance="0.000000" wide="True" meter_prefader="False" out_mute="False" volume_midi_cc="14"/>
+	<input_channel name="mixer-inputs" type="stereo" direct_output="True" volume="0.000000" balance="0.000000" wide="True" meter_prefader="False" out_mute="False" volume_midi_cc="17"/>
+	<output_channel name="Output" type="stereo" muted_channels="Jamulus" color="rgb(86,207,186)" volume="0.000000" balance="0.000000" wide="True" meter_prefader="False" out_mute="False"/>
+	<output_channel name="Broadcast" type="stereo" muted_channels="Jamulus" color="rgb(137,105,78)" volume="0.000000" balance="0.000000" wide="True" meter_prefader="False" out_mute="False"/>
+	<gui_factory confirm-quit="False" default_meter_scale="K20" default_project_path="" default_slider_scale="linear_30dB" midi_behavior_mode="1" use_custom_widgets="True" vumeter_color="#ccccb3b30000" vumeter_color_scheme="default" auto_reset_peak_meters="True" auto_reset_peak_meters_time_seconds="10.0" meter_refresh_period_milliseconds="33"/>
 </jack_mixer>
