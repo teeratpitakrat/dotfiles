@@ -107,7 +107,7 @@ headphones_indicator = true
 
 [[block]]
 block = "backlight"
-device = "amdgpu_bl0"
+device = "amdgpu_bl1"
 
 [[block]]
 block = "battery"
