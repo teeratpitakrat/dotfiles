@@ -11,7 +11,7 @@ format = " $icon $1m.eng(w:3) $5m.eng(w:3) $15m.eng(w:3) "
 [[block]]
 block = "cpu"
 interval = 5
-format = " $icon $utilization "
+format = " $icon $barchart $utilization "
 
 [[block]]
 block = "temperature"
