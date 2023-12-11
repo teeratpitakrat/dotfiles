@@ -44,7 +44,6 @@ critical_mem = 90
 block = "disk_space"
 path = "/"
 info_type = "used"
-alert_unit = "GB"
 format = " $icon / $percentage "
 interval = 30
 warning = 75.0
@@ -54,8 +53,7 @@ alert = 90.0
 block = "disk_space"
 path = "/home"
 info_type = "used"
-alert_unit = "GB"
-format = " $icon /home $percentage "
+format = " $icon ~ $percentage "
 interval = 30
 warning = 75.0
 alert = 90.0
@@ -74,6 +72,7 @@ warning = 60
 block = "net"
 device = "enp5s0"
 format = " $icon ^icon_net_down $speed_down ^icon_net_up $speed_up "
+inactive_format = " $icon — "
 interval = 5
 missing_format = ""
 
@@ -81,6 +80,7 @@ missing_format = ""
 block = "net"
 device = "enp5s0f0"
 format = " $icon ^icon_net_down $speed_down ^icon_net_up $speed_up "
+inactive_format = " $icon —"
 interval = 5
 missing_format = ""
 
@@ -97,12 +97,12 @@ interval = 600
 format = " $icon $pacman "
 format_singular = " $icon $pacman "
 format_up_to_date = ""
-critical_updates_regex = "(linux |linux-lts|linux-zen)"
+critical_updates_regex = "(linux|linux-lts|linux-zen)"
 aur_command = "pikaur -Qua"
 
 [[block]]
 block = "sound"
-format = " $icon $volume "
+format = " $icon { $volume|}"
 headphones_indicator = true
 
 [[block]]
