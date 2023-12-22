@@ -1,22 +1,24 @@
 [theme]
-theme = "modern"
+theme = "ctp-mocha"
 [icons]
-icons = "material-nf"
+icons = "awesome6"
+[theme.overrides]
+separator = "<span font='13.5'></span>"
 
 [[block]]
 block = "load"
 interval = 5
-format = " $icon $1m.eng(w:3) $5m.eng(w:3) $15m.eng(w:3) "
+format = " $icon $1m.eng(w:3) $5m.eng(w:3) $15m.eng(w:3)"
 
 [[block]]
 block = "cpu"
 interval = 5
-format = " $icon $barchart $utilization "
+format = " $icon $barchart $utilization"
 
 [[block]]
 block = "temperature"
 interval = 10
-format = " $icon $average "
+format = " $icon $average"
 chip = "*-isa-*"
 inputs = ["CPU"]
 idle = 70
@@ -26,7 +28,7 @@ warning = 80
 [[block]]
 block = "temperature"
 interval = 10
-format = " $icon $average "
+format = " $icon $average"
 chip = "amdgpu-*"
 inputs = ["edge"]
 idle = 55
@@ -35,7 +37,7 @@ warning = 70
 
 [[block]]
 block = "memory"
-format = " $icon $mem_used_percents $icon_swap $swap_used_percents "
+format = " $icon $mem_used_percents $icon_swap $swap_used_percents"
 interval = 5
 warning_mem = 70
 critical_mem = 90
@@ -44,7 +46,7 @@ critical_mem = 90
 block = "disk_space"
 path = "/"
 info_type = "used"
-format = " $icon / $percentage "
+format = " $icon / $percentage"
 interval = 30
 warning = 75.0
 alert = 90.0
@@ -53,7 +55,7 @@ alert = 90.0
 block = "disk_space"
 path = "/home"
 info_type = "used"
-format = " $icon ~ $percentage "
+format = " $icon ~ $percentage"
 interval = 30
 warning = 75.0
 alert = 90.0
@@ -61,7 +63,7 @@ alert = 90.0
 [[block]]
 block = "temperature"
 interval = 10
-format = " $icon $average "
+format = " $icon $average"
 chip = "nvme-*"
 inputs = ["Composite", "Sensor 1", "Sensor 2"]
 idle = 50
@@ -71,38 +73,42 @@ warning = 60
 [[block]]
 block = "net"
 device = "enp5s0"
-format = " $icon ^icon_net_down $speed_down ^icon_net_up $speed_up "
-inactive_format = " $icon — "
+format = " $icon ^icon_net_down $speed_down ^icon_net_up $speed_up"
+inactive_format = ""
 interval = 5
 missing_format = ""
 
 [[block]]
 block = "net"
 device = "enp5s0f0"
-format = " $icon ^icon_net_down $speed_down ^icon_net_up $speed_up "
-inactive_format = " $icon —"
+format = " $icon ^icon_net_down $speed_down ^icon_net_up $speed_up"
+inactive_format = ""
 interval = 5
 missing_format = ""
 
 [[block]]
 block = "net"
 device = "wlan0"
-format = " $icon ^icon_net_down $speed_down ^icon_net_up $speed_up "
+format = " $icon ^icon_net_down $speed_down ^icon_net_up $speed_up"
+inactive_format = ""
 interval = 5
 missing_format = ""
 
 [[block]]
 block = "pacman"
 interval = 600
-format = " $icon $pacman "
-format_singular = " $icon $pacman "
+format = " $icon $pacman"
+format_singular = " $icon $pacman"
 format_up_to_date = ""
 critical_updates_regex = "(linux|linux-lts|linux-zen)"
 aur_command = "pikaur -Qua"
+[[block.click]]
+button = "right"
+update = true
 
 [[block]]
 block = "sound"
-format = " $icon { $volume|}"
+format = " $icon {$volume|}"
 headphones_indicator = true
 
 [[block]]
@@ -112,11 +118,23 @@ device = "amdgpu_bl1"
 [[block]]
 block = "battery"
 driver = "upower"
-format = " $icon $percentage $time "
-full_format = " $icon $percentage "
+format = " $icon $percentage $time"
+full_format = " $icon $percentage"
+
+#[[block]]
+#block = "pomodoro"
+#format = "$icon{ $message|} "
+#notify_cmd = "notify-send '{msg}'"
+#blocking_cmd = false
+
+[[block]]
+block = "tea_timer"
+format = " $icon {$minutes:$seconds |}"
+increment = 300
+done_cmd = "notify-send 'Timer Finished'"
 
 [[block]]
 block = "time"
 interval = 1
 [block.format]
-full = "$icon $timestamp.datetime(f:'%a %d.%m.%Y %H:%M:%S')"
+full = "$icon $timestamp.datetime(f:'%a %F %H:%M:%S %Z')"
