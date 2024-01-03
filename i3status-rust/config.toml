@@ -131,7 +131,7 @@ full_format = " $icon $percentage"
 block = "tea_timer"
 format = " $icon {$minutes:$seconds |}"
 increment = 300
-done_cmd = "notify-send 'Timer Finished'"
+done_cmd = "notify-send -t 30000 'Timer Finished'"
 
 [[block]]
 block = "time"
