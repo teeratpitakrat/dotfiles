@@ -83,8 +83,8 @@ Network ------------------------------------------------------------------------
           ${voffset -30}GW: ${gw_ip wlan0} 
             ${alignr} ▲ ${totalup wlan0}           ▲ ${upspeed wlan0} ${upspeedgraph wlan0 30,1200 #DDDDDD #DDDDDD}
           ${voffset -45}ESSID: ${wireless_essid wlan0}
-          Bitrate: ${wireless_bitrate wlan0}
           Signal: ${wireless_link_bar 5,100 wlan0}${wireless_link_qual_perc wlan0}%
+          Bitrate: ${wireless_bitrate wlan0}
 FS -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- FS
               Size      Used                                                                   Free ${goto 960}            Size      Used                                                                   Free
   /        ${fs_size /}   ${fs_used /} ${fs_bar 10,500 /} ${fs_free /} ${goto 960}/boot    ${fs_size /boot}   ${fs_used /boot} ${fs_bar 10,500 /boot} ${fs_free /boot}
