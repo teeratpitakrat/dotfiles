@@ -137,4 +137,4 @@ done_cmd = "notify-send -t 30000 'Timer Finished'"
 block = "time"
 interval = 1
 [block.format]
-full = "$icon $timestamp.datetime(f:'%a %F %H:%M:%S %Z')"
+full = "$icon $timestamp.datetime(f:'%a %F %H:%M:%S')"
