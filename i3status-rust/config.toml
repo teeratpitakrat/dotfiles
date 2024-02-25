@@ -8,7 +8,7 @@ separator = "<span font='13.5'></span>"
 [[block]]
 block = "load"
 interval = 5
-format = " $icon $1m.eng(w:3) $5m.eng(w:3) $15m.eng(w:3)"
+format = " $icon  $1m.eng(w:3) $5m.eng(w:3) $15m.eng(w:3)"
 
 [[block]]
 block = "cpu"
@@ -24,6 +24,12 @@ inputs = ["CPU"]
 idle = 70
 info = 75
 warning = 80
+
+[[block]]
+block = "amd_gpu"
+format = " $icon  $utilization"
+format_alt = " $icon  $utilization MEM: $vram_used_percents ($vram_used/$vram_total)"
+interval = 1
 
 [[block]]
 block = "temperature"
@@ -55,7 +61,7 @@ alert = 90.0
 block = "disk_space"
 path = "/home"
 info_type = "used"
-format = " $icon ~ $percentage"
+format = " $icon ~/ $percentage"
 interval = 30
 warning = 75.0
 alert = 90.0
@@ -88,6 +94,22 @@ missing_format = ""
 
 [[block]]
 block = "net"
+device = "enp7s0f3u1u2"
+format = " $icon ^icon_net_down $speed_down ^icon_net_up $speed_up"
+inactive_format = ""
+interval = 5
+missing_format = ""
+
+[[block]]
+block = "net"
+device = "enp7s0f4u1u2"
+format = " $icon ^icon_net_down $speed_down ^icon_net_up $speed_up"
+inactive_format = ""
+interval = 5
+missing_format = ""
+
+[[block]]
+block = "net"
 device = "wlan0"
 format = " $icon ^icon_net_down $speed_down ^icon_net_up $speed_up"
 inactive_format = ""
@@ -95,13 +117,21 @@ interval = 5
 missing_format = ""
 
 [[block]]
+block = "net"
+device = "wlan1"
+format = " $icon ^icon_net_down $speed_down ^icon_net_up $speed_up"
+inactive_format = ""
+interval = 5
+missing_format = ""
+
+[[block]]
 block = "pacman"
-interval = 600
-format = " $icon $pacman"
-format_singular = " $icon $pacman"
+interval = 3600
+format = " $icon $pacman +$aur"
+format_singular = " $icon $pacman +$aur"
 format_up_to_date = ""
 critical_updates_regex = "(linux|linux-lts|linux-zen)"
-aur_command = "pikaur -Qua"
+aur_command = "yay -Qua"
 [[block.click]]
 button = "right"
 update = true
@@ -118,14 +148,16 @@ device = "amdgpu_bl1"
 [[block]]
 block = "battery"
 driver = "upower"
-format = " $icon $percentage $time"
-full_format = " $icon $percentage"
-
-#[[block]]
-#block = "pomodoro"
-#format = "$icon{ $message|} "
-#notify_cmd = "notify-send '{msg}'"
-#blocking_cmd = false
+format = " $icon  $percentage $time"
+full_format = " $icon  $percentage"
+empty_format = " $icon  $percentage"
+not_charging_format = " $icon  $percentage"
+good = 80
+info = 60
+warning = 40
+critical = 20
+full_threshold = 95
+empty_threshold = 10
 
 [[block]]
 block = "tea_timer"
