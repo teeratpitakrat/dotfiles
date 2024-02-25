@@ -42,11 +42,10 @@ ${time %F | %H:%M:%S %Z | %a | CW-%V} ------------------------------------------
   ${voffset -40}Load avg: ${loadavg}
 
 CPU ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ CPU
-  ${cpubar cpu1 5,80} ${freq_g 1} GHz ${cpubar cpu2 5,80} ${freq_g 2} GHz ${cpubar cpu3 5,80} ${freq_g 3} GHz ${cpubar cpu4 5,80} ${freq_g 4} GHz ${alignr}${cpugraph cpu0 180,1200 #DDDDDD #DDDDDD 1}
-  ${voffset -180}${cpubar cpu5 5,80} ${freq_g 5} GHz ${cpubar cpu6 5,80} ${freq_g 6} GHz ${cpubar cpu7 5,80} ${freq_g 7} GHz ${cpubar cpu8 5,80} ${freq_g 8} GHz
+  ${cpubar cpu1 5,80} ${freq_g 1} GHz ${cpubar cpu2 5,80} ${freq_g 2} GHz ${cpubar cpu3 5,80} ${freq_g 3} GHz ${cpubar cpu4 5,80} ${freq_g 4} GHz ${alignr}${cpugraph cpu0 160,1200 #DDDDDD #DDDDDD 1}
+  ${voffset -160}${cpubar cpu5 5,80} ${freq_g 5} GHz ${cpubar cpu6 5,80} ${freq_g 6} GHz ${cpubar cpu7 5,80} ${freq_g 7} GHz ${cpubar cpu8 5,80} ${freq_g 8} GHz
   ${cpubar cpu9 5,80} ${freq_g 9} GHz ${cpubar cpu10 5,80} ${freq_g 10} GHz ${cpubar cpu11 5,80} ${freq_g 11} GHz ${cpubar cpu12 5,80} ${freq_g 12} GHz
   ${cpubar cpu13 5,80} ${freq_g 13} GHz ${cpubar cpu14 5,80} ${freq_g 14} GHz ${cpubar cpu15 5,80} ${freq_g 15} GHz ${cpubar cpu16 5,80} ${freq_g 16} GHz
-  ${voffset 5}CPU Temperature: ${execi 10 sensors thinkpad-isa-0000 | grep "CPU:" | head -n 1 | cut -c 16-17}°C     GPU Temperature: ${execi 10 sensors amdgpu-pci-0700 | grep "edge:" | head -n 1 | cut -c 16-17}°C     Threads: ${threads}
   ${voffset 5}Top CPU: PID Name                CPU     Mem    Read    Write
        ${top pid 1} ${top name 1} ${top cpu 1}% ${top mem 1}% ${top io_read 1} ${top io_write 1}
        ${top pid 2} ${top name 2} ${top cpu 2}% ${top mem 2}% ${top io_read 2} ${top io_write 2}
@@ -65,33 +64,42 @@ Mem ----------------------------------------------------------------------------
        ${top_mem pid 4} ${top_mem name 4} ${top_mem cpu 4}% ${top_mem mem 4}% ${top_mem io_read 4} ${top_mem io_write 4}
        ${top_mem pid 5} ${top_mem name 5} ${top_mem cpu 5}% ${top_mem mem 5}% ${top_mem io_read 5} ${top_mem io_write 5}
 I/O ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ I/O
-  SSD Temperature: ${execi 10 sensors nvme-pci-0100 | grep "Composite:" | cut -c 16-17}°C (${execi 10 sensors nvme-pci-0100 | grep "Sensor 1:" | cut -c 16-17}°C, ${execi 10 sensors nvme-pci-0100 | grep "Sensor 2:" | cut -c 16-17}°C)
   Top I/O: PID Name                CPU     Mem    Read    Write ${alignr}▲ ${diskio_read} ${diskiograph_read 30,1200 #DDDDDD #DDDDDD}
        ${voffset -30}${top_io pid 1} ${top_io name 1} ${top_io cpu 1}% ${top_io mem 1}% ${top_io io_read 1} ${top_io io_write 1}
        ${top_io pid 2} ${top_io name 2} ${top_io cpu 2}% ${top_io mem 2}% ${top_io io_read 2} ${top_io io_write 2} ${alignr}    ▼ ${diskio_write} ${diskiograph_write 30,1200 #DDDDDD #DDDDDD}
        ${voffset -30}${top_io pid 3} ${top_io name 3} ${top_io cpu 3}% ${top_io mem 3}% ${top_io io_read 3} ${top_io io_write 3}
        ${top_io pid 4} ${top_io name 4} ${top_io cpu 4}% ${top_io mem 4}% ${top_io io_read 4} ${top_io io_write 4}
+       ${top_io pid 5} ${top_io name 5} ${top_io cpu 5}% ${top_io mem 5}% ${top_io io_read 5} ${top_io io_write 5}
 Network ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- Network
-  GW Interface: ${gw_iface}    DNS: ${nameserver}    External IP: ${execi 300 curl -s ipinfo.io/ip}
-  ${voffset 5}enp5s0: IP: ${addr enp5s0} ${alignr}Total ▼ ${totaldown enp5s0}     Speed ▼ ${downspeed enp5s0} ${downspeedgraph enp5s0 30,1200 #DDDDDD #DDDDDD}
+  GW Interface: ${gw_iface}    DNS: ${nameserver}    External IP: ${execi 600 curl -s ipinfo.io/ip}
+  ${if_up enp5s0}${voffset 5}enp5s0: IP: ${addrs enp5s0} ${alignr}Total ▼ ${totaldown enp5s0}     Speed ▼ ${downspeed enp5s0} ${downspeedgraph enp5s0 30,1200 #DDDDDD #DDDDDD}
           ${voffset -30}GW: ${gw_ip enp5s0}
-             ${alignr} ▲ ${totalup enp5s0}           ▲ ${upspeed enp5s0} ${upspeedgraph enp5s0 30,1200 #DDDDDD #DDDDDD}
-  ${voffset -10}enp7s0f3u1u2: IP: ${addr enp7s0f3u1u2} ${alignr}Total ▼ ${totaldown enp7s0f3u1u2}     Speed ▼ ${downspeed enp7s0f3u1u2} ${downspeedgraph enp7s0f3u1u2 30,1200 #DDDDDD #DDDDDD}
+           ${alignr} ▲ ${totalup enp5s0}           ▲ ${upspeed enp5s0} ${upspeedgraph enp5s0 30,1200 #DDDDDD #DDDDDD}${else}${voffset -25}${endif}
+  ${if_up enp7s0f3u1u2}${voffset -10}enp7s0f3u1u2: IP: ${addrs enp7s0f3u1u2} ${alignr}Total ▼ ${totaldown enp7s0f3u1u2}     Speed ▼ ${downspeed enp7s0f3u1u2} ${downspeedgraph enp7s0f3u1u2 30,1200 #DDDDDD #DDDDDD}
           ${voffset -30}GW: ${gw_ip enp7s0f3u1u2}
-             ${alignr} ▲ ${totalup enp7s0f3u1u2}           ▲ ${upspeed enp7s0f3u1u2} ${upspeedgraph enp7s0f3u1u2 30,1200 #DDDDDD #DDDDDD}
-  ${voffset -10}wlan0:  IP: ${addr wlan0} ${alignr}Total ▼ ${totaldown wlan0}     Speed ▼ ${downspeed wlan0} ${downspeedgraph wlan0 30,1200 #DDDDDD #DDDDDD}
-          ${voffset -30}GW: ${gw_ip wlan0} 
-            ${alignr} ▲ ${totalup wlan0}           ▲ ${upspeed wlan0} ${upspeedgraph wlan0 30,1200 #DDDDDD #DDDDDD}
-          ${voffset -45}ESSID: ${wireless_essid wlan0}
-          Signal: ${wireless_link_bar 5,100 wlan0}${wireless_link_qual_perc wlan0}%
-          Bitrate: ${wireless_bitrate wlan0}
+           ${alignr} ▲ ${totalup enp7s0f3u1u2}           ▲ ${upspeed enp7s0f3u1u2} ${upspeedgraph enp7s0f3u1u2 30,1200 #DDDDDD #DDDDDD}${else}${voffset -15}${endif}
+  ${if_up enp7s0f4u1u2}${voffset -10}enp7s0f4u1u2: IP: ${addrs enp7s0f4u1u2} ${alignr}Total ▼ ${totaldown enp7s0f4u1u2}     Speed ▼ ${downspeed enp7s0f4u1u2} ${downspeedgraph enp7s0f4u1u2 30,1200 #DDDDDD #DDDDDD}
+          ${voffset -30}GW: ${gw_ip enp7s0f4u1u2}
+           ${alignr} ▲ ${totalup enp7s0f4u1u2}           ▲ ${upspeed enp7s0f4u1u2} ${upspeedgraph enp7s0f4u1u2 30,1200 #DDDDDD #DDDDDD}${else}${voffset -15}${endif}
+  ${if_up wlan0}${voffset -6}wlan0: IP: ${addrs wlan0}   ${alignr}Total ▼ ${totaldown wlan0}     Speed ▼ ${downspeed wlan0} ${downspeedgraph wlan0 30,1200 #DDDDDD #DDDDDD}
+         ${voffset -30}GW: ${gw_ip wlan0} 
+           ${alignr} ▲ ${totalup wlan0}           ▲ ${upspeed wlan0} ${upspeedgraph wlan0 30,1200 #DDDDDD #DDDDDD}
+         ${voffset -45}ESSID: ${wireless_essid wlan0}
+         Signal: ${wireless_link_bar 5,100 wlan0}${wireless_link_qual_perc wlan0}%
+         Bitrate: ${wireless_bitrate wlan0}${endif}
+  ${if_up wlan1}wlan1: IP: ${addrs wlan1}   ${alignr}Total ▼ ${totaldown wlan1}     Speed ▼ ${downspeed wlan1} ${downspeedgraph wlan1 30,1200 #DDDDDD #DDDDDD}
+         ${voffset -30}GW: ${gw_ip wlan1} 
+           ${alignr} ▲ ${totalup wlan1}           ▲ ${upspeed wlan1} ${upspeedgraph wlan1 30,1200 #DDDDDD #DDDDDD}
+         ${voffset -45}ESSID: ${wireless_essid wlan1}
+         Signal: ${wireless_link_bar 5,100 wlan1}${wireless_link_qual_perc wlan1}%
+         Bitrate: ${wireless_bitrate wlan1}${else}${voffset -15}${endif}
 FS -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- FS
               Size      Used                                                                   Free ${goto 960}            Size      Used                                                                   Free
   /        ${fs_size /}   ${fs_used /} ${fs_bar 10,500 /} ${fs_free /} ${goto 960}/boot    ${fs_size /boot}   ${fs_used /boot} ${fs_bar 10,500 /boot} ${fs_free /boot}
   /home    ${fs_size /home}   ${fs_used /home} ${fs_bar 10,500 /home} ${fs_free /home} ${goto 960}/tmp     ${fs_size /tmp}   ${fs_used /tmp} ${fs_bar 10,500 /tmp} ${fs_free /tmp}
 Misc ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- Misc
-  ACPI Temperature: ${acpitemp}°C ${goto 320}Fan: ${execi 10 sensors thinkpad-isa-0000 | grep "fan1" | cut -c 14-17} RPM ${goto 640}Battery Voltage: ${execi 10 sensors BAT0-acpi-0 | grep "in0:" | cut -c 15-19} V ${goto 960}Kernel: ${kernel} ${goto 1280}
-   ${goto 320}Laptop Mode: ${laptop_mode} ${goto 640}AC Adapter: ${acpiacadapter AC} ${goto 960}Uptime: ${uptime} ${goto 1280}Entropy: ${entropy_avail} / ${entropy_poolsize} ${entropy_bar 5,150} ${entropy_perc}%
+  CPU Temp: ${execi 10 sensors thinkpad-isa-0000 | grep "CPU:" | head -n 1 | cut -c 16-17}°C      ${goto 250}ACPI Temp: ${acpitemp}°C  ${goto 500}Fan: ${execi 10 sensors thinkpad-isa-0000 | grep "fan1" | cut -c 14-17} RPM ${goto 750}Battery Voltage: ${execi 10 sensors BAT0-acpi-0 | grep "in0:" | cut -c 15-19} V ${goto 1000}Kernel: ${kernel} ${goto 1250}
+  GPU Temp: ${execi 10 sensors amdgpu-pci-0700 | grep "edge:" | head -n 1 | cut -c 16-17}°C ${goto 250}SSD Temp: ${execi 10 sensors nvme-pci-0100 | grep "Composite:" | cut -c 16-17}°C (${execi 10 sensors nvme-pci-0100 | grep "Sensor 1:" | cut -c 16-17}°C, ${execi 10 sensors nvme-pci-0100 | grep "Sensor 2:" | cut -c 16-17}°C) ${goto 500}Laptop Mode: ${laptop_mode} ${goto 750}AC Adapter: ${acpiacadapter AC} ${goto 1000}Uptime: ${uptime} ${goto 1250}Entropy: ${entropy_avail} / ${entropy_poolsize} ${entropy_bar 5,100} ${entropy_perc}%
   ${voffset 10}Battery: ${battery_bar 10,1750 BAT0}
            Status: ${battery BAT0} ${goto 830} ${alignr}Remaining time: ${battery_time BAT0}     
 ]]
