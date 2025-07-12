@@ -125,8 +125,9 @@ interval = 5
 missing_format = ""
 
 [[block]]
-block = "pacman"
+block = "packages"
 interval = 3600
+package_manager = ["pacman", "aur"]
 format = " $icon $pacman +$aur"
 format_singular = " $icon $pacman +$aur"
 format_up_to_date = ""
@@ -158,12 +159,6 @@ warning = 40
 critical = 20
 full_threshold = 95
 empty_threshold = 10
-
-[[block]]
-block = "tea_timer"
-format = " $icon {$minutes:$seconds |}"
-increment = 300
-done_cmd = "notify-send -t 30000 'Timer Finished'"
 
 [[block]]
 block = "time"
